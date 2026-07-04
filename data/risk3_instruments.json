@@ -1,0 +1,32 @@
+[
+  {
+    "trades": 2983,
+    "return_pct": 1.07062732812099e+32,
+    "maxdd_pct": 37.245591,
+    "pf": 2.02119,
+    "win_rate": 32.8193,
+    "avg_risk_pct": 3.0,
+    "reverse_trades": 552,
+    "instrument": "LINK"
+  },
+  {
+    "trades": 2785,
+    "return_pct": 9.348560360640716e+31,
+    "maxdd_pct": 37.536115,
+    "pf": 1.561605,
+    "win_rate": 30.5206,
+    "avg_risk_pct": 3.0,
+    "reverse_trades": 468,
+    "instrument": "NEAR"
+  },
+  {
+    "trades": 3062,
+    "return_pct": 9.691585347969698e+31,
+    "maxdd_pct": 39.704586,
+    "pf": 2.5528,
+    "win_rate": 33.5728,
+    "avg_risk_pct": 3.0,
+    "reverse_trades": 537,
+    "instrument": "SOL"
+  }
+]

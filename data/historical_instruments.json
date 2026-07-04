@@ -1,0 +1,23 @@
+[
+  {
+    "instrument": "SOL",
+    "return_pct": 215614273789.8,
+    "trades": 3062,
+    "win_rate": 33.6,
+    "profit_factor": 2.04
+  },
+  {
+    "instrument": "NEAR",
+    "return_pct": 79480719961.79,
+    "trades": 2785,
+    "win_rate": 30.5,
+    "profit_factor": 1.77
+  },
+  {
+    "instrument": "LINK",
+    "return_pct": 85123256228.14,
+    "trades": 2983,
+    "win_rate": 32.8,
+    "profit_factor": 2.29
+  }
+]

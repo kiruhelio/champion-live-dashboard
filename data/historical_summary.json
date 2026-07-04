@@ -1,0 +1,31 @@
+{
+  "mode_label": "Historical · Symbol MTD throttle",
+  "risk_rule": "Symbol MTD <= -2% → risk x0.25 until month end",
+  "start_capital": 1000.0,
+  "final_equity": 3802182500797.29,
+  "total_return_pct": 2742.06,
+  "capital_growth": 3802182499.7973,
+  "profit_factor": 2.01,
+  "win_rate": 32.0,
+  "max_drawdown_pct": 8.06,
+  "positive_months": 66,
+  "negative_months": 0,
+  "total_months": 66,
+  "avg_trades_per_month": 133.8,
+  "avg_monthly_return": 41.55,
+  "median_monthly_return": 44.12,
+  "best_month": {
+    "month": "2021-09",
+    "return_pct": 108.976519
+  },
+  "worst_month": {
+    "month": "2022-10",
+    "return_pct": 0.753174
+  },
+  "total_trades": 8830,
+  "portfolio": {
+    "SOL": 60,
+    "NEAR": 20,
+    "LINK": 20
+  }
+}
