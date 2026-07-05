@@ -1,9 +1,9 @@
 {
   "historical_avg_month": 41.55,
   "historical_median_month": 44.12,
-  "current_demo_month": -1.51,
+  "current_demo_month": -79.98,
   "historical_max_drawdown": 8.06,
-  "current_drawdown": 1.51,
+  "current_drawdown": 79.98,
   "historical_avg_trades": 133.8,
   "current_trades": 13,
   "status": "В пределах исторического диапазона"
