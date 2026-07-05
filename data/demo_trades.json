@@ -1,5 +1,13 @@
 [
   {
+    "datetime_utc": "2026-07-05 02:54:16",
+    "symbol": "SOLUSDT",
+    "side": "LONG",
+    "pnl_usdt": -1.86,
+    "pnl_pct": -0.04,
+    "event": "CLOSE"
+  },
+  {
     "datetime_utc": "2026-07-04 01:02:23",
     "symbol": "SOLUSDT",
     "side": "LONG",
