@@ -74,16 +74,16 @@
   </div>
   <div class="card section">
     <div style="font-weight:600;margin-bottom:8px">Помесячная статистика</div>
-    <div style="overflow-x:auto"><table id="monthly-table"><thead><tr><th>Месяц</th><th>Доходность %</th><th>MaxDD %</th><th>Win Rate</th><th>Сделок</th><th>PF</th></tr></thead><tbody></tbody></table></div>
+    <div style="overflow-x:auto"><table id="monthly-table"><thead><tr><th>Месяц</th><th>Доходность %</th><th>Максимальная просадка %</th><th>Винрейт %</th><th>Сделок</th><th>Профит-фактор</th></tr></thead><tbody></tbody></table></div>
   </div>
   <div class="card section">
     <div style="font-weight:600;margin-bottom:8px">Годовая статистика</div>
-    <div style="overflow-x:auto"><table id="yearly-table"><thead><tr><th>Год</th><th>Доходность %</th><th>MaxDD %</th><th>Сделок</th><th>PF</th><th>Win Rate</th></tr></thead><tbody></tbody></table></div>
+    <div style="overflow-x:auto"><table id="yearly-table"><thead><tr><th>Год</th><th>Доходность %</th><th>Максимальная просадка %</th><th>Сделок</th><th>Профит-фактор</th><th>Винрейт %</th></tr></thead><tbody></tbody></table></div>
   </div>
 
   <div class="card section">
     <div style="font-weight:600;margin-bottom:8px">Доходность по инструментам</div>
-    <div style="overflow-x:auto"><table id="instrument-table"><thead><tr><th>Инструмент</th><th>Доходность %</th><th>Сделок</th><th>Win Rate</th><th>PF</th></tr></thead><tbody></tbody></table></div>
+    <div style="overflow-x:auto"><table id="instrument-table"><thead><tr><th>Инструмент</th><th>Доходность %</th><th>Максимальная просадка %</th><th>Сделок</th><th>Профит-фактор</th><th>Винрейт %</th></tr></thead><tbody></tbody></table></div>
   </div>
 
   <div class="card section">
@@ -178,8 +178,8 @@ function renderDemoStats(s) {
     card(`Доходность месяца<br><div class="value ${s.current_month_return>=0?'green':'red'}">${s.current_month_return>=0?'+':''}${fmt(s.current_month_return,2)}%</div></div>`),
     card(`Закрытых сделок<br><div class="value">${fmtInt(s.closed_trades)}</div>`),
     card(`Открытых позиций<br><div class="value">${fmtInt(s.open_positions)}</div>`),
-    card(`Win Rate<br><div class="value">${fmt(s.current_win_rate,1)}%</div>`),
-    card(`Profit Factor<br><div class="value">${fmt(s.current_pf)}</div></div>`),
+    card(`Винрейт<br><div class="value">${fmt(s.current_win_rate,1)}%</div>`),
+    card(`Профит-фактор<br><div class="value">${fmt(s.current_pf)}</div></div>`),
     card(`Статус<br><div class="value">${s.current_status}</div></div>`),
   ].join('');
 }
