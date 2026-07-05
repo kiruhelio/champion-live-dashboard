@@ -1,50 +1,50 @@
 [
   {
     "year": "2021",
-    "return_pct": 562.77,
-    "maxdd_pct": 7.58,
+    "return_pct": 212.37,
+    "maxdd_pct": 3.48,
     "trades": 1309,
-    "pf": 2.75,
+    "pf": 0.0,
     "win_rate": 32.4
   },
   {
     "year": "2022",
-    "return_pct": 640.37,
-    "maxdd_pct": 8.06,
+    "return_pct": 74.2,
+    "maxdd_pct": 0.76,
     "trades": 1642,
-    "pf": 2.83,
+    "pf": 0.0,
     "win_rate": 34.4
   },
   {
     "year": "2023",
-    "return_pct": 530.97,
-    "maxdd_pct": 4.84,
+    "return_pct": 35.46,
+    "maxdd_pct": 0.56,
     "trades": 1659,
-    "pf": 2.6,
+    "pf": 0.0,
     "win_rate": 32.7
   },
   {
     "year": "2024",
-    "return_pct": 454.57,
-    "maxdd_pct": 7.03,
+    "return_pct": 23.08,
+    "maxdd_pct": 0.43,
     "trades": 1724,
-    "pf": 2.35,
+    "pf": 0.0,
     "win_rate": 32.0
   },
   {
     "year": "2025",
-    "return_pct": 417.72,
-    "maxdd_pct": 6.23,
+    "return_pct": 16.66,
+    "maxdd_pct": 0.33,
     "trades": 1764,
-    "pf": 2.14,
+    "pf": 0.0,
     "win_rate": 31.5
   },
   {
     "year": "2026",
-    "return_pct": 135.67,
-    "maxdd_pct": 5.86,
+    "return_pct": 4.81,
+    "maxdd_pct": 0.28,
     "trades": 732,
-    "pf": 2.03,
+    "pf": 0.0,
     "win_rate": 29.8
   }
 ]

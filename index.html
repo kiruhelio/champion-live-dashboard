@@ -86,6 +86,23 @@
     <div style="overflow-x:auto"><table id="instrument-table"><thead><tr><th>Инструмент</th><th>Доходность %</th><th>Сделок</th><th>Win Rate</th><th>PF</th></tr></thead><tbody></tbody></table></div>
   </div>
 
+  <div class="card section">
+    <div style="font-weight:600;margin-bottom:8px">Помесячная доходность по инструментам</div>
+    <div style="overflow-x:auto">
+      <table id="instrument-monthly-table">
+        <thead>
+          <tr>
+            <th>Месяц</th>
+            <th>SOL %</th>
+            <th>NEAR %</th>
+            <th>LINK %</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
   <!-- CURRENT DEMO TRADING -->
   <div class="section">
     <div class="section-title">Текущая demo-торговля</div>
@@ -146,11 +163,10 @@ function renderHistStats(s) {
     card(`Доходных / убыточных<br><div class="value"><span class="green">${fmtInt(s.positive_months)}</span> / <span class="red">${fmtInt(s.negative_months)}</span></div>`),
     card(`Лучший месяц<br><div class="value green">${s.best_month?.month || '—'} · +${fmt(s.best_month?.return_pct,2)}%</div>`),
     card(`Худший месяц<br><div class="value red">${s.worst_month?.month || '—'} · ${fmt(s.worst_month?.return_pct,2)}%</div>`),
-    card(`Profit Factor<br><div class="value">${fmt(s.profit_factor)}</div>`),
-    card(`Win Rate<br><div class="value">${fmt(s.win_rate,1)}%</div>`),
-    card(`Maximum Drawdown<br><div class="value red">${fmt(s.max_drawdown_pct)}%</div>`),
+    card(`Профит-фактор<br><div class="value">${fmt(s.profit_factor)}</div>`),
+    card(`Винрейт<br><div class="value">${fmt(s.win_rate,1)}%</div>`),
+    card(`Максимальная просадка<br><div class="value red">${fmt(s.max_drawdown_pct)}%</div>`),
     card(`Всего сделок<br><div class="value">${fmtInt(s.total_trades)}</div>`),
-    card(`Период<br><div class="value">${fmtInt(s.total_months)} мес.</div>`),
   ].join('');
 }
 
@@ -215,6 +231,7 @@ async function init() {
   const demo = await loadJSON('demo_summary.json');
   const comp = await loadJSON('comparison.json');
   const instruments = await loadJSON('historical_instruments.json');
+  window.__instrument_monthly__ = await loadJSON('historical_instrument_monthly.json');
   const demoDaily = await loadJSON('demo_daily.json');
   const demoEquity = await loadJSON('demo_equity.json');
 
@@ -290,6 +307,18 @@ async function init() {
     const tr = document.createElement('tr');
     tr.innerHTML = `<td>${r.instrument}</td><td class="${r.return_pct>=0?'green':'red'}">${r.return_pct>=0?'+':''}${fmt(r.return_pct)}%</td><td>${fmtInt(r.trades)}</td><td>${fmt(r.win_rate,1)}%</td><td>${fmt(r.profit_factor)}</td>`;
     instrumentBody.appendChild(tr);
+  });
+
+  const instrumentMonthly = window.__instrument_monthly__ || [];
+  const instrumentMonthlyBody = document.querySelector('#instrument-monthly-table tbody');
+  instrumentMonthly.forEach(r => {
+    const ins = r.instruments || {};
+    const sol = ins.SOL || {};
+    const near = ins.NEAR || {};
+    const link = ins.LINK || {};
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${r.month}</td><td class="${sol.return_pct>=0?'green':'red'}">${sol.return_pct>=0?'+':''}${fmt(sol.return_pct)}%</td><td class="${near.return_pct>=0?'green':'red'}">${near.return_pct>=0?'+':''}${fmt(near.return_pct)}%</td><td class="${link.return_pct>=0?'green':'red'}">${link.return_pct>=0?'+':''}${fmt(link.return_pct)}%</td>`;
+    instrumentMonthlyBody.appendChild(tr);
   });
 
   const demoBody = document.querySelector('#demo-trades tbody');
