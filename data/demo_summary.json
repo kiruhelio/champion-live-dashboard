@@ -1,6 +1,6 @@
 {
   "demo_start_date": "2026-07",
-  "current_equity": 999.61,
+  "current_equity": 926.12,
   "start_equity": 0.0,
   "current_month_return": 0.0,
   "current_month_profit": 0,
@@ -10,18 +10,18 @@
   "current_win_rate": 0.0,
   "current_pf": null,
   "current_status": "Demo-торговля активна",
-  "last_update": "2026-07-05T18:45:04+00:00",
+  "last_update": "2026-07-06T13:59:13+00:00",
   "trades": [],
   "daily": [
     {
-      "date": "2026-07-05",
+      "date": "2026-07-06",
       "return_pct": 0.0,
       "pnl_usdt": 0.0
     }
   ],
   "equity_curve": [
     {
-      "date": "2026-07-05",
+      "date": "2026-07-06",
       "return_pct": 0.0,
       "pnl_usdt": 0
     }
