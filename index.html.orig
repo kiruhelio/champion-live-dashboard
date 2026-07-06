@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ABSOLUTE CHAMPION | Инвесторский дашборд</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #05080d; color: #e7edf4; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 16px 22px 22px; }
+  .top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+  .brand h1 { margin: 0 0 2px; font-size: 17px; font-weight: 750; letter-spacing: 0.1px; }
+  .brand p { margin: 0; color: #8aa3bb; font-size: 13px; }
+  .tag { padding: 4px 9px; border-radius: 999px; background: #131a24; border: 1px solid #22303d; color: #8aa3bb; font-size: 11px; letter-spacing: 0.2px; }
+  .grid { display: grid; gap: 14px; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 760px) {
+    .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  }
+  .card { background: #111820; border: 1px solid #1f2d3a; border-radius: 14px; padding: 16px; }
+  .stat { border-radius: 16px; padding: 16px 18px; background: linear-gradient(180deg, #131a24 0%, #0f1620 100%); border: 1px solid #22303d; }
+  .stat .label { color: #8aa3bb; font-size: 12px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.6px; }
+  .stat .value { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .green { color: #7dd3a8 } .red { color: #f87171 } .muted { color: #6b7f94 }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid #1f2d3a; }
+  th { color: #8aa3bb; font-weight: 600; }
+  tr:hover td { background: #0f1620; }
+  .section { margin: 16px 0; }
+  .section-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: #cfe2f5; }
+  .text-block { color: #a0b5cc; line-height: 1.55; font-size: 13px; }
+  .hero { margin-bottom: 12px; padding: 12px 14px; border-radius: 14px; border: 1px solid #1f2d3a; background: #0c121a; }
+  .hero h2 { margin: 0 0 4px; max-width: 880px; font-size: 15px; line-height: 1.25; letter-spacing: 0; }
+  .hero-lead { max-width: 900px; color: #9fb4c9; font-size: 13px; line-height: 1.45; margin: 0; }
+  .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; position: relative; z-index: 1; }
+  .proof { padding: 13px; border-radius: 14px; background: rgba(5,8,13,0.46); border: 1px solid rgba(138,163,187,0.22); }
+  .proof .big { font-size: 21px; font-weight: 850; color: #e7edf4; font-variant-numeric: tabular-nums; }
+  .proof .small { margin-top: 3px; color: #8aa3bb; font-size: 12px; line-height: 1.35; }
+  @media (max-width: 760px) { .proof-grid { grid-template-columns: 1fr 1fr; } }
+  .footer { color: #6b7f94; font-size: 12px; margin-top: 18px; }
+  canvas { max-width: 100%; }
+  .chart-card { height: 320px; }
+  .chart-card canvas { width: 100% !important; height: 100% !important; }
+</style>
+</head>
+<body>
+<!-- dashboard-version: historical-symbol-mtd-throttle-20260704 -->
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><h1>ABSOLUTE CHAMPION</h1><p>Системная крипто-портфельная стратегия · 2021 → сегодня</p></div>
+    <div class="tag">ТОЛЬКО ЧТЕНИЕ · DEMO TRADING</div>
+  </div>
+
+  <section class="hero">
+    <h2>ABSOLUTE CHAMPION</h2>
+    <p class="hero-lead">Краткий дашборд исторической доходности и текущей demo-торговли стратегии.</p>
+  </section>
+
+  <!-- HISTORICAL PERFORMANCE -->
+  <div class="section">
+    <div class="section-title">Историческая доходность</div>
+    <div class="grid grid-4" id="hist-stats"></div>
+  </div>
+
+  <div class="grid grid-2 section">
+    <div class="card chart-card"><canvas id="hist-equity"></canvas></div>
+    <div class="card chart-card"><canvas id="hist-drawdown"></canvas></div>
+  </div>
+  <div class="grid grid-2 section">
+    <div class="card chart-card"><canvas id="monthly-returns"></canvas></div>
+    <div class="card chart-card"><canvas id="yearly-returns"></canvas></div>
+  </div>
+  <div class="card section">
+    <div style="font-weight:600;margin-bottom:8px">Помесячная статистика</div>
+    <div style="overflow-x:auto"><table id="monthly-table"><thead><tr><th>Месяц</th><th>Доходность %</th><th>Максимальная просадка %</th><th>Винрейт %</th><th>Сделок</th><th>Профит-фактор</th></tr></thead><tbody></tbody></table></div>
+  </div>
+  <div class="card section">
+    <div style="font-weight:600;margin-bottom:8px">Годовая статистика</div>
+    <div style="overflow-x:auto"><table id="yearly-table"><thead><tr><th>Год</th><th>Доходность %</th><th>Максимальная просадка %</th><th>Сделок</th><th>Профит-фактор</th><th>Винрейт %</th></tr></thead><tbody></tbody></table></div>
+  </div>
+
+  <div class="card section">
+    <div style="font-weight:600;margin-bottom:8px">Доходность по инструментам</div>
+    <div style="overflow-x:auto"><table id="instrument-table"><thead><tr><th>Инструмент</th><th>Доходность %</th><th>Максимальная просадка %</th><th>Сделок</th><th>Профит-фактор</th><th>Винрейт %</th></tr></thead><tbody></tbody></table></div>
+  </div>
+
+  <div class="card section">
+    <div style="font-weight:600;margin-bottom:8px">Помесячная доходность по инструментам</div>
+    <div style="overflow-x:auto">
+      <table id="instrument-monthly-table">
+        <thead>
+          <tr>
+            <th>Месяц</th>
+            <th>SOL %</th>
+            <th>NEAR %</th>
+            <th>LINK %</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CURRENT DEMO TRADING -->
+  <div class="section">
+    <div class="section-title">Текущая demo-торговля</div>
+    <div class="grid grid-4" id="demo-stats"></div>
+  </div>
+
+  <div class="grid grid-2 section">
+    <div class="card"><canvas id="demo-daily"></canvas></div>
+    <div class="card"><canvas id="demo-timeline"></canvas></div>
+  </div>
+  <div class="card section">
+    <div style="font-weight:600;margin-bottom:8px">Последние demo-сделки</div>
+    <div style="overflow-x:auto"><table id="demo-trades"><thead><tr><th>Дата</th><th>Инструмент</th><th>Сторона</th><th>P/L</th><th>PnL %</th></tr></thead><tbody></tbody></table></div>
+  </div>
+
+  <!-- LIVE VS HISTORY -->
+  <div class="section">
+    <div class="section-title">Demo vs History</div>
+    <div class="grid grid-3" id="comp-stats"></div>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <div class="section">
+    <div class="section-title">Портфель</div>
+    <div class="grid grid-3" id="portfolio-cards"></div>
+  </div>
+
+  <!-- RISK -->
+  <div class="section">
+    <div class="section-title">Риск-менеджмент</div>
+    <div class="grid grid-3" id="risk-cards"></div>
+  </div>
+
+  <div class="footer">ABSOLUTE CHAMPION · Quantitative Crypto Strategy · Historical Performance · Demo Trading</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+const fmt = (v, d=2) => (v==null || isNaN(v)) ? '—' : Number(v).toLocaleString('en-US', {minimumFractionDigits:d, maximumFractionDigits:d});
+const fmtInt = v => (v==null || isNaN(v)) ? '—' : Math.round(v).toLocaleString('en-US');
+
+async function loadJSON(name) {
+  const r = await fetch('data/' + name, {cache: 'no-store'});
+  if (!r.ok) throw new Error(name + ' ' + r.status);
+  return r.json();
+}
+
+function card(html) { return `<div class="stat"><div class="label">${html}</div></div>`; }
+
+function renderHistStats(s) {
+  const el = document.getElementById('hist-stats');
+  el.innerHTML = [
+    card(`Средняя доходность в месяц<br><div class="value green">+${fmt(s.avg_monthly_return,2)}%</div>`),
+    card(`Режим истории<br><div class="value green">MTD throttle</div><div class="muted">≤ -2.0% → риск x0.25</div>`),
+    card(`Среднее сделок в месяц<br><div class="value">${fmt(s.avg_trades_per_month,1)}</div>`),
+    card(`Доходность за всё время<br><div class="value green">+${fmt(s.total_return_pct,2)}%</div>`),
+    card(`Всего месяцев<br><div class="value">${fmtInt(s.total_months)}</div>`),
+    card(`Доходных / убыточных<br><div class="value"><span class="green">${fmtInt(s.positive_months)}</span> / <span class="red">${fmtInt(s.negative_months)}</span></div>`),
+    card(`Лучший месяц<br><div class="value green">${s.best_month?.month || '—'} · +${fmt(s.best_month?.return_pct,2)}%</div>`),
+    card(`Худший месяц<br><div class="value red">${s.worst_month?.month || '—'} · ${fmt(s.worst_month?.return_pct,2)}%</div>`),
+    card(`Профит-фактор<br><div class="value">${fmt(s.profit_factor)}</div>`),
+    card(`Винрейт<br><div class="value">${fmt(s.win_rate,1)}%</div>`),
+    card(`Максимальная просадка<br><div class="value red">${fmt(s.max_drawdown_pct)}%</div>`),
+    card(`Всего сделок<br><div class="value">${fmtInt(s.total_trades)}</div>`),
+  ].join('');
+}
+
+function renderDemoStats(s) {
+  const el = document.getElementById('demo-stats');
+  el.innerHTML = [
+    card(`Текущий equity<br><div class="value">$${fmt(s.current_equity,2)}</div>`),
+    card(`Стартовый equity<br><div class="value">$${fmt(s.start_equity,2)}</div>`),
+    card(`Доходность месяца<br><div class="value ${s.current_month_return>=0?'green':'red'}">${s.current_month_return>=0?'+':''}${fmt(s.current_month_return,2)}%</div></div>`),
+    card(`Закрытых сделок<br><div class="value">${fmtInt(s.closed_trades)}</div>`),
+    card(`Открытых позиций<br><div class="value">${fmtInt(s.open_positions)}</div>`),
+    card(`Винрейт<br><div class="value">${fmt(s.current_win_rate,1)}%</div>`),
+    card(`Профит-фактор<br><div class="value">${fmt(s.current_pf)}</div></div>`),
+    card(`Статус<br><div class="value">${s.current_status}</div></div>`),
+  ].join('');
+}
+
+function renderComparison(c) {
+  const el = document.getElementById('comp-stats');
+  el.innerHTML = [
+    card(`Средний месяц на истории<br><div class="value">${fmt(c.historical_avg_month)}%</div>`),
+    card(`Текущий demo-месяц<br><div class="value">${fmt(c.current_demo_month)}%</div></div>`),
+    card(`Статус<br><div class="value green">${c.status}</div></div>`),
+  ].join('');
+}
+
+function renderPortfolio(p) {
+  const el = document.getElementById('portfolio-cards');
+  el.innerHTML = Object.entries(p).map(([sym, w]) => card(`${sym}<br><div class="value">${w}%</div>`)).join('');
+}
+
+function renderRisk(hist, demo) {
+  const el = document.getElementById('risk-cards');
+  const rc = demo.risk_control || {};
+  const active = (rc.active_symbols || []).join(', ') || 'нет';
+  const overlay = rc.historical_overlay || {};
+  const symbolRows = (rc.symbols || []).map(x => `${x.symbol.replace('USDT','')}: ${x.mtd_pct>=0?'+':''}${fmt(x.mtd_pct,2)}% · x${fmt(x.risk_mult,2)}`).join('<br>') || '—';
+  el.innerHTML = [
+    card(`Историческая Max Drawdown<br><div class="value red">${fmt(hist.max_drawdown_pct)}%</div>`),
+    card(`Текущая просадка<br><div class="value red">${fmt(demo.current_drawdown)}%</div></div>`),
+    card(`Symbol MTD throttle<br><div class="value green">${rc.enabled ? 'Активен' : 'Выключен'}</div><div class="muted">≤ ${fmt(rc.threshold_pct,1)}% → риск x${fmt(rc.risk_mult,2)}</div>`),
+    card(`Сейчас ограничены<br><div class="value ${active==='нет'?'green':'red'}">${active}</div></div>`),
+    card(`MTD по символам<br><div style="font-size:13px;line-height:1.5">${symbolRows}</div>`),
+  ].join('');
+}
+
+function theme() {
+  return {
+    color: '#60a5fa',
+    grid: { color: '#1f2d3a' },
+    ticks: { color: '#8aa3bb', font: { size: 11 } },
+    legend: { labels: { color: '#e7edf4' } },
+  };
+}
+
+async function init() {
+  const hist = await loadJSON('historical_summary.json');
+  const monthly = await loadJSON('historical_monthly.json');
+  const yearly = await loadJSON('historical_yearly.json');
+  const equity = await loadJSON('historical_equity.json');
+  const dd = await loadJSON('historical_drawdown.json');
+  const demo = await loadJSON('demo_summary.json');
+  const comp = await loadJSON('comparison.json');
+  const instruments = await loadJSON('historical_instruments.json');
+  window.__instrument_monthly__ = await loadJSON('historical_instrument_monthly.json');
+  const demoDaily = await loadJSON('demo_daily.json');
+  const demoEquity = await loadJSON('demo_equity.json');
+
+  renderHistStats(hist);
+  renderDemoStats(demo);
+  renderComparison(comp);
+  renderPortfolio(hist.portfolio || {});
+  renderRisk(hist, demo);
+
+  const labels = m => m.map(x => x.month || x.year || x.ts || '');
+  const vals = (arr, key) => arr.map(x => x[key]);
+  const timeAxis = (ticks = 8) => ({
+    grid: { color: '#1f2d3a' },
+    ticks: { color: '#8aa3bb', font: { size: 10 }, maxRotation: 0, autoSkip: true, maxTicksLimit: ticks }
+  });
+  const yearAxis = () => ({
+    grid: { color: '#1f2d3a' },
+    ticks: { color: '#8aa3bb', font: { size: 11, weight: '600' }, maxRotation: 0, autoSkip: false, padding: 8 }
+  });
+
+  new Chart(document.getElementById('hist-equity'), {
+    type: 'line',
+    data: {
+      labels: labels(equity),
+      datasets: [{ label: 'Накопленная доходность %', data: vals(equity, 'equity'), borderColor: '#60a5fa', backgroundColor: 'rgba(96,165,250,0.15)', fill: true, tension: 0.2, pointRadius: 0 }]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: theme(), scales: { x: timeAxis(8), y: theme() } }
+  });
+
+  new Chart(document.getElementById('hist-drawdown'), {
+    type: 'line',
+    data: {
+      labels: labels(dd),
+      datasets: [{ label: 'Просадка %', data: vals(dd, 'drawdown_pct'), borderColor: '#f87171', backgroundColor: 'rgba(248,113,113,0.15)', fill: true, tension: 0.2, pointRadius: 0 }]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: theme(), scales: { x: timeAxis(8), y: theme() } }
+  });
+
+  new Chart(document.getElementById('monthly-returns'), {
+    type: 'bar',
+    data: {
+      labels: labels(monthly),
+      datasets: [{ label: 'Доходность %', data: vals(monthly, 'return_pct'), backgroundColor: vals(monthly, 'return_pct').map(v => v>=0?'#7dd3a8':'#f87171') }]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: theme(), scales: { x: timeAxis(8), y: theme() } }
+  });
+
+  new Chart(document.getElementById('yearly-returns'), {
+    type: 'bar',
+    data: {
+      labels: labels(yearly),
+      datasets: [{ label: 'Доходность %', data: vals(yearly, 'return_pct'), backgroundColor: vals(yearly, 'return_pct').map(v => v>=0?'#7dd3a8':'#f87171') }]
+    },
+    options: { responsive: true, maintainAspectRatio: false, layout: { padding: { bottom: 24 } }, plugins: theme(), scales: { x: yearAxis(), y: theme() } }
+  });
+
+  const monthlyBody = document.querySelector('#monthly-table tbody');
+  monthly.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${r.month}</td><td class="${r.return_pct>=0?'green':'red'}">${r.return_pct>=0?'+':''}${fmt(r.return_pct)}%</td><td>${fmt(r.maxdd_pct)}%</td><td>${fmt(r.win_rate,1)}%</td><td>${fmtInt(r.trades)}</td><td>${fmt(r.pf)}</td>`;
+    monthlyBody.appendChild(tr);
+  });
+
+  const yearlyBody = document.querySelector('#yearly-table tbody');
+  yearly.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${r.year}</td><td class="${r.return_pct>=0?'green':'red'}">${r.return_pct>=0?'+':''}${fmt(r.return_pct)}%</td><td>${fmt(r.maxdd_pct)}%</td><td>${fmtInt(r.trades)}</td><td>${fmt(r.pf)}</td><td>${fmt(r.win_rate,1)}%</td>`;
+    yearlyBody.appendChild(tr);
+  });
+
+  const instrumentBody = document.querySelector('#instrument-table tbody');
+  (instruments || []).forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${r.instrument}</td><td class="${r.return_pct>=0?'green':'red'}">${r.return_pct>=0?'+':''}${fmt(r.return_pct)}%</td><td>${fmtInt(r.trades)}</td><td>${fmt(r.win_rate,1)}%</td><td>${fmt(r.profit_factor)}</td>`;
+    instrumentBody.appendChild(tr);
+  });
+
+  const instrumentMonthly = window.__instrument_monthly__ || [];
+  const instrumentMonthlyBody = document.querySelector('#instrument-monthly-table tbody');
+  instrumentMonthly.forEach(r => {
+    const ins = r.instruments || {};
+    const sol = ins.SOL || {};
+    const near = ins.NEAR || {};
+    const link = ins.LINK || {};
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${r.month}</td><td class="${sol.return_pct>=0?'green':'red'}">${sol.return_pct>=0?'+':''}${fmt(sol.return_pct)}%</td><td class="${near.return_pct>=0?'green':'red'}">${near.return_pct>=0?'+':''}${fmt(near.return_pct)}%</td><td class="${link.return_pct>=0?'green':'red'}">${link.return_pct>=0?'+':''}${fmt(link.return_pct)}%</td>`;
+    instrumentMonthlyBody.appendChild(tr);
+  });
+
+  const demoBody = document.querySelector('#demo-trades tbody');
+  (demo.trades || []).forEach(r => {
+    const tr = document.createElement('tr');
+    const color = (r.pnl_usdt || 0) >= 0 ? 'green' : 'red';
+    tr.innerHTML = `<td>${r.datetime_utc}</td><td>${r.symbol}</td><td>${r.side}</td><td class="${color}">${(r.pnl_usdt||0)>=0?'+':''}${fmt(r.pnl_usdt)}</td><td class="${color}">${r.pnl_pct>=0?'+':''}${fmt(r.pnl_pct)}%</td>`;
+    demoBody.appendChild(tr);
+  });
+
+  const demoLabels = arr => (arr || []).map(x => x.date || x.month || x.ts || '');
+  const demoVals = (arr, key) => (arr || []).map(x => Number(x[key] || 0));
+  new Chart(document.getElementById('demo-daily'), {
+    type: 'bar',
+    data: {
+      labels: demoLabels(demoDaily),
+      datasets: [{
+        label: 'Дневная доходность %',
+        data: demoVals(demoDaily, 'return_pct'),
+        backgroundColor: demoVals(demoDaily, 'return_pct').map(v => v >= 0 ? '#7dd3a8' : '#f87171')
+      }]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: theme(), scales: { x: timeAxis(6), y: theme() } }
+  });
+  new Chart(document.getElementById('demo-timeline'), {
+    type: 'line',
+    data: {
+      labels: demoLabels(demoEquity),
+      datasets: [{ label: 'Накопленная доходность %', data: demoVals(demoEquity, 'return_pct'), borderColor: '#60a5fa', tension: 0.2, pointRadius: 4 }]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: theme(), scales: { x: timeAxis(6), y: theme() } }
+  });
+}
+init().catch(console.error);
+</script>
+</body>
+</html>
