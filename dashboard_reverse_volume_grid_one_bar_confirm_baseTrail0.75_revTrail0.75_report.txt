@@ -1,0 +1,15 @@
+DASHBOARD-MODE REVERSE VOLUME GRID
+events=8830 dashboard_hash=d69ef16e4a4fdb4dc426c73f0ac460d3bbf18540e97437b06c597e66cd1c9628
+mode: monthly rebalance 60/20/20, not fixed 3% risk-budget
+
+reverse_mult_1.00x: return=2724.74% PF=2.4561 MaxDD=11.90% worst=2022-10 -1.37% avg_month=41.28% cap_growth=3.848368e+09
+reverse_mult_1.25x: return=2785.36% PF=2.4337 MaxDD=11.60% worst=2022-10 -1.80% avg_month=42.20% cap_growth=5.818337e+09
+reverse_mult_1.50x: return=2845.98% PF=2.4133 MaxDD=11.30% worst=2022-10 -2.22% avg_month=43.12% cap_growth=8.735527e+09
+reverse_mult_1.75x: return=2906.61% PF=2.3947 MaxDD=11.06% worst=2022-10 -2.65% avg_month=44.04% cap_growth=1.302732e+10
+reverse_mult_2.00x: return=2967.23% PF=2.3778 MaxDD=11.62% worst=2022-10 -3.08% avg_month=44.96% cap_growth=1.930175e+10
+
+DELTA vs 1.00x
+reverse_mult_1.25x: Δreturn=+60.62pp ΔPF=-0.0224 ΔDD=-0.30pp Δworst=-0.43pp
+reverse_mult_1.50x: Δreturn=+121.25pp ΔPF=-0.0428 ΔDD=-0.59pp Δworst=-0.86pp
+reverse_mult_1.75x: Δreturn=+181.87pp ΔPF=-0.0613 ΔDD=-0.83pp Δworst=-1.28pp
+reverse_mult_2.00x: Δreturn=+242.49pp ΔPF=-0.0783 ΔDD=-0.27pp Δworst=-1.71pp
