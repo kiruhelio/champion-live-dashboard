@@ -1,0 +1,32 @@
+[
+  {
+    "year": "2021",
+    "return_pct": 1067.93,
+    "trades": 5380
+  },
+  {
+    "year": "2022",
+    "return_pct": 45.12,
+    "trades": 2541
+  },
+  {
+    "year": "2023",
+    "return_pct": 20.38,
+    "trades": 2000
+  },
+  {
+    "year": "2024",
+    "return_pct": 23.25,
+    "trades": 2635
+  },
+  {
+    "year": "2025",
+    "return_pct": 10.49,
+    "trades": 1572
+  },
+  {
+    "year": "2026",
+    "return_pct": 4.29,
+    "trades": 905
+  }
+]
