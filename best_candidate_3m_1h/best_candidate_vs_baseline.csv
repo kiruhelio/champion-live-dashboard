@@ -1,0 +1,20 @@
+metric,baseline_v1,best_candidate,winner_note
+No Reinvest Return,2590.07,2797.36,Best Candidate
+No Reinvest Final Equity,26907.0,28973.65,Best Candidate
+MaxDD,3.83,4.6163,Baseline v1.0
+PF,2.145,2.1268,Best Candidate
+Recovery Factor,675.43,605.9744,Best Candidate
+Win Rate,48.45,48.17,Baseline v1.0
+Trades,19496,15033,Baseline v1.0
+Trades/day,9.76,6.86,Baseline v1.0
+Avg Trade %,1.33,0.1861,Best Candidate
+Reverse %,17.21,17.2,Baseline v1.0
+Add %,32.11,32.19,Baseline v1.0
+Monthly Reinvest Final Eq,194779750040010.53,28973.32,Baseline v1.0 (bugged)
+Monthly Geometric Mean,48.27,5.23,Best Candidate
+Monthly Arithmetic Mean,58.03,6.35,Best Candidate
+Median Month,34.26,1.51,Best Candidate
+Best Month,308.47,159.52,Best Candidate
+Worst Month,-2.52,-0.19,Baseline v1.0
+Profitable Months,64,64,Baseline v1.0
+Losing Months,2,2,Baseline v1.0

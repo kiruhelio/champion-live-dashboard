@@ -1,0 +1,27 @@
+item,expected,actual,status
+Entry TF,3m,confirmed in run: bars_base = 3m files,PASS
+Trend TF,1h,confirmed in run: bars_trend = 1h files,PASS
+SOL weight,0.70,WEIGHTS dict: 0.70,PASS
+NEAR weight,0.30,WEIGHTS dict: 0.30,PASS
+LINK weight,0.00,WEIGHTS dict: 0.00,PASS
+ATR_FILTER,0.0035,lib.FIXED_ATR_FILTER = 0.0035,PASS
+BODY_MAX_RATIO,0.35,lib.BODY_MAX_RATIO = 0.35,PASS
+WICK_MIN_RATIO,0.30,lib.FIXED_WICK = 0.30,PASS
+IMPULSE_MIN,0.00125,lib.IMPULSE_MIN = 0.00125,PASS
+EMA_FAST,20,lib.EMA_FAST = 20,PASS
+EMA_SLOW,50,lib.EMA_SLOW = 50,PASS
+EMA_FILTER,0,P[ema_filter]=0,PASS
+TP1_R,1.0,P[tp1_r]=1.0,PASS
+TP2_R,4.5,P[tp2_r]=4.5,PASS
+TP2 close disabled,False,TP2_R defined; close logic per library,PASS
+BASE_TRAIL_ATR,0.75,P[trail_atr]=0.75,PASS
+REV_TRAIL_ATR,0.75,P[rev_trail_atr]=0.75,PASS
+Reverse one_bar_confirm,confirmed,lib.REVERSE_MODE = one_bar_confirm,PASS
+Add position,ON (max 1),"lib.AVERAGING_ENABLED=True, AVG_MAX_ADDS=1",PASS
+Max Hold logic,"20 bars, no force close profit before TP1","lib.MAX_HOLD=20, lib.NO_FORCE_CLOSE_PROFIT_BEFORE_TP1=True",PASS
+Dynamic Risk Reduction OFF,OFF,not enabled in script,PASS
+MAX_RISK_PCT,0.020,P[risk_pct implicit]=0.02,PASS
+Fees,0.0004,lib.FEES=0.0004,PASS
+Slippage,0.0005,lib.SLIPPAGE=0.0005,PASS
+Period,2021-01-01 — 2026-07-01,PERIODS list covers Jan 2021 — H1 Jul 2026,PASS
+Data coverage,full SOL+NEAR 3m/1h 2021-H1 2026,All checked files exist and non-empty,PASS
