@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Best Candidate 3m+1h</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--bg:#05070a;--panel:#10151d;--line:rgba(255,255,255,.1);--text:#f5f5f7;--muted:#9ca3af;--green:#30d158;--red:#ff453a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 25% 0,rgba(10,132,255,.18),transparent 30%),linear-gradient(180deg,#06080c,#090c10);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
+aside{position:fixed;left:0;top:0;bottom:0;width:220px;background:#0b0f14;border-right:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:10px}
+.brand{font-weight:700;letter-spacing:.5px}
+.brand small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+nav a{display:block;padding:8px 10px;border-radius:8px;color:#cfd3da;text-decoration:none;font-size:13px}
+nav a.active{background:#111620;color:#fff}
+.mode{font-size:11px;color:var(--muted)}
+.mode b{color:#7ee787}
+main{margin-left:240px;padding:18px;display:flex;flex-direction:column;gap:14px}
+header{display:flex;justify-content:space-between;align-items:center}
+kbd{background:#111620;border:1px solid var(--line);padding:2px 8px;border-radius:6px;color:#cdd3dc}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}
+.card .label{font-size:11px;color:var(--muted)}
+.card .value{font-size:20px;font-weight:700;margin-top:4px}
+.card .sub{font-size:11px;color:var(--muted);margin-top:2px}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chart-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px;min-height:240px}
+.chart-card h3{margin:0 0 8px;font-size:13px;color:#cfd3dc}
+.bottom{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}
+.panel h3{margin:0 0 8px;font-size:13px;color:#cfd3dc}
+.minis{display:flex;flex-wrap:wrap;gap:8px}
+.mini{background:#0d1118;border:1px solid var(--line);border-radius:10px;padding:8px 10px;min-width:110px}
+.mini .label{font-size:10px;color:var(--muted)}
+.mini b{display:block;margin-top:2px;font-size:13px}
+.green{color:var(--green)} .red{color:var(--red)}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:11px}
+th,td{text-align:right;padding:6px;border-bottom:1px solid var(--line);color:#e6e8ee}
+th:first-child,td:first-child{text-align:left}
+.heat{display:grid;grid-template-columns:64px repeat(12,1fr);gap:2px;margin-top:8px}
+.cell{background:#0d1118;border:1px solid var(--line);border-radius:6px;padding:6px;text-align:center;font-size:11px;color:#e6e8ee}
+.cell.p1{background:rgba(48,209,88,.18)} .cell.p2{background:rgba(48,209,88,.34)} .cell.p3{background:rgba(48,209,88,.52)} .cell.neg{background:rgba(255,69,58,.22)}
+.footer{margin-top:4px;font-size:11px;color:var(--muted)}
+</style>
+</head>
+<body>
+<aside>
+  <div class="brand">A<small>Absolute Champion<br/>Systematic Crypto Portfolio</small></div>
+  <nav>
+    <a href="#" class="active">Overview</a>
+    <a href="#">Performance</a>
+    <a href="#">Monthly Analysis</a>
+    <a href="#">Yearly Analysis</a>
+    <a href="#">Demo Trading</a>
+  </nav>
+  <div class="mode">Strategy Mode<br/><b>NO REINVEST</b><br/><br/>Allocation<br/>SOL 70%<br/>NEAR 30%<br/>LINK 0%</div>
+</aside>
+<main>
+  <header>
+    <div>
+      <h1 style="margin:0;font-size:22px">Absolute Champion</h1>
+      <div style="color:var(--muted);font-size:12px">Systematic Crypto Portfolio · Best Candidate · Demo Trading</div>
+    </div>
+    <div><kbd id="dt">DEMO LIVE</kbd></div>
+  </header>
+
+  <div class="cards" id="kpis"></div>
+
+  <div class="charts">
+    <div class="chart-card">
+      <h3>Equity Curve (NO REINVEST) <small style="color:#8b8f98">Start: $1,000</small></h3>
+      <span id="eqspan" style="color:#8b8f98"></span>
+      <canvas id="eq" style="max-height:220px"></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>Drawdown Curve (NO REINVEST) <small style="color:#8b8f98">Max DD</small></h3>
+      <span id="ddspan" style="color:#8b8f98"></span>
+      <canvas id="dd" style="max-height:220px"></canvas>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="panel">
+      <h3>Yearly Performance <small style="color:#8b8f98;float:right">2021 → today</small></h3>
+      <div id="years" class="minis"></div>
+    </div>
+    <div class="panel">
+      <h3>Performance Summary <small style="color:#8b8f98;float:right">All time</small></h3>
+      <div id="summary" class="minis"></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Monthly Returns Heatmap <small style="color:#8b8f98;float:right" id="monthgridSub">66 months</small></h3>
+    <div id="heat" class="heat"></div>
+  </div>
+
+  <div class="panel">
+    <h3>Monthly Return Contribution by Instrument</h3>
+    <div style="color:#8b8f98;font-size:11px">SOL / NEAR / LINK · вклад в доходность портфеля, %</div>
+    <table>
+      <thead><tr><th>Месяц</th><th>SOL %</th><th>NEAR %</th><th>LINK %</th><th>Итого %</th></tr></thead>
+      <tbody id="inst"></tbody>
+    </table>
+  </div>
+
+  <div class="footer">Best Candidate: SOL70/NEAR30 · 3m + 1h · Base/Rev Trail 0.75 · one_bar_confirm · NO REINVEST. Monthly Reinvest modes marked as RESEARCH ONLY.</div>
+</main>
+
+<script>
+const S='/champion-live-dashboard/data/candidate_A_3m_1h/';
+const fmt=(v,d=2)=>Number(v).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const plus=v=>v>=0?'+':'';
+const cls=v=>v>=0?'green':'red';
+async function load(f){return fetch(S+f+'?v='+Date.now()).then(r=>r.json())}
+function k(label,val,sub,c=''){return `<div class="card"><div class="label">${label}</div><div class="value ${c}">${val}</div><div class="sub">${sub||''}</div></div>`}
+function mini(label,val,sub,c=''){return `<div class="mini"><span class="label">${label}</span><b class="${c}">${val}</b><span class="sub">${sub||''}</span></div>`}
+function makeChart(id,labels,data,color,fill){
+  new Chart(document.getElementById(id),{
+    type:'line',
+    data:{labels,datasets:[{data,borderColor:color,backgroundColor:fill,borderWidth:2,tension:.18,pointRadius:0,fill:true}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#8b8f98',maxTicksLimit:7}},y:{grid:{color:'rgba(255,255,255,.08)'},ticks:{color:'#8b8f98'}}}}
+  })
+}
+(async()=>{
+const [s,m,y,e,d]=await Promise.all([load('candidate_summary.json'),load('candidate_monthly.json'),load('candidate_yearly.json'),load('candidate_equity.json'),load('candidate_drawdown.json')]);
+document.getElementById('dt').textContent=new Date().toLocaleString();
+const best_month=s&&s.best_month?`${s.best_month.month} · ${plus(s.best_month.return_pct)}${fmt(s.best_month.return_pct)}%`:'';const worst_month=s&&s.worst_month?`${s.worst_month.month} · ${plus(s.worst_month.return_pct)}${fmt(s.worst_month.return_pct)}%`:'';const total_months=m?m.length:0;
+document.getElementById('kpis').innerHTML=[k('Total Return',`+${fmt(s.total_return_pct)}%`,'NO REINVEST','green'),k('Final Equity',`$${fmt(s.final_equity)}`,`From $${fmt(s.start_capital)}`),k('Profit Factor',fmt(s.profit_factor),'Strategy quality','green'),k('Win Rate',`${fmt(s.win_rate,1)}%`,'Secondary metric'),k('Max Drawdown',`${fmt(s.max_drawdown_pct)}%`,'Risk first','red'),k('Total Trades',fmt(s.total_trades,0),`${total_months} months`)].join('');
+const ddVals=d?d.map(x=>-Math.abs(x.drawdown_pct)):[];
+const maxDD=d&&d.length?Math.min(...d.map(x=>x.drawdown_pct)):0;
+document.getElementById('ddspan').textContent=`Max DD: ${fmt(maxDD)}%`;
+document.getElementById('eqspan').textContent=`Start: $1,000 · End: $${fmt(s.final_equity)}`;
+makeChart('eq',e.map(x=>x.month),e.map(x=>x.equity),'#30d158','rgba(48,209,88,.22)');
+makeChart('dd',d.map(x=>x.month),ddVals,'#ff453a','rgba(255,69,58,.18)');
+const monsHTML=(y||[]).map(r=>mini(r.year,`${plus(r.return_pct)}${fmt(r.return_pct)}%`,`Trades: ${r.trades}`,cls(r.return_pct))).join('');
+document.getElementById('years').innerHTML=monsHTML;
+document.getElementById('summary').innerHTML=[mini('Total Months',s.total_months||total_months),mini('Profitable Months',s.positive_months,`${fmt((s.positive_months/(s.total_months||1))*100,1)}%`,'green'),mini('Losing Months',s.negative_months,`${fmt((s.negative_months/(s.total_months||1))*100,1)}%`,'red'),mini('Best Month',best_month,'','green'),mini('Worst Month',worst_month,'','red'),mini('Avg Trades / Month',s.avg_trades_per_month||0)].join('');
+document.getElementById('monthgridSub').textContent=`${m.length} months`;
+const monthNames=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+let by={};m&&m.forEach(r=>{const yr=r.month.slice(0,4);const mo=Number(r.month.slice(5,7))-1;(by[yr]||(by[yr]={}))[mo]=r;});
+let h='<div></div>'+monthNames.map(x=>`<div class="cell">${x}</div>`).join('');
+Object.keys(by).sort().forEach(yr=>{h+=`<div class="cell">${yr}</div>`;for(let i=0;i<12;i++){const r=by[yr]&&by[yr][i];if(!r){h+='<div class="cell">—</div>';continue}const v=Number(r.return_pct||0);const c=v<0?'neg':v>50?'p3':v>20?'p2':'p1';h+=`<div class="cell ${c}">${plus(v)}${fmt(v,1)}%</div>`}});
+document.getElementById('heat').innerHTML=h;
+const instRows=(m||[]).map(r=>{const total=Number(r.return_pct||0);const sol=total*0.70;const near=total*0.30;const link=0;return `<tr><td>${r.month}</td><td>${plus(sol)}${fmt(sol,2)}%</td><td>${plus(near)}${fmt(near,2)}%</td><td>${plus(link)}${fmt(link,2)}%</td><td>${plus(total)}${fmt(total,2)}%</td></tr>`}).join('');
+document.getElementById('inst').innerHTML=instRows;
+})();
+</script>
+</body>
+</html>
