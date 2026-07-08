@@ -1,0 +1,31 @@
+{
+  "mode_label": "Историческая доходность · Absolute Champion leader boost 0.75/0.75 one_bar_confirm · symbol_mtd ≤ -2% => риск x0.25; лидер => x1.5",
+  "risk_rule": "Фиксированные рукава SOL 60% / NEAR 20% / LINK 20%, leader boost overlay на основе monthly MTD, reverse-after-stop one_bar_confirm, TP2 выключен",
+  "start_capital": 1000.0,
+  "final_equity": 27665.11,
+  "total_return_pct": 2666.51,
+  "capital_growth": 26.6651,
+  "profit_factor": 2.42,
+  "win_rate": 32.0,
+  "max_drawdown_pct": 3.48,
+  "positive_months": 64,
+  "negative_months": 2,
+  "total_months": 66,
+  "avg_trades_per_month": 133.8,
+  "avg_monthly_return": 5.55,
+  "median_monthly_return": 2.21,
+  "best_month": {
+    "month": "2021-01",
+    "return_pct": 74.646846
+  },
+  "worst_month": {
+    "month": "2021-08",
+    "return_pct": -0.47239
+  },
+  "total_trades": 8830,
+  "portfolio": {
+    "SOL": 60,
+    "NEAR": 20,
+    "LINK": 20
+  }
+}

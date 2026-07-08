@@ -1,0 +1,32 @@
+[
+  {
+    "symbol": "LINKUSDT",
+    "return_pct": 3.2,
+    "profit": 31.99,
+    "trades": 5542,
+    "win_rate": 31.5,
+    "pf": 2.06,
+    "gross_profit": 62.19,
+    "gross_loss": 30.2
+  },
+  {
+    "symbol": "NEARUSDT",
+    "return_pct": 4.22,
+    "profit": 42.21,
+    "trades": 8112,
+    "win_rate": 30.1,
+    "pf": 1.92,
+    "gross_profit": 88.32,
+    "gross_loss": 46.12
+  },
+  {
+    "symbol": "SOLUSDT",
+    "return_pct": 3.87,
+    "profit": 38.72,
+    "trades": 6624,
+    "win_rate": 30.8,
+    "pf": 2.06,
+    "gross_profit": 75.15,
+    "gross_loss": 36.42
+  }
+]

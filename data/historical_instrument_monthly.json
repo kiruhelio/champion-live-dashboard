@@ -1,0 +1,1124 @@
+[
+  {
+    "month": "2021-01",
+    "instruments": {
+      "SOL": {
+        "return_pct": 116.41,
+        "pnl_usdt": 698.45
+      },
+      "NEAR": {
+        "return_pct": -9.76,
+        "pnl_usdt": -19.53
+      },
+      "LINK": {
+        "return_pct": 35.16,
+        "pnl_usdt": 70.32
+      }
+    }
+  },
+  {
+    "month": "2021-02",
+    "instruments": {
+      "SOL": {
+        "return_pct": 46.01,
+        "pnl_usdt": 482.13
+      },
+      "NEAR": {
+        "return_pct": 10.61,
+        "pnl_usdt": 37.07
+      },
+      "LINK": {
+        "return_pct": 20.42,
+        "pnl_usdt": 71.31
+      }
+    }
+  },
+  {
+    "month": "2021-03",
+    "instruments": {
+      "SOL": {
+        "return_pct": 32.16,
+        "pnl_usdt": 446.93
+      },
+      "NEAR": {
+        "return_pct": 19.44,
+        "pnl_usdt": 90.08
+      },
+      "LINK": {
+        "return_pct": 28.64,
+        "pnl_usdt": 132.69
+      }
+    }
+  },
+  {
+    "month": "2021-04",
+    "instruments": {
+      "SOL": {
+        "return_pct": -1.87,
+        "pnl_usdt": -32.56
+      },
+      "NEAR": {
+        "return_pct": 30.17,
+        "pnl_usdt": 175.23
+      },
+      "LINK": {
+        "return_pct": 10.36,
+        "pnl_usdt": 60.19
+      }
+    }
+  },
+  {
+    "month": "2021-05",
+    "instruments": {
+      "SOL": {
+        "return_pct": 12.06,
+        "pnl_usdt": 223.03
+      },
+      "NEAR": {
+        "return_pct": 10.38,
+        "pnl_usdt": 63.96
+      },
+      "LINK": {
+        "return_pct": 6.82,
+        "pnl_usdt": 42.02
+      }
+    }
+  },
+  {
+    "month": "2021-06",
+    "instruments": {
+      "SOL": {
+        "return_pct": 12.57,
+        "pnl_usdt": 257.06
+      },
+      "NEAR": {
+        "return_pct": 16.35,
+        "pnl_usdt": 111.41
+      },
+      "LINK": {
+        "return_pct": 19.52,
+        "pnl_usdt": 133.01
+      }
+    }
+  },
+  {
+    "month": "2021-07",
+    "instruments": {
+      "SOL": {
+        "return_pct": 8.09,
+        "pnl_usdt": 189.78
+      },
+      "NEAR": {
+        "return_pct": 18.35,
+        "pnl_usdt": 143.56
+      },
+      "LINK": {
+        "return_pct": -2.48,
+        "pnl_usdt": -19.38
+      }
+    }
+  },
+  {
+    "month": "2021-08",
+    "instruments": {
+      "SOL": {
+        "return_pct": -2.41,
+        "pnl_usdt": -60.55
+      },
+      "NEAR": {
+        "return_pct": 0.94,
+        "pnl_usdt": 7.87
+      },
+      "LINK": {
+        "return_pct": 2.42,
+        "pnl_usdt": 20.25
+      }
+    }
+  },
+  {
+    "month": "2021-09",
+    "instruments": {
+      "SOL": {
+        "return_pct": 21.43,
+        "pnl_usdt": 536.44
+      },
+      "NEAR": {
+        "return_pct": 11.85,
+        "pnl_usdt": 98.89
+      },
+      "LINK": {
+        "return_pct": 26.92,
+        "pnl_usdt": 224.58
+      }
+    }
+  },
+  {
+    "month": "2021-10",
+    "instruments": {
+      "SOL": {
+        "return_pct": -3.58,
+        "pnl_usdt": -108.26
+      },
+      "NEAR": {
+        "return_pct": 13.87,
+        "pnl_usdt": 139.75
+      },
+      "LINK": {
+        "return_pct": 6.37,
+        "pnl_usdt": 64.18
+      }
+    }
+  },
+  {
+    "month": "2021-11",
+    "instruments": {
+      "SOL": {
+        "return_pct": 13.43,
+        "pnl_usdt": 413.73
+      },
+      "NEAR": {
+        "return_pct": 0.92,
+        "pnl_usdt": 9.47
+      },
+      "LINK": {
+        "return_pct": 10.22,
+        "pnl_usdt": 105.0
+      }
+    }
+  },
+  {
+    "month": "2021-12",
+    "instruments": {
+      "SOL": {
+        "return_pct": 8.7,
+        "pnl_usdt": 296.01
+      },
+      "NEAR": {
+        "return_pct": 2.34,
+        "pnl_usdt": 26.49
+      },
+      "LINK": {
+        "return_pct": 16.22,
+        "pnl_usdt": 183.86
+      }
+    }
+  },
+  {
+    "month": "2022-01",
+    "instruments": {
+      "SOL": {
+        "return_pct": 11.83,
+        "pnl_usdt": 436.52
+      },
+      "NEAR": {
+        "return_pct": 8.68,
+        "pnl_usdt": 106.7
+      },
+      "LINK": {
+        "return_pct": 5.21,
+        "pnl_usdt": 64.12
+      }
+    }
+  },
+  {
+    "month": "2022-02",
+    "instruments": {
+      "SOL": {
+        "return_pct": 13.5,
+        "pnl_usdt": 547.36
+      },
+      "NEAR": {
+        "return_pct": 6.34,
+        "pnl_usdt": 85.75
+      },
+      "LINK": {
+        "return_pct": 12.84,
+        "pnl_usdt": 173.64
+      }
+    }
+  },
+  {
+    "month": "2022-03",
+    "instruments": {
+      "SOL": {
+        "return_pct": 11.51,
+        "pnl_usdt": 522.2
+      },
+      "NEAR": {
+        "return_pct": 6.27,
+        "pnl_usdt": 94.79
+      },
+      "LINK": {
+        "return_pct": 8.88,
+        "pnl_usdt": 134.29
+      }
+    }
+  },
+  {
+    "month": "2022-04",
+    "instruments": {
+      "SOL": {
+        "return_pct": 8.9,
+        "pnl_usdt": 444.28
+      },
+      "NEAR": {
+        "return_pct": 3.54,
+        "pnl_usdt": 58.89
+      },
+      "LINK": {
+        "return_pct": 4.8,
+        "pnl_usdt": 79.83
+      }
+    }
+  },
+  {
+    "month": "2022-05",
+    "instruments": {
+      "SOL": {
+        "return_pct": 7.75,
+        "pnl_usdt": 414.23
+      },
+      "NEAR": {
+        "return_pct": 0.27,
+        "pnl_usdt": 4.73
+      },
+      "LINK": {
+        "return_pct": 5.65,
+        "pnl_usdt": 100.72
+      }
+    }
+  },
+  {
+    "month": "2022-06",
+    "instruments": {
+      "SOL": {
+        "return_pct": 4.83,
+        "pnl_usdt": 273.04
+      },
+      "NEAR": {
+        "return_pct": 7.69,
+        "pnl_usdt": 145.05
+      },
+      "LINK": {
+        "return_pct": 1.69,
+        "pnl_usdt": 31.88
+      }
+    }
+  },
+  {
+    "month": "2022-07",
+    "instruments": {
+      "SOL": {
+        "return_pct": 6.33,
+        "pnl_usdt": 375.25
+      },
+      "NEAR": {
+        "return_pct": 5.18,
+        "pnl_usdt": 102.28
+      },
+      "LINK": {
+        "return_pct": 3.47,
+        "pnl_usdt": 68.52
+      }
+    }
+  },
+  {
+    "month": "2022-08",
+    "instruments": {
+      "SOL": {
+        "return_pct": 7.75,
+        "pnl_usdt": 484.88
+      },
+      "NEAR": {
+        "return_pct": 9.03,
+        "pnl_usdt": 188.36
+      },
+      "LINK": {
+        "return_pct": 2.16,
+        "pnl_usdt": 45.03
+      }
+    }
+  },
+  {
+    "month": "2022-09",
+    "instruments": {
+      "SOL": {
+        "return_pct": 3.28,
+        "pnl_usdt": 219.81
+      },
+      "NEAR": {
+        "return_pct": 2.44,
+        "pnl_usdt": 54.52
+      },
+      "LINK": {
+        "return_pct": 6.63,
+        "pnl_usdt": 147.89
+      }
+    }
+  },
+  {
+    "month": "2022-10",
+    "instruments": {
+      "SOL": {
+        "return_pct": -0.93,
+        "pnl_usdt": -64.87
+      },
+      "NEAR": {
+        "return_pct": -0.45,
+        "pnl_usdt": -10.36
+      },
+      "LINK": {
+        "return_pct": 2.66,
+        "pnl_usdt": 61.54
+      }
+    }
+  },
+  {
+    "month": "2022-11",
+    "instruments": {
+      "SOL": {
+        "return_pct": 5.07,
+        "pnl_usdt": 352.04
+      },
+      "NEAR": {
+        "return_pct": 4.37,
+        "pnl_usdt": 101.11
+      },
+      "LINK": {
+        "return_pct": 3.89,
+        "pnl_usdt": 89.94
+      }
+    }
+  },
+  {
+    "month": "2022-12",
+    "instruments": {
+      "SOL": {
+        "return_pct": 4.46,
+        "pnl_usdt": 324.27
+      },
+      "NEAR": {
+        "return_pct": 4.22,
+        "pnl_usdt": 102.3
+      },
+      "LINK": {
+        "return_pct": 0.71,
+        "pnl_usdt": 17.25
+      }
+    }
+  },
+  {
+    "month": "2023-01",
+    "instruments": {
+      "SOL": {
+        "return_pct": 4.73,
+        "pnl_usdt": 356.44
+      },
+      "NEAR": {
+        "return_pct": 3.25,
+        "pnl_usdt": 81.78
+      },
+      "LINK": {
+        "return_pct": 4.53,
+        "pnl_usdt": 113.8
+      }
+    }
+  },
+  {
+    "month": "2023-02",
+    "instruments": {
+      "SOL": {
+        "return_pct": 1.29,
+        "pnl_usdt": 101.1
+      },
+      "NEAR": {
+        "return_pct": 3.47,
+        "pnl_usdt": 90.89
+      },
+      "LINK": {
+        "return_pct": 2.61,
+        "pnl_usdt": 68.3
+      }
+    }
+  },
+  {
+    "month": "2023-03",
+    "instruments": {
+      "SOL": {
+        "return_pct": 2.43,
+        "pnl_usdt": 194.82
+      },
+      "NEAR": {
+        "return_pct": 2.39,
+        "pnl_usdt": 63.9
+      },
+      "LINK": {
+        "return_pct": 7.32,
+        "pnl_usdt": 195.43
+      }
+    }
+  },
+  {
+    "month": "2023-04",
+    "instruments": {
+      "SOL": {
+        "return_pct": 1.48,
+        "pnl_usdt": 122.84
+      },
+      "NEAR": {
+        "return_pct": 2.17,
+        "pnl_usdt": 59.83
+      },
+      "LINK": {
+        "return_pct": 5.16,
+        "pnl_usdt": 142.4
+      }
+    }
+  },
+  {
+    "month": "2023-05",
+    "instruments": {
+      "SOL": {
+        "return_pct": 2.91,
+        "pnl_usdt": 247.02
+      },
+      "NEAR": {
+        "return_pct": 1.28,
+        "pnl_usdt": 36.28
+      },
+      "LINK": {
+        "return_pct": 0.76,
+        "pnl_usdt": 21.43
+      }
+    }
+  },
+  {
+    "month": "2023-06",
+    "instruments": {
+      "SOL": {
+        "return_pct": 2.43,
+        "pnl_usdt": 210.21
+      },
+      "NEAR": {
+        "return_pct": 0.13,
+        "pnl_usdt": 3.79
+      },
+      "LINK": {
+        "return_pct": 1.4,
+        "pnl_usdt": 40.25
+      }
+    }
+  },
+  {
+    "month": "2023-07",
+    "instruments": {
+      "SOL": {
+        "return_pct": 8.4,
+        "pnl_usdt": 740.52
+      },
+      "NEAR": {
+        "return_pct": -0.93,
+        "pnl_usdt": -27.28
+      },
+      "LINK": {
+        "return_pct": 1.31,
+        "pnl_usdt": 38.33
+      }
+    }
+  },
+  {
+    "month": "2023-08",
+    "instruments": {
+      "SOL": {
+        "return_pct": 1.77,
+        "pnl_usdt": 163.63
+      },
+      "NEAR": {
+        "return_pct": 0.55,
+        "pnl_usdt": 17.09
+      },
+      "LINK": {
+        "return_pct": 1.84,
+        "pnl_usdt": 56.85
+      }
+    }
+  },
+  {
+    "month": "2023-09",
+    "instruments": {
+      "SOL": {
+        "return_pct": 1.32,
+        "pnl_usdt": 124.58
+      },
+      "NEAR": {
+        "return_pct": -0.28,
+        "pnl_usdt": -8.92
+      },
+      "LINK": {
+        "return_pct": 1.07,
+        "pnl_usdt": 33.64
+      }
+    }
+  },
+  {
+    "month": "2023-10",
+    "instruments": {
+      "SOL": {
+        "return_pct": 6.99,
+        "pnl_usdt": 663.4
+      },
+      "NEAR": {
+        "return_pct": 1.95,
+        "pnl_usdt": 61.67
+      },
+      "LINK": {
+        "return_pct": 0.23,
+        "pnl_usdt": 7.14
+      }
+    }
+  },
+  {
+    "month": "2023-11",
+    "instruments": {
+      "SOL": {
+        "return_pct": 1.23,
+        "pnl_usdt": 122.61
+      },
+      "NEAR": {
+        "return_pct": 1.95,
+        "pnl_usdt": 64.53
+      },
+      "LINK": {
+        "return_pct": 2.55,
+        "pnl_usdt": 84.34
+      }
+    }
+  },
+  {
+    "month": "2023-12",
+    "instruments": {
+      "SOL": {
+        "return_pct": 5.53,
+        "pnl_usdt": 558.4
+      },
+      "NEAR": {
+        "return_pct": 6.25,
+        "pnl_usdt": 210.26
+      },
+      "LINK": {
+        "return_pct": 6.04,
+        "pnl_usdt": 203.36
+      }
+    }
+  },
+  {
+    "month": "2024-01",
+    "instruments": {
+      "SOL": {
+        "return_pct": 4.18,
+        "pnl_usdt": 445.88
+      },
+      "NEAR": {
+        "return_pct": 1.26,
+        "pnl_usdt": 44.77
+      },
+      "LINK": {
+        "return_pct": -0.1,
+        "pnl_usdt": -3.4
+      }
+    }
+  },
+  {
+    "month": "2024-02",
+    "instruments": {
+      "SOL": {
+        "return_pct": 0.71,
+        "pnl_usdt": 77.47
+      },
+      "NEAR": {
+        "return_pct": 1.06,
+        "pnl_usdt": 38.82
+      },
+      "LINK": {
+        "return_pct": 0.21,
+        "pnl_usdt": 7.71
+      }
+    }
+  },
+  {
+    "month": "2024-03",
+    "instruments": {
+      "SOL": {
+        "return_pct": 4.32,
+        "pnl_usdt": 477.16
+      },
+      "NEAR": {
+        "return_pct": 2.88,
+        "pnl_usdt": 106.07
+      },
+      "LINK": {
+        "return_pct": 2.36,
+        "pnl_usdt": 86.77
+      }
+    }
+  },
+  {
+    "month": "2024-04",
+    "instruments": {
+      "SOL": {
+        "return_pct": 0.71,
+        "pnl_usdt": 81.7
+      },
+      "NEAR": {
+        "return_pct": 1.96,
+        "pnl_usdt": 74.68
+      },
+      "LINK": {
+        "return_pct": 2.13,
+        "pnl_usdt": 81.22
+      }
+    }
+  },
+  {
+    "month": "2024-05",
+    "instruments": {
+      "SOL": {
+        "return_pct": 0.6,
+        "pnl_usdt": 69.58
+      },
+      "NEAR": {
+        "return_pct": 2.6,
+        "pnl_usdt": 100.32
+      },
+      "LINK": {
+        "return_pct": 0.65,
+        "pnl_usdt": 25.0
+      }
+    }
+  },
+  {
+    "month": "2024-06",
+    "instruments": {
+      "SOL": {
+        "return_pct": 2.31,
+        "pnl_usdt": 270.1
+      },
+      "NEAR": {
+        "return_pct": 1.39,
+        "pnl_usdt": 54.27
+      },
+      "LINK": {
+        "return_pct": 1.88,
+        "pnl_usdt": 73.12
+      }
+    }
+  },
+  {
+    "month": "2024-07",
+    "instruments": {
+      "SOL": {
+        "return_pct": 3.11,
+        "pnl_usdt": 371.03
+      },
+      "NEAR": {
+        "return_pct": 2.8,
+        "pnl_usdt": 111.54
+      },
+      "LINK": {
+        "return_pct": 0.59,
+        "pnl_usdt": 23.28
+      }
+    }
+  },
+  {
+    "month": "2024-08",
+    "instruments": {
+      "SOL": {
+        "return_pct": 2.76,
+        "pnl_usdt": 338.21
+      },
+      "NEAR": {
+        "return_pct": 2.51,
+        "pnl_usdt": 102.43
+      },
+      "LINK": {
+        "return_pct": 4.18,
+        "pnl_usdt": 170.32
+      }
+    }
+  },
+  {
+    "month": "2024-09",
+    "instruments": {
+      "SOL": {
+        "return_pct": -0.05,
+        "pnl_usdt": -5.81
+      },
+      "NEAR": {
+        "return_pct": 3.05,
+        "pnl_usdt": 128.09
+      },
+      "LINK": {
+        "return_pct": 1.25,
+        "pnl_usdt": 52.41
+      }
+    }
+  },
+  {
+    "month": "2024-10",
+    "instruments": {
+      "SOL": {
+        "return_pct": 1.08,
+        "pnl_usdt": 137.51
+      },
+      "NEAR": {
+        "return_pct": 1.89,
+        "pnl_usdt": 79.9
+      },
+      "LINK": {
+        "return_pct": 0.95,
+        "pnl_usdt": 40.08
+      }
+    }
+  },
+  {
+    "month": "2024-11",
+    "instruments": {
+      "SOL": {
+        "return_pct": 0.61,
+        "pnl_usdt": 78.72
+      },
+      "NEAR": {
+        "return_pct": 4.32,
+        "pnl_usdt": 185.31
+      },
+      "LINK": {
+        "return_pct": 4.24,
+        "pnl_usdt": 182.09
+      }
+    }
+  },
+  {
+    "month": "2024-12",
+    "instruments": {
+      "SOL": {
+        "return_pct": 1.55,
+        "pnl_usdt": 203.59
+      },
+      "NEAR": {
+        "return_pct": 2.7,
+        "pnl_usdt": 118.0
+      },
+      "LINK": {
+        "return_pct": 3.64,
+        "pnl_usdt": 159.07
+      }
+    }
+  },
+  {
+    "month": "2025-01",
+    "instruments": {
+      "SOL": {
+        "return_pct": 1.61,
+        "pnl_usdt": 215.5
+      },
+      "NEAR": {
+        "return_pct": 1.08,
+        "pnl_usdt": 48.12
+      },
+      "LINK": {
+        "return_pct": 3.55,
+        "pnl_usdt": 158.54
+      }
+    }
+  },
+  {
+    "month": "2025-02",
+    "instruments": {
+      "SOL": {
+        "return_pct": 0.77,
+        "pnl_usdt": 104.62
+      },
+      "NEAR": {
+        "return_pct": 2.19,
+        "pnl_usdt": 99.55
+      },
+      "LINK": {
+        "return_pct": 2.97,
+        "pnl_usdt": 135.18
+      }
+    }
+  },
+  {
+    "month": "2025-03",
+    "instruments": {
+      "SOL": {
+        "return_pct": 1.76,
+        "pnl_usdt": 244.37
+      },
+      "NEAR": {
+        "return_pct": 0.49,
+        "pnl_usdt": 22.56
+      },
+      "LINK": {
+        "return_pct": 4.82,
+        "pnl_usdt": 222.71
+      }
+    }
+  },
+  {
+    "month": "2025-04",
+    "instruments": {
+      "SOL": {
+        "return_pct": 2.48,
+        "pnl_usdt": 351.46
+      },
+      "NEAR": {
+        "return_pct": 3.35,
+        "pnl_usdt": 157.97
+      },
+      "LINK": {
+        "return_pct": 1.03,
+        "pnl_usdt": 48.43
+      }
+    }
+  },
+  {
+    "month": "2025-05",
+    "instruments": {
+      "SOL": {
+        "return_pct": 2.29,
+        "pnl_usdt": 331.44
+      },
+      "NEAR": {
+        "return_pct": 1.67,
+        "pnl_usdt": 80.79
+      },
+      "LINK": {
+        "return_pct": 1.8,
+        "pnl_usdt": 87.13
+      }
+    }
+  },
+  {
+    "month": "2025-06",
+    "instruments": {
+      "SOL": {
+        "return_pct": 1.3,
+        "pnl_usdt": 191.42
+      },
+      "NEAR": {
+        "return_pct": 0.53,
+        "pnl_usdt": 26.16
+      },
+      "LINK": {
+        "return_pct": 1.62,
+        "pnl_usdt": 79.9
+      }
+    }
+  },
+  {
+    "month": "2025-07",
+    "instruments": {
+      "SOL": {
+        "return_pct": 0.74,
+        "pnl_usdt": 110.08
+      },
+      "NEAR": {
+        "return_pct": 0.48,
+        "pnl_usdt": 24.08
+      },
+      "LINK": {
+        "return_pct": 2.19,
+        "pnl_usdt": 108.74
+      }
+    }
+  },
+  {
+    "month": "2025-08",
+    "instruments": {
+      "SOL": {
+        "return_pct": 0.41,
+        "pnl_usdt": 61.15
+      },
+      "NEAR": {
+        "return_pct": 0.45,
+        "pnl_usdt": 22.65
+      },
+      "LINK": {
+        "return_pct": 1.13,
+        "pnl_usdt": 56.83
+      }
+    }
+  },
+  {
+    "month": "2025-09",
+    "instruments": {
+      "SOL": {
+        "return_pct": 2.23,
+        "pnl_usdt": 337.78
+      },
+      "NEAR": {
+        "return_pct": 1.35,
+        "pnl_usdt": 68.0
+      },
+      "LINK": {
+        "return_pct": 0.77,
+        "pnl_usdt": 38.73
+      }
+    }
+  },
+  {
+    "month": "2025-10",
+    "instruments": {
+      "SOL": {
+        "return_pct": 0.27,
+        "pnl_usdt": 41.59
+      },
+      "NEAR": {
+        "return_pct": 0.41,
+        "pnl_usdt": 20.81
+      },
+      "LINK": {
+        "return_pct": 0.51,
+        "pnl_usdt": 26.06
+      }
+    }
+  },
+  {
+    "month": "2025-11",
+    "instruments": {
+      "SOL": {
+        "return_pct": 2.14,
+        "pnl_usdt": 330.88
+      },
+      "NEAR": {
+        "return_pct": 1.21,
+        "pnl_usdt": 62.17
+      },
+      "LINK": {
+        "return_pct": 1.09,
+        "pnl_usdt": 56.25
+      }
+    }
+  },
+  {
+    "month": "2025-12",
+    "instruments": {
+      "SOL": {
+        "return_pct": 0.73,
+        "pnl_usdt": 114.49
+      },
+      "NEAR": {
+        "return_pct": -0.34,
+        "pnl_usdt": -17.91
+      },
+      "LINK": {
+        "return_pct": 1.25,
+        "pnl_usdt": 65.72
+      }
+    }
+  },
+  {
+    "month": "2026-01",
+    "instruments": {
+      "SOL": {
+        "return_pct": 0.74,
+        "pnl_usdt": 117.84
+      },
+      "NEAR": {
+        "return_pct": 0.94,
+        "pnl_usdt": 49.78
+      },
+      "LINK": {
+        "return_pct": 0.72,
+        "pnl_usdt": 37.89
+      }
+    }
+  },
+  {
+    "month": "2026-02",
+    "instruments": {
+      "SOL": {
+        "return_pct": 0.38,
+        "pnl_usdt": 60.21
+      },
+      "NEAR": {
+        "return_pct": 1.2,
+        "pnl_usdt": 64.0
+      },
+      "LINK": {
+        "return_pct": 2.93,
+        "pnl_usdt": 155.58
+      }
+    }
+  },
+  {
+    "month": "2026-03",
+    "instruments": {
+      "SOL": {
+        "return_pct": 1.06,
+        "pnl_usdt": 170.39
+      },
+      "NEAR": {
+        "return_pct": 1.05,
+        "pnl_usdt": 56.2
+      },
+      "LINK": {
+        "return_pct": 0.12,
+        "pnl_usdt": 6.47
+      }
+    }
+  },
+  {
+    "month": "2026-04",
+    "instruments": {
+      "SOL": {
+        "return_pct": -0.0,
+        "pnl_usdt": -0.35
+      },
+      "NEAR": {
+        "return_pct": 0.63,
+        "pnl_usdt": 33.98
+      },
+      "LINK": {
+        "return_pct": 0.0,
+        "pnl_usdt": 0.01
+      }
+    }
+  },
+  {
+    "month": "2026-05",
+    "instruments": {
+      "SOL": {
+        "return_pct": 0.41,
+        "pnl_usdt": 66.85
+      },
+      "NEAR": {
+        "return_pct": 3.37,
+        "pnl_usdt": 182.96
+      },
+      "LINK": {
+        "return_pct": 1.2,
+        "pnl_usdt": 65.24
+      }
+    }
+  },
+  {
+    "month": "2026-06",
+    "instruments": {
+      "SOL": {
+        "return_pct": 1.56,
+        "pnl_usdt": 257.33
+      },
+      "NEAR": {
+        "return_pct": -0.79,
+        "pnl_usdt": -43.34
+      },
+      "LINK": {
+        "return_pct": 0.89,
+        "pnl_usdt": 49.05
+      }
+    }
+  }
+]

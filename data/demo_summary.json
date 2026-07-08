@@ -1,0 +1,79 @@
+{
+  "demo_start_date": "2026-07",
+  "current_equity": 922.83,
+  "start_equity": 0.0,
+  "current_month_return": 0.0,
+  "current_month_profit": 0,
+  "closed_trades": 0,
+  "open_positions": 0,
+  "current_drawdown": 0.0,
+  "current_win_rate": 0.0,
+  "current_pf": null,
+  "current_status": "Demo-торговля активна",
+  "last_update": "2026-07-06T14:13:50+00:00",
+  "trades": [],
+  "daily": [
+    {
+      "date": "2026-07-06",
+      "return_pct": 0.0,
+      "pnl_usdt": 0.0
+    }
+  ],
+  "equity_curve": [
+    {
+      "date": "2026-07-06",
+      "return_pct": 0.0,
+      "pnl_usdt": 0
+    }
+  ],
+  "risk_control": {
+    "enabled": true,
+    "threshold_pct": -2.0,
+    "risk_mult": 0.25,
+    "leader_risk_mult": 1.5,
+    "rule": "symbol_mtd <= -2% => risk x0.25; current MTD leader => risk x1.5 until monthly rebalance",
+    "active_symbols": [],
+    "leader_symbol": null,
+    "symbols": [
+      {
+        "symbol": "LINKUSDT",
+        "active_notional": 200.0,
+        "pending_pnl": 0.0,
+        "mtd_pct": 0.0,
+        "risk_mult": 1.0,
+        "throttled": false
+      },
+      {
+        "symbol": "NEARUSDT",
+        "active_notional": 200.0,
+        "pending_pnl": 0.0,
+        "mtd_pct": 0.0,
+        "risk_mult": 1.0,
+        "throttled": false
+      },
+      {
+        "symbol": "SOLUSDT",
+        "active_notional": 600.0,
+        "pending_pnl": 0.0,
+        "mtd_pct": 0.0,
+        "risk_mult": 1.0,
+        "throttled": false
+      }
+    ],
+    "symbols_cfg": [
+      "SOLUSDT",
+      "NEARUSDT",
+      "LINKUSDT"
+    ],
+    "historical_overlay": {
+      "name": "symbol_mtd_leader_boost_le-2_x0.25_x1.5",
+      "monthly_sum": 368.56,
+      "avg_month": 5.58,
+      "maxdd": 3.48,
+      "pf": 2.42,
+      "positive_months": 64,
+      "months": 66,
+      "worst_month": -0.74
+    }
+  }
+}

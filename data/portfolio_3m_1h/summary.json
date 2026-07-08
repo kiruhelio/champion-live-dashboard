@@ -1,0 +1,41 @@
+{
+  "title": "Absolute Champion 3m + 1h Portfolio",
+  "mode": "PORTFOLIO · 3m / 1h · SOL 60 / NEAR 20 / LINK 20 · NO REINVEST",
+  "start_capital": 1000.0,
+  "final_equity": 1112.92,
+  "total_return_pct": 11.29,
+  "profit_factor": 2.0,
+  "win_rate": 30.7,
+  "max_drawdown_pct": 0.03,
+  "total_trades": 20278,
+  "total_months": 66,
+  "positive_months": 63,
+  "negative_months": 1,
+  "avg_monthly_return": 0.17,
+  "best_month": {
+    "month": "2021-01",
+    "return_pct": 0.82,
+    "profit": 8.21,
+    "trades": 740,
+    "win_rate": 35.1,
+    "pf": 3.03,
+    "gross_profit": 12.25,
+    "gross_loss": 4.04
+  },
+  "worst_month": {
+    "month": "2023-04",
+    "return_pct": -0.01,
+    "profit": -0.12,
+    "trades": 72,
+    "win_rate": 20.8,
+    "pf": 0.68,
+    "gross_profit": 0.25,
+    "gross_loss": 0.37
+  },
+  "portfolio": {
+    "SOL": 60,
+    "NEAR": 20,
+    "LINK": 20
+  },
+  "source": "/home/ubuntu/.hermes/bots/champion_live_bot/candidate_A_raw_symbol_feature_trades.csv"
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Absolute Champion 3m + 1h</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--line:rgba(255,255,255,.1);--text:#f5f5f7;--muted:#9ca3af;--green:#30d158;--red:#ff453a}
+*{box-sizing:border-box}body{margin:0;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;background:radial-gradient(circle at 20% 0,rgba(10,132,255,.20),transparent 32%),linear-gradient(180deg,#06080c,#090c10)}
+.app{display:grid;grid-template-columns:280px 1fr;min-height:100vh}aside{position:sticky;top:0;height:100vh;padding:28px 20px;border-right:1px solid var(--line);background:rgba(12,16,22,.86)}
+.logo{width:52px;height:52px;border-radius:15px;background:linear-gradient(145deg,#fff,#b8bec8);color:#05070a;display:grid;place-items:center;font-weight:900;font-size:26px}.brand{display:flex;gap:14px;align-items:center;margin-bottom:36px}.brand h1{margin:0;font-size:24px;line-height:1.05}.brand p{margin:5px 0 0;color:var(--muted);font-size:13px}
+nav a{display:block;color:#d1d5db;text-decoration:none;padding:13px 16px;border-radius:15px;margin:6px 0;font-size:15px}nav a:hover,nav a.active{background:rgba(255,255,255,.08);color:#fff}
+.side-card{position:absolute;left:20px;right:20px;bottom:30px;border:1px solid var(--line);border-radius:20px;padding:18px;background:rgba(255,255,255,.045)}
+main{padding:30px 36px 42px}.top{display:flex;justify-content:space-between;gap:20px;margin-bottom:22px}.title h2{font-size:40px;line-height:1;margin:0 0 8px}.title p{margin:0;color:#9fb4c9;font-size:16px}.badge{font-size:13px;color:var(--green);border:1px solid rgba(48,209,88,.35);border-radius:999px;padding:5px 10px;margin-left:10px}.pill{border:1px solid var(--line);border-radius:999px;padding:12px 18px;background:rgba(255,255,255,.06);height:max-content}
+.grid{display:grid;gap:16px}.kpis{grid-template-columns:repeat(6,1fr);margin-bottom:16px}.card{border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.035));padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.35);overflow:hidden}.label{color:#c7c7cc;font-size:13px;margin-bottom:10px}.value{font-size:30px;font-weight:800}.sub{color:var(--muted);font-size:13px;margin-top:6px}.green{color:var(--green)}.red{color:var(--red)}
+.charts{grid-template-columns:1.12fr .88fr;margin-bottom:16px}.chart-card{height:345px}.chart-card canvas{width:100%!important;height:265px!important}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.section-title h3{margin:0;font-size:18px}.section-title span{color:var(--muted);font-size:13px}
+.lower{grid-template-columns:1fr 1fr;margin-bottom:16px}.years{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.mini{border:1px solid var(--line);border-radius:15px;padding:13px;background:rgba(0,0,0,.15)}.mini b{display:block;font-size:21px;margin:5px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th:first-child,td:first-child{text-align:left}th{color:var(--muted);font-weight:600}.table-wrap{overflow:auto;max-height:520px}
+#error{display:none;position:fixed;z-index:9999;left:16px;right:16px;top:16px;background:#ff453a;color:white;border-radius:14px;padding:14px;font-weight:700}
+@media(max-width:1100px){.app{grid-template-columns:1fr}aside{display:none}main{padding:16px}.kpis,.charts,.lower{grid-template-columns:1fr}.years{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="error"></div>
+<div class="app">
+<aside>
+<div class="brand"><div class="logo">3</div><div><h1>Champion<br>3m+1h</h1><p>Portfolio dashboard</p></div></div>
+<nav><a class="active">⌘ Overview</a><a>↗ Performance</a><a>◷ Yearly</a><a>▦ Monthly</a><a>◎ Symbols</a></nav>
+<div class="side-card"><div class="label">Portfolio</div><h3 class="green">SOL 60 / NEAR 20 / LINK 20</h3><p>Entry TF <b style="float:right">3m</b></p><p>Trend TF <b style="float:right">1h</b></p></div>
+</aside>
+<main>
+<div class="top"><div class="title"><h2>Absolute Champion <span class="badge">3m + 1h</span></h2><p>Updated algorithm · Portfolio SOL60 / NEAR20 / LINK20 · NO REINVEST</p></div><div class="pill">STATIC BACKTEST</div></div>
+<div class="grid kpis" id="kpis"></div>
+<div class="grid charts">
+<div class="card chart-card"><div class="section-title"><h3>Equity Curve</h3><span id="eqLabel"></span></div><canvas id="eqChart"></canvas></div>
+<div class="card chart-card"><div class="section-title"><h3>Drawdown Curve</h3><span id="ddLabel"></span></div><canvas id="ddChart"></canvas></div>
+</div>
+<div class="grid lower">
+<div class="card"><div class="section-title"><h3>Yearly Performance</h3><span>by year</span></div><div class="years" id="years"></div></div>
+<div class="card"><div class="section-title"><h3>Symbols</h3><span>SOL / NEAR / LINK</span></div><div class="years" id="symbols"></div></div>
+</div>
+<div class="card"><div class="section-title"><h3>Monthly Statistics</h3><span>all months</span></div><div class="table-wrap"><table><thead><tr><th>Месяц</th><th>Доходность</th><th>Profit</th><th>Сделки</th><th>PF</th><th>WR</th></tr></thead><tbody id="monthly"></tbody></table></div></div>
+</main>
+</div>
+<script>
+const BASE='/champion-live-dashboard/data/portfolio_3m_1h/';
+const fmt=(v,d=2)=>Number(v||0).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const plus=v=>Number(v)>=0?'+':''; const cls=v=>Number(v)>=0?'green':'red'; const byId=id=>document.getElementById(id);
+async function load(file){const url=BASE+file+'?v='+Date.now(); const r=await fetch(url,{cache:'no-store'}); if(!r.ok) throw new Error(url+' '+r.status); return await r.json();}
+function kpi(l,v,s,c=''){return `<div class="card"><div class="label">${l}</div><div class="value ${c}">${v}</div><div class="sub">${s||''}</div></div>`}
+function mini(l,v,s,c=''){return `<div class="mini"><span class="label">${l}</span><b class="${c}">${v}</b><span class="sub">${s||''}</span></div>`}
+function chart(id,labels,data,color,fill){new Chart(byId(id),{type:'line',data:{labels,datasets:[{data,borderColor:color,backgroundColor:fill,borderWidth:2,tension:.22,pointRadius:0,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#8b8f98',maxTicksLimit:8}},y:{grid:{color:'rgba(255,255,255,.08)'},ticks:{color:'#8b8f98'}}}}})}
+(async()=>{try{
+const [s,y,m,sym,e,d]=await Promise.all([load('summary.json'),load('yearly.json'),load('monthly.json'),load('symbols.json'),load('equity.json'),load('drawdown.json')]);
+byId('kpis').innerHTML=[
+kpi('Total Return',`${plus(s.total_return_pct)}${fmt(s.total_return_pct)}%`,'NO REINVEST',cls(s.total_return_pct)),
+kpi('Final Equity',`$${fmt(s.final_equity)}`,`From $${fmt(s.start_capital)}`),
+kpi('Profit Factor',s.profit_factor?fmt(s.profit_factor):'—','Strategy quality',s.profit_factor>=1?'green':'red'),
+kpi('Win Rate',`${fmt(s.win_rate,1)}%`,'Secondary metric'),
+kpi('Max Drawdown',`${fmt(s.max_drawdown_pct)}%`,'Risk first','red'),
+kpi('Total Trades',fmt(s.total_trades,0),`${s.total_months} months`)
+].join('');
+byId('eqLabel').textContent=`Start $${fmt(s.start_capital,0)} · End $${fmt(s.final_equity)}`;
+byId('ddLabel').textContent=`Max DD ${fmt(s.max_drawdown_pct)}%`;
+chart('eqChart',e.map(x=>x.month||x.date),e.map(x=>x.equity),'#30d158','rgba(48,209,88,.22)');
+chart('ddChart',d.map(x=>x.month||x.date),d.map(x=>-Math.abs(x.drawdown_pct)),'#ff453a','rgba(255,69,58,.18)');
+byId('years').innerHTML=y.map(r=>mini(r.year,`${plus(r.return_pct)}${fmt(r.return_pct)}%`,`PF ${r.pf?fmt(r.pf):'—'} · WR ${fmt(r.win_rate,1)}% · ${fmt(r.trades,0)} trades`,cls(r.return_pct))).join('');
+byId('symbols').innerHTML=sym.map(r=>mini(r.symbol.replace('USDT',''),`${plus(r.return_pct)}${fmt(r.return_pct)}%`,`PF ${r.pf?fmt(r.pf):'—'} · WR ${fmt(r.win_rate,1)}% · ${fmt(r.trades,0)} trades`,cls(r.return_pct))).join('');
+byId('monthly').innerHTML=m.map(r=>`<tr><td>${r.month}</td><td class="${cls(r.return_pct)}">${plus(r.return_pct)}${fmt(r.return_pct)}%</td><td class="${cls(r.profit)}">$${fmt(r.profit)}</td><td>${fmt(r.trades,0)}</td><td>${r.pf==null?'—':fmt(r.pf)}</td><td>${fmt(r.win_rate,1)}%</td></tr>`).join('');
+}catch(e){byId('error').style.display='block';byId('error').textContent='Dashboard error: '+e.message;console.error(e)}})();
+</script>
+</body>
+</html>
