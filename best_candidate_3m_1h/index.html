@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Absolute Champion · Best Candidate (Standalone)</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{
+  --bg:#05070a;--panel:#10151d;--line:rgba(255,255,255,.1);
+  --text:#f5f5f7;--muted:#9ca3af;--green:#30d158;--red:#ff453a
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 25% 0,rgba(10,132,255,.18),transparent 30%),linear-gradient(180deg,#06080c,#090c10);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
+aside{position:fixed;left:0;top:0;bottom:0;width:220px;background:#0b0f14;border-right:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:10px}
+.brand{font-weight:700;letter-spacing:.5px}.brand small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+nav a{display:block;padding:8px 10px;border-radius:8px;color:#cfd3da;text-decoration:none;font-size:13px}nav a.active{background:#111620;color:#fff}
+.mode{font-size:11px;color:var(--muted)}.mode b{color:#7ee787}
+main{margin-left:240px;padding:18px;display:flex;flex-direction:column;gap:14px}
+header{display:flex;justify-content:space-between;align-items:center}
+kbd{background:#111620;border:1px solid var(--line);padding:2px 8px;border-radius:6px;color:#cdd3dc}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}.card .label{font-size:11px;color:var(--muted)}.card .value{font-size:20px;font-weight:700;margin-top:4px}.card .sub{font-size:11px;color:var(--muted);margin-top:2px}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chart-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px;min-height:240px}.chart-card h3{margin:0 0 8px;font-size:13px;color:#cfd3dc}
+.bottom{display:grid;grid-template-columns:1fr 1fr;gap:10px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}.panel h3{margin:0 0 8px;font-size:13px;color:#cfd3dc}
+.minis{display:flex;flex-wrap:wrap;gap:8px}.mini{background:#0d1118;border:1px solid var(--line);border-radius:10px;padding:8px 10px;min-width:110px}.mini .label{font-size:10px;color:var(--muted)}.mini b{display:block;margin-top:2px;font-size:13px}
+.green{color:var(--green)}.red{color:var(--red)}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:11px}th,td{text-align:right;padding:6px;border-bottom:1px solid var(--line);color:#e6e8ee}th:first-child,td:first-child{text-align:left}
+.heat{display:grid;grid-template-columns:64px repeat(12,1fr);gap:2px;margin-top:8px}.cell{background:#0d1118;border:1px solid var(--line);border-radius:6px;padding:6px;text-align:center;font-size:11px;color:#e6e8ee}
+.cell.p1{background:rgba(48,209,88,.18)}.cell.p2{background:rgba(48,209,88,.34)}.cell.p3{background:rgba(48,209,88,.52)}.cell.neg{background:rgba(255,69,58,.22)}
+.footer{margin-top:4px;font-size:11px;color:var(--muted)}
+</style>
+</head>
+<body>
+<aside>
+  <div class="brand">A<small>Absolute Champion<br/>Systematic Crypto Portfolio</small></div>
+  <nav>
+    <a href="#" class="active">Overview</a>
+    <a href="#">Performance</a>
+    <a href="#">Monthly Analysis</a>
+    <a href="#">Yearly Analysis</a>
+    <a href="#">Demo Trading</a>
+  </nav>
+  <div class="mode">Strategy Mode<br/><b>NO REINVEST</b><br/><br/>Allocation<br/>SOL 70%<br/>NEAR 30%<br/>LINK 0%</div>
+</aside>
+<main>
+  <header>
+    <div>
+      <h1 style="margin:0;font-size:22px">Absolute Champion</h1>
+      <div style="color:var(--muted);font-size:12px">Systematic Crypto Portfolio · Best Candidate · Demo Trading</div>
+    </div>
+    <div><kbd id="dt">DEMO LIVE</kbd></div>
+  </header>
+  <div class="cards" id="kpis"></div>
+  <div class="charts">
+    <div class="chart-card">
+      <h3>Equity Curve (NO REINVEST) <small style="color:#8b8f98">Start: $1,000</small></h3>
+      <span id="eqspan" style="color:#8b8f98"></span>
+      <canvas id="eq" style="max-height:220px"></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>Drawdown Curve (NO REINVEST) <small style="color:#8b8f98">Max DD</small></h3>
+      <span id="ddspan" style="color:#8b8f98"></span>
+      <canvas id="dd" style="max-height:220px"></canvas>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="panel">
+      <h3>Yearly Performance <small style="color:#8b8f98;float:right">2021 → today</small></h3>
+      <div id="years" class="minis"></div>
+    </div>
+    <div class="panel">
+      <h3>Performance Summary <small style="color:#8b8f98;float:right">All time</small></h3>
+      <div id="summary" class="minis"></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Monthly Returns Heatmap <small style="color:#8b8f98;float:right" id="monthgridSub">66 months</small></h3>
+    <div id="heat" class="heat"></div>
+  </div>
+  <div class="panel">
+    <h3>Monthly Return Contribution by Instrument</h3>
+    <div style="color:#8b8f98;font-size:11px">SOL / NEAR / LINK · вклад в доходность портфеля, %</div>
+    <table>
+      <thead><tr><th>Месяц</th><th>SOL %</th><th>NEAR %</th><th>LINK %</th><th>Итого %</th></tr></thead>
+      <tbody id="inst"></tbody>
+    </table>
+  </div>
+  <div class="footer">Best Candidate: SOL70/NEAR30 · 3m + 1h · Base/Rev Trail 0.75 · one_bar_confirm · NO REINVEST. Monthly Reinvest modes marked as RESEARCH ONLY.</div>
+</main>
+<script>
+const DATA = {"summary": {"start_capital": 1000.0, "final_equity": 28973.65, "total_return_pct": 2797.36, "profit_factor": 2.13, "win_rate": 48.2, "max_drawdown_pct": 4.62, "total_trades": 15033, "trades_per_day": 6.86, "total_months": 66, "positive_months": 64, "negative_months": 2, "best_month": {"month": "2021-01", "return_pct": 159.52}, "worst_month": {"month": "2023-04", "return_pct": -0.19}, "avg_trades_per_month": 227.8, "avg_monthly_return": 6.35, "median_monthly_return": 1.48}, "equity": [{"m": "2021-01", "v": 2595.21, "dd": 0.0}, {"m": "2021-02", "v": 3750.41, "dd": 0.0}, {"m": "2021-03", "v": 4524.62, "dd": 0.0}, {"m": "2021-04", "v": 5567.4, "dd": 0.0}, {"m": "2021-05", "v": 6649.44, "dd": 0.0}, {"m": "2021-06", "v": 7412.27, "dd": 0.0}, {"m": "2021-07", "v": 7908.53, "dd": 0.0}, {"m": "2021-08", "v": 8875.33, "dd": 0.0}, {"m": "2021-09", "v": 10205.82, "dd": 0.0}, {"m": "2021-10", "v": 10815.4, "dd": 0.0}, {"m": "2021-11", "v": 11271.98, "dd": 0.0}, {"m": "2021-12", "v": 11679.34, "dd": 0.0}, {"m": "2022-01", "v": 12331.35, "dd": 0.0}, {"m": "2022-02", "v": 12655.63, "dd": 0.0}, {"m": "2022-03", "v": 12871.31, "dd": 0.0}, {"m": "2022-04", "v": 13325.93, "dd": 0.0}, {"m": "2022-05", "v": 14240.11, "dd": 0.0}, {"m": "2022-06", "v": 15311.53, "dd": 0.0}, {"m": "2022-07", "v": 15466.08, "dd": 0.0}, {"m": "2022-08", "v": 15626.88, "dd": 0.0}, {"m": "2022-09", "v": 15830.46, "dd": 0.0}, {"m": "2022-10", "v": 15833.0, "dd": 0.0}, {"m": "2022-11", "v": 16744.76, "dd": 0.0}, {"m": "2022-12", "v": 16936.89, "dd": 0.0}, {"m": "2023-01", "v": 17513.1, "dd": 0.0}, {"m": "2023-02", "v": 17737.25, "dd": 0.0}, {"m": "2023-03", "v": 18008.45, "dd": 0.0}, {"m": "2023-04", "v": 17975.32, "dd": -0.18}, {"m": "2023-05", "v": 17943.48, "dd": -0.36}, {"m": "2023-06", "v": 18284.46, "dd": 0.0}, {"m": "2023-07", "v": 18456.52, "dd": 0.0}, {"m": "2023-08", "v": 18530.91, "dd": 0.0}, {"m": "2023-09", "v": 18549.74, "dd": 0.0}, {"m": "2023-10", "v": 18884.98, "dd": 0.0}, {"m": "2023-11", "v": 19541.47, "dd": 0.0}, {"m": "2023-12", "v": 20389.37, "dd": 0.0}, {"m": "2024-01", "v": 21186.7, "dd": 0.0}, {"m": "2024-02", "v": 21428.8, "dd": 0.0}, {"m": "2024-03", "v": 22560.1, "dd": 0.0}, {"m": "2024-04", "v": 23169.25, "dd": 0.0}, {"m": "2024-05", "v": 23458.35, "dd": 0.0}, {"m": "2024-06", "v": 23602.75, "dd": 0.0}, {"m": "2024-07", "v": 23821.58, "dd": 0.0}, {"m": "2024-08", "v": 24238.47, "dd": 0.0}, {"m": "2024-09", "v": 24446.97, "dd": 0.0}, {"m": "2024-10", "v": 24486.14, "dd": 0.0}, {"m": "2024-11", "v": 24683.07, "dd": 0.0}, {"m": "2024-12", "v": 25143.48, "dd": 0.0}, {"m": "2025-01", "v": 25568.39, "dd": 0.0}, {"m": "2025-02", "v": 26105.0, "dd": 0.0}, {"m": "2025-03", "v": 26251.04, "dd": 0.0}, {"m": "2025-04", "v": 26578.44, "dd": 0.0}, {"m": "2025-05", "v": 26711.83, "dd": 0.0}, {"m": "2025-06", "v": 26789.23, "dd": 0.0}, {"m": "2025-07", "v": 26900.8, "dd": 0.0}, {"m": "2025-08", "v": 27057.24, "dd": 0.0}, {"m": "2025-09", "v": 27070.49, "dd": 0.0}, {"m": "2025-10", "v": 27351.39, "dd": 0.0}, {"m": "2025-11", "v": 27767.55, "dd": 0.0}, {"m": "2025-12", "v": 27782.86, "dd": 0.0}, {"m": "2026-01", "v": 27876.29, "dd": 0.0}, {"m": "2026-02", "v": 28196.53, "dd": 0.0}, {"m": "2026-03", "v": 28346.33, "dd": 0.0}, {"m": "2026-04", "v": 28357.57, "dd": 0.0}, {"m": "2026-05", "v": 28561.75, "dd": 0.0}, {"m": "2026-06", "v": 28973.65, "dd": 0.0}], "yearly": [{"y": "2021", "ret": 1067.93, "trades": 5380}, {"y": "2022", "ret": 45.12, "trades": 2541}, {"y": "2023", "ret": 20.38, "trades": 2000}, {"y": "2024", "ret": 23.25, "trades": 2635}, {"y": "2025", "ret": 10.49, "trades": 1572}, {"y": "2026", "ret": 4.29, "trades": 905}], "monthly": [{"m": "2021-01", "ret": 159.5208, "trades": 534}, {"m": "2021-02", "ret": 44.5718, "trades": 425}, {"m": "2021-03", "ret": 20.5429, "trades": 446}, {"m": "2021-04", "ret": 23.0244, "trades": 421}, {"m": "2021-05", "ret": 19.6168, "trades": 430}, {"m": "2021-06", "ret": 11.4075, "trades": 527}, {"m": "2021-07", "ret": 6.6336, "trades": 463}, {"m": "2021-08", "ret": 12.2088, "trades": 451}, {"m": "2021-09", "ret": 15.0847, "trades": 496}, {"m": "2021-10", "ret": 5.8989, "trades": 406}, {"m": "2021-11", "ret": 4.2556, "trades": 330}, {"m": "2021-12", "ret": 3.5506, "trades": 451}, {"m": "2022-01", "ret": 5.655, "trades": 307}, {"m": "2022-02", "ret": 2.5963, "trades": 247}, {"m": "2022-03", "ret": 1.7322, "trades": 190}, {"m": "2022-04", "ret": 3.476, "trades": 304}, {"m": "2022-05", "ret": 6.9012, "trades": 417}, {"m": "2022-06", "ret": 7.5296, "trades": 380}, {"m": "2022-07", "ret": 0.9881, "trades": 212}, {"m": "2022-08", "ret": 1.0389, "trades": 167}, {"m": "2022-09", "ret": 1.3139, "trades": 85}, {"m": "2022-10", "ret": 0.0403, "trades": 25}, {"m": "2022-11", "ret": 5.7451, "trades": 168}, {"m": "2022-12", "ret": 1.121, "trades": 39}, {"m": "2023-01", "ret": 3.3961, "trades": 328}, {"m": "2023-02", "ret": 1.3206, "trades": 158}, {"m": "2023-03", "ret": 1.5132, "trades": 188}, {"m": "2023-04", "ret": -0.1924, "trades": 68}, {"m": "2023-05", "ret": -0.1491, "trades": 20}, {"m": "2023-06", "ret": 1.9106, "trades": 141}, {"m": "2023-07", "ret": 0.9662, "trades": 128}, {"m": "2023-08", "ret": 0.3576, "trades": 54}, {"m": "2023-09", "ret": 0.0779, "trades": 35}, {"m": "2023-10", "ret": 1.7857, "trades": 162}, {"m": "2023-11", "ret": 3.5129, "trades": 345}, {"m": "2023-12", "ret": 4.3666, "trades": 373}, {"m": "2024-01", "ret": 3.8535, "trades": 327}, {"m": "2024-02", "ret": 1.2107, "trades": 149}, {"m": "2024-03", "ret": 5.2259, "trades": 414}, {"m": "2024-04", "ret": 2.7239, "trades": 311}, {"m": "2024-05", "ret": 1.2481, "trades": 189}, {"m": "2024-06", "ret": 0.6203, "trades": 83}, {"m": "2024-07", "ret": 0.9332, "trades": 184}, {"m": "2024-08", "ret": 1.7214, "trades": 214}, {"m": "2024-09", "ret": 0.8492, "trades": 124}, {"m": "2024-10", "ret": 0.1967, "trades": 107}, {"m": "2024-11", "ret": 0.7733, "trades": 326}, {"m": "2024-12", "ret": 1.8874, "trades": 207}, {"m": "2025-01", "ret": 1.6825, "trades": 176}, {"m": "2025-02", "ret": 2.091, "trades": 245}, {"m": "2025-03", "ret": 0.5986, "trades": 153}, {"m": "2025-04", "ret": 1.1964, "trades": 139}, {"m": "2025-05", "ret": 0.5025, "trades": 120}, {"m": "2025-06", "ret": 0.3196, "trades": 61}, {"m": "2025-07", "ret": 0.3962, "trades": 102}, {"m": "2025-08", "ret": 0.5527, "trades": 121}, {"m": "2025-09", "ret": 0.0759, "trades": 56}, {"m": "2025-10", "ret": 1.0556, "trades": 149}, {"m": "2025-11", "ret": 1.5168, "trades": 199}, {"m": "2025-12", "ret": 0.0592, "trades": 51}, {"m": "2026-01", "ret": 0.3369, "trades": 82}, {"m": "2026-02", "ret": 1.1635, "trades": 166}, {"m": "2026-03", "ret": 0.4818, "trades": 141}, {"m": "2026-04", "ret": 0.0718, "trades": 39}, {"m": "2026-05", "ret": 0.7152, "trades": 167}, {"m": "2026-06", "ret": 1.447, "trades": 310}], "inst": [{"m": "2021-01", "sol": 111.66456, "near": 47.85624, "link": 0.0, "total": 159.5208}, {"m": "2021-02", "sol": 31.20026, "near": 13.371540000000001, "link": 0.0, "total": 44.5718}, {"m": "2021-03", "sol": 14.380029999999998, "near": 6.16287, "link": 0.0, "total": 20.5429}, {"m": "2021-04", "sol": 16.117079999999998, "near": 6.9073199999999995, "link": 0.0, "total": 23.0244}, {"m": "2021-05", "sol": 13.73176, "near": 5.88504, "link": 0.0, "total": 19.6168}, {"m": "2021-06", "sol": 7.98525, "near": 3.42225, "link": 0.0, "total": 11.4075}, {"m": "2021-07", "sol": 4.64352, "near": 1.99008, "link": 0.0, "total": 6.6336}, {"m": "2021-08", "sol": 8.546159999999999, "near": 3.6626399999999997, "link": 0.0, "total": 12.2088}, {"m": "2021-09", "sol": 10.559289999999999, "near": 4.52541, "link": 0.0, "total": 15.0847}, {"m": "2021-10", "sol": 4.12923, "near": 1.76967, "link": 0.0, "total": 5.8989}, {"m": "2021-11", "sol": 2.97892, "near": 1.27668, "link": 0.0, "total": 4.2556}, {"m": "2021-12", "sol": 2.48542, "near": 1.06518, "link": 0.0, "total": 3.5506}, {"m": "2022-01", "sol": 3.9585, "near": 1.6965000000000001, "link": 0.0, "total": 5.655}, {"m": "2022-02", "sol": 1.8174099999999997, "near": 0.77889, "link": 0.0, "total": 2.5963}, {"m": "2022-03", "sol": 1.21254, "near": 0.51966, "link": 0.0, "total": 1.7322}, {"m": "2022-04", "sol": 2.4332, "near": 1.0428, "link": 0.0, "total": 3.476}, {"m": "2022-05", "sol": 4.83084, "near": 2.07036, "link": 0.0, "total": 6.9012}, {"m": "2022-06", "sol": 5.27072, "near": 2.25888, "link": 0.0, "total": 7.5296}, {"m": "2022-07", "sol": 0.6916699999999999, "near": 0.29642999999999997, "link": 0.0, "total": 0.9881}, {"m": "2022-08", "sol": 0.7272299999999999, "near": 0.31166999999999995, "link": 0.0, "total": 1.0389}, {"m": "2022-09", "sol": 0.9197299999999999, "near": 0.39417, "link": 0.0, "total": 1.3139}, {"m": "2022-10", "sol": 0.02821, "near": 0.01209, "link": 0.0, "total": 0.0403}, {"m": "2022-11", "sol": 4.02157, "near": 1.72353, "link": 0.0, "total": 5.7451}, {"m": "2022-12", "sol": 0.7847, "near": 0.3363, "link": 0.0, "total": 1.121}, {"m": "2023-01", "sol": 2.3772699999999998, "near": 1.01883, "link": 0.0, "total": 3.3961}, {"m": "2023-02", "sol": 0.9244199999999999, "near": 0.39618, "link": 0.0, "total": 1.3206}, {"m": "2023-03", "sol": 1.05924, "near": 0.45396000000000003, "link": 0.0, "total": 1.5132}, {"m": "2023-04", "sol": -0.13468, "near": -0.057719999999999994, "link": 0.0, "total": -0.1924}, {"m": "2023-05", "sol": -0.10437, "near": -0.04473, "link": 0.0, "total": -0.1491}, {"m": "2023-06", "sol": 1.33742, "near": 0.57318, "link": 0.0, "total": 1.9106}, {"m": "2023-07", "sol": 0.6763399999999999, "near": 0.28985999999999995, "link": 0.0, "total": 0.9662}, {"m": "2023-08", "sol": 0.25032, "near": 0.10727999999999999, "link": 0.0, "total": 0.3576}, {"m": "2023-09", "sol": 0.054529999999999995, "near": 0.02337, "link": 0.0, "total": 0.0779}, {"m": "2023-10", "sol": 1.24999, "near": 0.53571, "link": 0.0, "total": 1.7857}, {"m": "2023-11", "sol": 2.45903, "near": 1.05387, "link": 0.0, "total": 3.5129}, {"m": "2023-12", "sol": 3.0566199999999997, "near": 1.30998, "link": 0.0, "total": 4.3666}, {"m": "2024-01", "sol": 2.69745, "near": 1.15605, "link": 0.0, "total": 3.8535}, {"m": "2024-02", "sol": 0.8474900000000001, "near": 0.36321000000000003, "link": 0.0, "total": 1.2107}, {"m": "2024-03", "sol": 3.65813, "near": 1.56777, "link": 0.0, "total": 5.2259}, {"m": "2024-04", "sol": 1.9067299999999998, "near": 0.81717, "link": 0.0, "total": 2.7239}, {"m": "2024-05", "sol": 0.87367, "near": 0.37443, "link": 0.0, "total": 1.2481}, {"m": "2024-06", "sol": 0.43420999999999993, "near": 0.18608999999999998, "link": 0.0, "total": 0.6203}, {"m": "2024-07", "sol": 0.6532399999999999, "near": 0.27996, "link": 0.0, "total": 0.9332}, {"m": "2024-08", "sol": 1.20498, "near": 0.51642, "link": 0.0, "total": 1.7214}, {"m": "2024-09", "sol": 0.59444, "near": 0.25476, "link": 0.0, "total": 0.8492}, {"m": "2024-10", "sol": 0.13769, "near": 0.05901, "link": 0.0, "total": 0.1967}, {"m": "2024-11", "sol": 0.54131, "near": 0.23198999999999997, "link": 0.0, "total": 0.7733}, {"m": "2024-12", "sol": 1.3211799999999998, "near": 0.56622, "link": 0.0, "total": 1.8874}, {"m": "2025-01", "sol": 1.17775, "near": 0.50475, "link": 0.0, "total": 1.6825}, {"m": "2025-02", "sol": 1.4637, "near": 0.6273000000000001, "link": 0.0, "total": 2.091}, {"m": "2025-03", "sol": 0.41902, "near": 0.17958, "link": 0.0, "total": 0.5986}, {"m": "2025-04", "sol": 0.8374799999999999, "near": 0.35891999999999996, "link": 0.0, "total": 1.1964}, {"m": "2025-05", "sol": 0.35174999999999995, "near": 0.15074999999999997, "link": 0.0, "total": 0.5025}, {"m": "2025-06", "sol": 0.22371999999999997, "near": 0.09587999999999999, "link": 0.0, "total": 0.3196}, {"m": "2025-07", "sol": 0.27734, "near": 0.11886, "link": 0.0, "total": 0.3962}, {"m": "2025-08", "sol": 0.38688999999999996, "near": 0.16580999999999999, "link": 0.0, "total": 0.5527}, {"m": "2025-09", "sol": 0.05313, "near": 0.02277, "link": 0.0, "total": 0.0759}, {"m": "2025-10", "sol": 0.73892, "near": 0.31668, "link": 0.0, "total": 1.0556}, {"m": "2025-11", "sol": 1.0617599999999998, "near": 0.45503999999999994, "link": 0.0, "total": 1.5168}, {"m": "2025-12", "sol": 0.04144, "near": 0.01776, "link": 0.0, "total": 0.0592}, {"m": "2026-01", "sol": 0.23582999999999996, "near": 0.10107, "link": 0.0, "total": 0.3369}, {"m": "2026-02", "sol": 0.8144499999999999, "near": 0.34904999999999997, "link": 0.0, "total": 1.1635}, {"m": "2026-03", "sol": 0.33726, "near": 0.14454, "link": 0.0, "total": 0.4818}, {"m": "2026-04", "sol": 0.05026, "near": 0.02154, "link": 0.0, "total": 0.0718}, {"m": "2026-05", "sol": 0.50064, "near": 0.21455999999999997, "link": 0.0, "total": 0.7152}, {"m": "2026-06", "sol": 1.0129, "near": 0.4341, "link": 0.0, "total": 1.447}]};
+const fmt=(v,d=2)=>Number(v).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const plus=v=>v>=0?'+':'';
+const cls=v=>v>=0?'green':'red';
+function k(label,val,sub,c=''){return `<div class="card"><div class="label">${label}</div><div class="value ${c}">${val}</div><div class="sub">${sub||''}</div></div>`}
+function mini(label,val,sub,c=''){return `<div class="mini"><span class="label">${label}</span><b class="${c}">${val}</b><span class="sub">${sub||''}</span></div>`}
+function makeChart(id,labels,data,color,fill){new Chart(document.getElementById(id),{type:'line',data:{labels,datasets:[{data,borderColor:color,backgroundColor:fill,borderWidth:2,tension:.18,pointRadius:0,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#8b8f98',maxTicksLimit:7}},y:{grid:{color:'rgba(255,255,255,.08)'},ticks:{color:'#8b8f98'}}}})}
+(()=>{
+const s=DATA.summary;
+const m=DATA.monthly;
+const y=DATA.yearly;
+const e=DATA.equity;
+const d=DATA.equity.map(x=>x.dd);
+document.getElementById('dt').textContent=new Date().toLocaleString();
+const best_month=s&&s.best_month?`${s.best_month.month} · ${plus(s.best_month.return_pct)}${fmt(s.best_month.return_pct)}%`:'';
+const worst_month=s&&s.worst_month?`${s.worst_month.month} · ${plus(s.worst_month.return_pct)}${fmt(s.worst_month.return_pct)}%`:'';
+const total_months=m?m.length:0;
+document.getElementById('kpis').innerHTML=[
+  k('Total Return',`+${fmt(s.total_return_pct)}%`,'NO REINVEST','green'),
+  k('Final Equity',`$${fmt(s.final_equity)}`,`From $$${fmt(s.start_capital)}`),
+  k('Profit Factor',fmt(s.profit_factor),'Strategy quality','green'),
+  k('Win Rate',`${fmt(s.win_rate,1)}%`,'Secondary metric'),
+  k('Max Drawdown',`${fmt(s.max_drawdown_pct)}%`,'Risk first','red'),
+  k('Total Trades',fmt(s.total_trades,0),`${total_months} months`)
+].join('');
+const ddVals=d.map(x=>-Math.abs(x));
+const maxDD=d.length?Math.min(...d):0;
+document.getElementById('ddspan').textContent=`Max DD: ${fmt(maxDD)}%`;
+document.getElementById('eqspan').textContent=`Start: $1,000 · End: $$${fmt(s.final_equity)}`;
+makeChart('eq',e.map(x=>x.m),e.map(x=>x.v),'#30d158','rgba(48,209,88,.22)');
+makeChart('dd',e.map(x=>x.m),ddVals,'#ff453a','rgba(255,69,58,.18)');
+const monsHTML=(y||[]).map(r=>mini(r.y,`${plus(r.ret)}${fmt(r.ret)}%`,`Trades: ${r.trades}`,cls(r.ret))).join('');
+document.getElementById('years').innerHTML=monsHTML;
+document.getElementById('summary').innerHTML=[
+  mini('Total Months',s.total_months||total_months),
+  mini('Profitable Months',s.positive_months,`${fmt((s.positive_months/(s.total_months||1))*100,1)}%`,'green'),
+  mini('Losing Months',s.negative_months,`${fmt((s.negative_months/(s.total_months||1))*100,1)}%`,'red'),
+  mini('Best Month',best_month,'','green'),
+  mini('Worst Month',worst_month,'','red'),
+  mini('Avg Trades / Month',s.avg_trades_per_month||0)
+].join('');
+document.getElementById('monthgridSub').textContent=`${m.length} months`;
+const monthNames=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+let by={};m.forEach(r=>{const yr=r.m.slice(0,4);const mo=Number(r.m.slice(5,7))-1;(by[yr]||(by[yr]={}))[mo]=r;});
+let h='<div></div>'+monthNames.map(x=>`<div class="cell">${x}</div>`).join('');
+Object.keys(by).sort().forEach(yr=>{h+=`<div class="cell">${yr}</div>`;for(let i=0;i<12;i++){const r=by[yr]&&by[yr][i];if(!r){h+='<div class="cell">—</div>';continue}const v=Number(r.ret||0);const c=v<0?'neg':v>50?'p3':v>20?'p2':'p1';h+=`<div class="cell ${c}">${plus(v)}${fmt(v,1)}%</div>`}});
+document.getElementById('heat').innerHTML=h;
+const instRows=(DATA.inst||[]).map(r=>`<tr><td>${r.m}</td><td>${plus(r.sol)}${fmt(r.sol,2)}%</td><td>${plus(r.near)}${fmt(r.near,2)}%</td><td>${plus(r.link)}${fmt(r.link,2)}%</td><td>${plus(r.total)}${fmt(r.total,2)}%</td></tr>`).join('');
+document.getElementById('inst').innerHTML=instRows;
+})();
+</script>
+</body>
+</html>
