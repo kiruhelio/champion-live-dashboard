@@ -1,0 +1,24 @@
+{
+  "start_capital": 1000.0,
+  "final_equity": 28973.65,
+  "total_return_pct": 2797.36,
+  "profit_factor": 2.13,
+  "win_rate": 48.2,
+  "max_drawdown_pct": 4.62,
+  "total_trades": 15033,
+  "trades_per_day": 6.86,
+  "total_months": 66,
+  "positive_months": 64,
+  "negative_months": 2,
+  "best_month": {
+    "month": "2021-01",
+    "return_pct": 159.52
+  },
+  "worst_month": {
+    "month": "2023-04",
+    "return_pct": -0.19
+  },
+  "avg_trades_per_month": 227.8,
+  "avg_monthly_return": 6.35,
+  "median_monthly_return": 1.48
+}
