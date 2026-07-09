@@ -1,0 +1,20 @@
+[
+  {
+    "symbol": "SOL",
+    "trades": 6983,
+    "wins": 3357,
+    "losses": 3626,
+    "win_rate": 48.07,
+    "contribution_pct": 1372.22,
+    "share_of_return_pct": 49.05
+  },
+  {
+    "symbol": "NEAR",
+    "trades": 8050,
+    "wins": 3884,
+    "losses": 4166,
+    "win_rate": 48.25,
+    "contribution_pct": 1425.14,
+    "share_of_return_pct": 50.95
+  }
+]

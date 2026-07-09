@@ -1,0 +1,1190 @@
+[
+  {
+    "month": "2021-01",
+    "total_return_pct": 159.52,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 72.97,
+        "trades": 271,
+        "wins": 127,
+        "losses": 144
+      },
+      "NEAR": {
+        "contribution_pct": 86.55,
+        "trades": 263,
+        "wins": 127,
+        "losses": 136
+      }
+    }
+  },
+  {
+    "month": "2021-02",
+    "total_return_pct": 115.63,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 108.85,
+        "trades": 243,
+        "wins": 110,
+        "losses": 133
+      },
+      "NEAR": {
+        "contribution_pct": 6.78,
+        "trades": 182,
+        "wins": 81,
+        "losses": 101
+      }
+    }
+  },
+  {
+    "month": "2021-03",
+    "total_return_pct": 77.11,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 27.77,
+        "trades": 179,
+        "wins": 87,
+        "losses": 92
+      },
+      "NEAR": {
+        "contribution_pct": 49.34,
+        "trades": 267,
+        "wins": 126,
+        "losses": 141
+      }
+    }
+  },
+  {
+    "month": "2021-04",
+    "total_return_pct": 104.2,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -17.84,
+        "trades": 206,
+        "wins": 97,
+        "losses": 109
+      },
+      "NEAR": {
+        "contribution_pct": 122.04,
+        "trades": 215,
+        "wins": 121,
+        "losses": 94
+      }
+    }
+  },
+  {
+    "month": "2021-05",
+    "total_return_pct": 109.05,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 72.38,
+        "trades": 247,
+        "wins": 119,
+        "losses": 128
+      },
+      "NEAR": {
+        "contribution_pct": 36.67,
+        "trades": 183,
+        "wins": 87,
+        "losses": 96
+      }
+    }
+  },
+  {
+    "month": "2021-06",
+    "total_return_pct": 75.9,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 24.14,
+        "trades": 259,
+        "wins": 122,
+        "losses": 137
+      },
+      "NEAR": {
+        "contribution_pct": 51.76,
+        "trades": 268,
+        "wins": 142,
+        "losses": 126
+      }
+    }
+  },
+  {
+    "month": "2021-07",
+    "total_return_pct": 49.2,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 28.69,
+        "trades": 233,
+        "wins": 113,
+        "losses": 120
+      },
+      "NEAR": {
+        "contribution_pct": 20.51,
+        "trades": 230,
+        "wins": 104,
+        "losses": 126
+      }
+    }
+  },
+  {
+    "month": "2021-08",
+    "total_return_pct": 96.57,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 48.06,
+        "trades": 243,
+        "wins": 124,
+        "losses": 119
+      },
+      "NEAR": {
+        "contribution_pct": 48.51,
+        "trades": 208,
+        "wins": 105,
+        "losses": 103
+      }
+    }
+  },
+  {
+    "month": "2021-09",
+    "total_return_pct": 133.77,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 108.61,
+        "trades": 266,
+        "wins": 133,
+        "losses": 133
+      },
+      "NEAR": {
+        "contribution_pct": 25.16,
+        "trades": 230,
+        "wins": 102,
+        "losses": 128
+      }
+    }
+  },
+  {
+    "month": "2021-10",
+    "total_return_pct": 60.25,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 56.77,
+        "trades": 192,
+        "wins": 95,
+        "losses": 97
+      },
+      "NEAR": {
+        "contribution_pct": 3.48,
+        "trades": 214,
+        "wins": 95,
+        "losses": 119
+      }
+    }
+  },
+  {
+    "month": "2021-11",
+    "total_return_pct": 46.01,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 14.27,
+        "trades": 150,
+        "wins": 77,
+        "losses": 73
+      },
+      "NEAR": {
+        "contribution_pct": 31.74,
+        "trades": 180,
+        "wins": 95,
+        "losses": 85
+      }
+    }
+  },
+  {
+    "month": "2021-12",
+    "total_return_pct": 40.05,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 4.52,
+        "trades": 186,
+        "wins": 79,
+        "losses": 107
+      },
+      "NEAR": {
+        "contribution_pct": 35.53,
+        "trades": 265,
+        "wins": 118,
+        "losses": 147
+      }
+    }
+  },
+  {
+    "month": "2022-01",
+    "total_return_pct": 66.0,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 22.37,
+        "trades": 109,
+        "wins": 60,
+        "losses": 49
+      },
+      "NEAR": {
+        "contribution_pct": 43.63,
+        "trades": 198,
+        "wins": 100,
+        "losses": 98
+      }
+    }
+  },
+  {
+    "month": "2022-02",
+    "total_return_pct": 32.03,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 34.79,
+        "trades": 103,
+        "wins": 46,
+        "losses": 57
+      },
+      "NEAR": {
+        "contribution_pct": -2.76,
+        "trades": 144,
+        "wins": 63,
+        "losses": 81
+      }
+    }
+  },
+  {
+    "month": "2022-03",
+    "total_return_pct": 21.92,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 25.01,
+        "trades": 86,
+        "wins": 46,
+        "losses": 40
+      },
+      "NEAR": {
+        "contribution_pct": -3.09,
+        "trades": 104,
+        "wins": 47,
+        "losses": 57
+      }
+    }
+  },
+  {
+    "month": "2022-04",
+    "total_return_pct": 44.77,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 13.71,
+        "trades": 102,
+        "wins": 50,
+        "losses": 52
+      },
+      "NEAR": {
+        "contribution_pct": 31.06,
+        "trades": 202,
+        "wins": 97,
+        "losses": 105
+      }
+    }
+  },
+  {
+    "month": "2022-05",
+    "total_return_pct": 91.93,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 35.68,
+        "trades": 190,
+        "wins": 95,
+        "losses": 95
+      },
+      "NEAR": {
+        "contribution_pct": 56.25,
+        "trades": 227,
+        "wins": 103,
+        "losses": 124
+      }
+    }
+  },
+  {
+    "month": "2022-06",
+    "total_return_pct": 107.22,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 70.91,
+        "trades": 204,
+        "wins": 103,
+        "losses": 101
+      },
+      "NEAR": {
+        "contribution_pct": 36.31,
+        "trades": 176,
+        "wins": 91,
+        "losses": 85
+      }
+    }
+  },
+  {
+    "month": "2022-07",
+    "total_return_pct": 15.13,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 2.69,
+        "trades": 116,
+        "wins": 48,
+        "losses": 68
+      },
+      "NEAR": {
+        "contribution_pct": 12.44,
+        "trades": 96,
+        "wins": 39,
+        "losses": 57
+      }
+    }
+  },
+  {
+    "month": "2022-08",
+    "total_return_pct": 16.07,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 17.83,
+        "trades": 79,
+        "wins": 37,
+        "losses": 42
+      },
+      "NEAR": {
+        "contribution_pct": -1.76,
+        "trades": 88,
+        "wins": 39,
+        "losses": 49
+      }
+    }
+  },
+  {
+    "month": "2022-09",
+    "total_return_pct": 20.53,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 1.21,
+        "trades": 48,
+        "wins": 27,
+        "losses": 21
+      },
+      "NEAR": {
+        "contribution_pct": 19.32,
+        "trades": 37,
+        "wins": 17,
+        "losses": 20
+      }
+    }
+  },
+  {
+    "month": "2022-10",
+    "total_return_pct": 0.64,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 0.0,
+        "trades": 15,
+        "wins": 7,
+        "losses": 8
+      },
+      "NEAR": {
+        "contribution_pct": 0.64,
+        "trades": 10,
+        "wins": 4,
+        "losses": 6
+      }
+    }
+  },
+  {
+    "month": "2022-11",
+    "total_return_pct": 90.97,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 86.11,
+        "trades": 108,
+        "wins": 56,
+        "losses": 52
+      },
+      "NEAR": {
+        "contribution_pct": 4.86,
+        "trades": 60,
+        "wins": 25,
+        "losses": 35
+      }
+    }
+  },
+  {
+    "month": "2022-12",
+    "total_return_pct": 18.78,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 15.73,
+        "trades": 28,
+        "wins": 15,
+        "losses": 13
+      },
+      "NEAR": {
+        "contribution_pct": 3.05,
+        "trades": 11,
+        "wins": 5,
+        "losses": 6
+      }
+    }
+  },
+  {
+    "month": "2023-01",
+    "total_return_pct": 57.52,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 35.93,
+        "trades": 163,
+        "wins": 75,
+        "losses": 88
+      },
+      "NEAR": {
+        "contribution_pct": 21.59,
+        "trades": 165,
+        "wins": 71,
+        "losses": 94
+      }
+    }
+  },
+  {
+    "month": "2023-02",
+    "total_return_pct": 23.12,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 11.62,
+        "trades": 65,
+        "wins": 33,
+        "losses": 32
+      },
+      "NEAR": {
+        "contribution_pct": 11.5,
+        "trades": 93,
+        "wins": 48,
+        "losses": 45
+      }
+    }
+  },
+  {
+    "month": "2023-03",
+    "total_return_pct": 26.84,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 26.06,
+        "trades": 100,
+        "wins": 53,
+        "losses": 47
+      },
+      "NEAR": {
+        "contribution_pct": 0.78,
+        "trades": 88,
+        "wins": 43,
+        "losses": 45
+      }
+    }
+  },
+  {
+    "month": "2023-04",
+    "total_return_pct": -3.46,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 0.01,
+        "trades": 44,
+        "wins": 12,
+        "losses": 32
+      },
+      "NEAR": {
+        "contribution_pct": -3.47,
+        "trades": 24,
+        "wins": 7,
+        "losses": 17
+      }
+    }
+  },
+  {
+    "month": "2023-05",
+    "total_return_pct": -2.68,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -2.57,
+        "trades": 13,
+        "wins": 4,
+        "losses": 9
+      },
+      "NEAR": {
+        "contribution_pct": -0.11,
+        "trades": 7,
+        "wins": 4,
+        "losses": 3
+      }
+    }
+  },
+  {
+    "month": "2023-06",
+    "total_return_pct": 34.28,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 22.63,
+        "trades": 91,
+        "wins": 48,
+        "losses": 43
+      },
+      "NEAR": {
+        "contribution_pct": 11.65,
+        "trades": 50,
+        "wins": 26,
+        "losses": 24
+      }
+    }
+  },
+  {
+    "month": "2023-07",
+    "total_return_pct": 17.66,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 17.92,
+        "trades": 89,
+        "wins": 36,
+        "losses": 53
+      },
+      "NEAR": {
+        "contribution_pct": -0.26,
+        "trades": 39,
+        "wins": 21,
+        "losses": 18
+      }
+    }
+  },
+  {
+    "month": "2023-08",
+    "total_return_pct": 6.6,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -0.35,
+        "trades": 38,
+        "wins": 19,
+        "losses": 19
+      },
+      "NEAR": {
+        "contribution_pct": 6.95,
+        "trades": 16,
+        "wins": 8,
+        "losses": 8
+      }
+    }
+  },
+  {
+    "month": "2023-09",
+    "total_return_pct": 1.44,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 0.0,
+        "trades": 32,
+        "wins": 15,
+        "losses": 17
+      },
+      "NEAR": {
+        "contribution_pct": 1.44,
+        "trades": 3,
+        "wins": 2,
+        "losses": 1
+      }
+    }
+  },
+  {
+    "month": "2023-10",
+    "total_return_pct": 33.13,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -4.22,
+        "trades": 115,
+        "wins": 52,
+        "losses": 63
+      },
+      "NEAR": {
+        "contribution_pct": 37.35,
+        "trades": 47,
+        "wins": 25,
+        "losses": 22
+      }
+    }
+  },
+  {
+    "month": "2023-11",
+    "total_return_pct": 66.32,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 33.78,
+        "trades": 180,
+        "wins": 89,
+        "losses": 91
+      },
+      "NEAR": {
+        "contribution_pct": 32.54,
+        "trades": 165,
+        "wins": 81,
+        "losses": 84
+      }
+    }
+  },
+  {
+    "month": "2023-12",
+    "total_return_pct": 85.31,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 44.27,
+        "trades": 210,
+        "wins": 104,
+        "losses": 106
+      },
+      "NEAR": {
+        "contribution_pct": 41.04,
+        "trades": 163,
+        "wins": 87,
+        "losses": 76
+      }
+    }
+  },
+  {
+    "month": "2024-01",
+    "total_return_pct": 78.61,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 72.17,
+        "trades": 160,
+        "wins": 75,
+        "losses": 85
+      },
+      "NEAR": {
+        "contribution_pct": 6.44,
+        "trades": 167,
+        "wins": 88,
+        "losses": 79
+      }
+    }
+  },
+  {
+    "month": "2024-02",
+    "total_return_pct": 25.63,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 8.92,
+        "trades": 42,
+        "wins": 24,
+        "losses": 18
+      },
+      "NEAR": {
+        "contribution_pct": 16.71,
+        "trades": 107,
+        "wins": 50,
+        "losses": 57
+      }
+    }
+  },
+  {
+    "month": "2024-03",
+    "total_return_pct": 112.04,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -245.37,
+        "trades": 179,
+        "wins": 92,
+        "losses": 87
+      },
+      "NEAR": {
+        "contribution_pct": 357.41,
+        "trades": 235,
+        "wins": 123,
+        "losses": 112
+      }
+    }
+  },
+  {
+    "month": "2024-04",
+    "total_return_pct": 61.44,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 3.45,
+        "trades": 123,
+        "wins": 59,
+        "losses": 64
+      },
+      "NEAR": {
+        "contribution_pct": 57.99,
+        "trades": 188,
+        "wins": 103,
+        "losses": 85
+      }
+    }
+  },
+  {
+    "month": "2024-05",
+    "total_return_pct": 28.92,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 16.14,
+        "trades": 81,
+        "wins": 41,
+        "losses": 40
+      },
+      "NEAR": {
+        "contribution_pct": 12.78,
+        "trades": 108,
+        "wins": 48,
+        "losses": 60
+      }
+    }
+  },
+  {
+    "month": "2024-06",
+    "total_return_pct": 14.55,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 5.11,
+        "trades": 32,
+        "wins": 17,
+        "losses": 15
+      },
+      "NEAR": {
+        "contribution_pct": 9.44,
+        "trades": 51,
+        "wins": 22,
+        "losses": 29
+      }
+    }
+  },
+  {
+    "month": "2024-07",
+    "total_return_pct": 22.02,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 6.36,
+        "trades": 81,
+        "wins": 41,
+        "losses": 40
+      },
+      "NEAR": {
+        "contribution_pct": 15.66,
+        "trades": 103,
+        "wins": 53,
+        "losses": 50
+      }
+    }
+  },
+  {
+    "month": "2024-08",
+    "total_return_pct": 41.02,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -6.66,
+        "trades": 97,
+        "wins": 52,
+        "losses": 45
+      },
+      "NEAR": {
+        "contribution_pct": 47.68,
+        "trades": 117,
+        "wins": 63,
+        "losses": 54
+      }
+    }
+  },
+  {
+    "month": "2024-09",
+    "total_return_pct": 20.59,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 6.69,
+        "trades": 26,
+        "wins": 14,
+        "losses": 12
+      },
+      "NEAR": {
+        "contribution_pct": 13.9,
+        "trades": 98,
+        "wins": 48,
+        "losses": 50
+      }
+    }
+  },
+  {
+    "month": "2024-10",
+    "total_return_pct": 4.81,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -0.83,
+        "trades": 31,
+        "wins": 10,
+        "losses": 21
+      },
+      "NEAR": {
+        "contribution_pct": 5.64,
+        "trades": 76,
+        "wins": 29,
+        "losses": 47
+      }
+    }
+  },
+  {
+    "month": "2024-11",
+    "total_return_pct": 18.94,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 0.42,
+        "trades": 114,
+        "wins": 47,
+        "losses": 67
+      },
+      "NEAR": {
+        "contribution_pct": 18.52,
+        "trades": 212,
+        "wins": 98,
+        "losses": 114
+      }
+    }
+  },
+  {
+    "month": "2024-12",
+    "total_return_pct": 46.58,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -5.83,
+        "trades": 83,
+        "wins": 44,
+        "losses": 39
+      },
+      "NEAR": {
+        "contribution_pct": 52.41,
+        "trades": 124,
+        "wins": 68,
+        "losses": 56
+      }
+    }
+  },
+  {
+    "month": "2025-01",
+    "total_return_pct": 42.31,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -6.3,
+        "trades": 96,
+        "wins": 48,
+        "losses": 48
+      },
+      "NEAR": {
+        "contribution_pct": 48.61,
+        "trades": 80,
+        "wins": 41,
+        "losses": 39
+      }
+    }
+  },
+  {
+    "month": "2025-02",
+    "total_return_pct": 53.47,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 27.66,
+        "trades": 128,
+        "wins": 63,
+        "losses": 65
+      },
+      "NEAR": {
+        "contribution_pct": 25.81,
+        "trades": 117,
+        "wins": 50,
+        "losses": 67
+      }
+    }
+  },
+  {
+    "month": "2025-03",
+    "total_return_pct": 15.62,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 0.58,
+        "trades": 71,
+        "wins": 31,
+        "losses": 40
+      },
+      "NEAR": {
+        "contribution_pct": 15.04,
+        "trades": 82,
+        "wins": 39,
+        "losses": 43
+      }
+    }
+  },
+  {
+    "month": "2025-04",
+    "total_return_pct": 31.42,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 15.46,
+        "trades": 65,
+        "wins": 32,
+        "losses": 33
+      },
+      "NEAR": {
+        "contribution_pct": 15.96,
+        "trades": 74,
+        "wins": 39,
+        "losses": 35
+      }
+    }
+  },
+  {
+    "month": "2025-05",
+    "total_return_pct": 13.36,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -0.06,
+        "trades": 33,
+        "wins": 13,
+        "losses": 20
+      },
+      "NEAR": {
+        "contribution_pct": 13.42,
+        "trades": 87,
+        "wins": 48,
+        "losses": 39
+      }
+    }
+  },
+  {
+    "month": "2025-06",
+    "total_return_pct": 8.54,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -0.36,
+        "trades": 31,
+        "wins": 11,
+        "losses": 20
+      },
+      "NEAR": {
+        "contribution_pct": 8.9,
+        "trades": 30,
+        "wins": 18,
+        "losses": 12
+      }
+    }
+  },
+  {
+    "month": "2025-07",
+    "total_return_pct": 10.61,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 0.39,
+        "trades": 32,
+        "wins": 12,
+        "losses": 20
+      },
+      "NEAR": {
+        "contribution_pct": 10.22,
+        "trades": 70,
+        "wins": 32,
+        "losses": 38
+      }
+    }
+  },
+  {
+    "month": "2025-08",
+    "total_return_pct": 14.87,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 5.61,
+        "trades": 61,
+        "wins": 27,
+        "losses": 34
+      },
+      "NEAR": {
+        "contribution_pct": 9.26,
+        "trades": 60,
+        "wins": 28,
+        "losses": 32
+      }
+    }
+  },
+  {
+    "month": "2025-09",
+    "total_return_pct": 2.05,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 5.36,
+        "trades": 18,
+        "wins": 7,
+        "losses": 11
+      },
+      "NEAR": {
+        "contribution_pct": -3.31,
+        "trades": 38,
+        "wins": 14,
+        "losses": 24
+      }
+    }
+  },
+  {
+    "month": "2025-10",
+    "total_return_pct": 28.57,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 21.88,
+        "trades": 62,
+        "wins": 32,
+        "losses": 30
+      },
+      "NEAR": {
+        "contribution_pct": 6.69,
+        "trades": 87,
+        "wins": 38,
+        "losses": 49
+      }
+    }
+  },
+  {
+    "month": "2025-11",
+    "total_return_pct": 41.49,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 16.88,
+        "trades": 108,
+        "wins": 53,
+        "losses": 55
+      },
+      "NEAR": {
+        "contribution_pct": 24.61,
+        "trades": 91,
+        "wins": 51,
+        "losses": 40
+      }
+    }
+  },
+  {
+    "month": "2025-12",
+    "total_return_pct": 1.64,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 0.71,
+        "trades": 19,
+        "wins": 10,
+        "losses": 9
+      },
+      "NEAR": {
+        "contribution_pct": 0.93,
+        "trades": 32,
+        "wins": 11,
+        "losses": 21
+      }
+    }
+  },
+  {
+    "month": "2026-01",
+    "total_return_pct": 9.36,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 2.74,
+        "trades": 18,
+        "wins": 7,
+        "losses": 11
+      },
+      "NEAR": {
+        "contribution_pct": 6.62,
+        "trades": 64,
+        "wins": 32,
+        "losses": 32
+      }
+    }
+  },
+  {
+    "month": "2026-02",
+    "total_return_pct": 32.43,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 14.58,
+        "trades": 81,
+        "wins": 33,
+        "losses": 48
+      },
+      "NEAR": {
+        "contribution_pct": 17.85,
+        "trades": 85,
+        "wins": 38,
+        "losses": 47
+      }
+    }
+  },
+  {
+    "month": "2026-03",
+    "total_return_pct": 13.59,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 0.56,
+        "trades": 33,
+        "wins": 14,
+        "losses": 19
+      },
+      "NEAR": {
+        "contribution_pct": 13.03,
+        "trades": 108,
+        "wins": 47,
+        "losses": 61
+      }
+    }
+  },
+  {
+    "month": "2026-04",
+    "total_return_pct": 2.03,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -0.01,
+        "trades": 2,
+        "wins": 1,
+        "losses": 1
+      },
+      "NEAR": {
+        "contribution_pct": 2.04,
+        "trades": 37,
+        "wins": 19,
+        "losses": 18
+      }
+    }
+  },
+  {
+    "month": "2026-05",
+    "total_return_pct": 20.28,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": 0.19,
+        "trades": 1,
+        "wins": 1,
+        "losses": 0
+      },
+      "NEAR": {
+        "contribution_pct": 20.09,
+        "trades": 166,
+        "wins": 72,
+        "losses": 94
+      }
+    }
+  },
+  {
+    "month": "2026-06",
+    "total_return_pct": 41.33,
+    "symbols": {
+      "SOL": {
+        "contribution_pct": -1.19,
+        "trades": 72,
+        "wins": 33,
+        "losses": 39
+      },
+      "NEAR": {
+        "contribution_pct": 42.52,
+        "trades": 238,
+        "wins": 118,
+        "losses": 120
+      }
+    }
+  }
+]
