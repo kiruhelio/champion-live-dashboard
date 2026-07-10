@@ -1,0 +1,39 @@
+{
+  "total_trades": 15033.0,
+  "win_rate_pct": 48.17,
+  "profit_factor": 2.0536,
+  "max_dd_pct": 48.1835,
+  "recovery_factor": 4.655962640328144e+28,
+  "total_return_pct": 2.2434063297288598e+30,
+  "final_equity": 2.24340632972886e+31,
+  "avg_trade_pct": 1.4923211133698263e+26,
+  "trades_per_day": 6.86,
+  "gross_profit": 4.372597833351383e+31,
+  "gross_loss": 2.1291915036225217e+31,
+  "long_pnl": 1.4227170412343193e+31,
+  "short_pnl": 8.206892884945399e+30,
+  "reverse_trades": 2585.0,
+  "reverse_pct": 17.2,
+  "add_trades": 4839.0,
+  "add_pct": 32.19,
+  "best_trade": 1.3918862123917935e+30,
+  "worst_trade": -2.3261235574681617e+29,
+  "max_consecutive_losses": 11.0,
+  "risk_per_trade_pct": 1.0,
+  "mode": "fixed_1pct_risk_per_month",
+  "max_drawdown_pct": 48.1835,
+  "win_rate": 48.17,
+  "avg_monthly_return": 208.52734393939392,
+  "avg_monthly_return_pct": 208.52734393939392,
+  "total_months": 66,
+  "positive_months": 64,
+  "negative_months": 2,
+  "best_month": {
+    "month": "2021-01",
+    "return_pct": 825.4043
+  },
+  "worst_month": {
+    "month": "2023-04",
+    "return_pct": -18.3803
+  }
+}
