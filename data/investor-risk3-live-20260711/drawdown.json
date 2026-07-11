@@ -1,266 +1,270 @@
 [
   {
     "month": "2021-01",
-    "drawdown_pct": 15.242185084001699
+    "drawdown_pct": 9.818153
   },
   {
     "month": "2021-02",
-    "drawdown_pct": 13.688747033522613
+    "drawdown_pct": 17.617166
   },
   {
     "month": "2021-03",
-    "drawdown_pct": 7.656336579109205
+    "drawdown_pct": 16.251896
   },
   {
     "month": "2021-04",
-    "drawdown_pct": 9.342064771207474
+    "drawdown_pct": 6.71595
   },
   {
     "month": "2021-05",
-    "drawdown_pct": 10.96702160625641
+    "drawdown_pct": 9.682069
   },
   {
     "month": "2021-06",
-    "drawdown_pct": 15.059996122876179
+    "drawdown_pct": 8.447076
   },
   {
     "month": "2021-07",
-    "drawdown_pct": 10.348761588374092
+    "drawdown_pct": 15.145627
   },
   {
     "month": "2021-08",
-    "drawdown_pct": 10.647734022767757
+    "drawdown_pct": 12.907218
   },
   {
     "month": "2021-09",
-    "drawdown_pct": 9.883753556504084
+    "drawdown_pct": 9.42787
   },
   {
     "month": "2021-10",
-    "drawdown_pct": 10.367658472015766
+    "drawdown_pct": 12.570373
   },
   {
     "month": "2021-11",
-    "drawdown_pct": 6.8354456134658195
+    "drawdown_pct": 13.129626
   },
   {
     "month": "2021-12",
-    "drawdown_pct": 9.369351697205492
+    "drawdown_pct": 17.543336
   },
   {
     "month": "2022-01",
-    "drawdown_pct": 9.078030050866182
+    "drawdown_pct": 16.158405
   },
   {
     "month": "2022-02",
-    "drawdown_pct": 7.394681890818483
+    "drawdown_pct": 10.600503
   },
   {
     "month": "2022-03",
-    "drawdown_pct": 9.367447612253436
+    "drawdown_pct": 7.954096
   },
   {
     "month": "2022-04",
-    "drawdown_pct": 6.3605531056766305
+    "drawdown_pct": 7.457064
   },
   {
     "month": "2022-05",
-    "drawdown_pct": 14.680622425196601
+    "drawdown_pct": 6.751496
   },
   {
     "month": "2022-06",
-    "drawdown_pct": 11.185722162700062
+    "drawdown_pct": 6.413684
   },
   {
     "month": "2022-07",
-    "drawdown_pct": 7.856250345850739
+    "drawdown_pct": 10.283368
   },
   {
     "month": "2022-08",
-    "drawdown_pct": 9.447713764848615
+    "drawdown_pct": 10.914866
   },
   {
     "month": "2022-09",
-    "drawdown_pct": 5.048643086827657
+    "drawdown_pct": 7.931162
   },
   {
     "month": "2022-10",
-    "drawdown_pct": 8.357568473529563
+    "drawdown_pct": 23.601418
   },
   {
     "month": "2022-11",
-    "drawdown_pct": 7.443616620991661
+    "drawdown_pct": 8.692093
   },
   {
     "month": "2022-12",
-    "drawdown_pct": 10.746407756928896
+    "drawdown_pct": 21.312398
   },
   {
     "month": "2023-01",
-    "drawdown_pct": 9.112349541964702
+    "drawdown_pct": 15.641
   },
   {
     "month": "2023-02",
-    "drawdown_pct": 5.649627992840228
+    "drawdown_pct": 17.37378
   },
   {
     "month": "2023-03",
-    "drawdown_pct": 6.141138605193163
+    "drawdown_pct": 10.462047
   },
   {
     "month": "2023-04",
-    "drawdown_pct": 10.170811075868565
+    "drawdown_pct": 9.896062
   },
   {
     "month": "2023-05",
-    "drawdown_pct": 7.900765756785037
+    "drawdown_pct": 14.879147
   },
   {
     "month": "2023-06",
-    "drawdown_pct": 10.022997840750417
+    "drawdown_pct": 16.622596
   },
   {
     "month": "2023-07",
-    "drawdown_pct": 6.069746445528914
+    "drawdown_pct": 10.040698
   },
   {
     "month": "2023-08",
-    "drawdown_pct": 12.712282100549585
+    "drawdown_pct": 10.718384
   },
   {
     "month": "2023-09",
-    "drawdown_pct": 23.36519750680519
+    "drawdown_pct": 35.204918
   },
   {
     "month": "2023-10",
-    "drawdown_pct": 6.894043497654026
+    "drawdown_pct": 17.998584
   },
   {
     "month": "2023-11",
-    "drawdown_pct": 6.222046397141778
+    "drawdown_pct": 5.455295
   },
   {
     "month": "2023-12",
-    "drawdown_pct": 8.133051263675403
+    "drawdown_pct": 11.131488
   },
   {
     "month": "2024-01",
-    "drawdown_pct": 5.023843191758445
+    "drawdown_pct": 4.858236
   },
   {
     "month": "2024-02",
-    "drawdown_pct": 6.631235439025662
+    "drawdown_pct": 9.176223
   },
   {
     "month": "2024-03",
-    "drawdown_pct": 7.449332687342176
+    "drawdown_pct": 17.213259
   },
   {
     "month": "2024-04",
-    "drawdown_pct": 7.822235352591352
+    "drawdown_pct": 4.919819
   },
   {
     "month": "2024-05",
-    "drawdown_pct": 9.871184807558508
+    "drawdown_pct": 8.349778
   },
   {
     "month": "2024-06",
-    "drawdown_pct": 6.605163591942461
+    "drawdown_pct": 17.122886
   },
   {
     "month": "2024-07",
-    "drawdown_pct": 11.76565048756964
+    "drawdown_pct": 9.669365
   },
   {
     "month": "2024-08",
-    "drawdown_pct": 11.938379527779553
+    "drawdown_pct": 7.93371
   },
   {
     "month": "2024-09",
-    "drawdown_pct": 13.949394474615204
+    "drawdown_pct": 15.517723
   },
   {
     "month": "2024-10",
-    "drawdown_pct": 23.792870247630237
+    "drawdown_pct": 25.26363
   },
   {
     "month": "2024-11",
-    "drawdown_pct": 7.97899235157581
+    "drawdown_pct": 14.29539
   },
   {
     "month": "2024-12",
-    "drawdown_pct": 9.058937069210216
+    "drawdown_pct": 16.742497
   },
   {
     "month": "2025-01",
-    "drawdown_pct": 5.050216075971521
+    "drawdown_pct": 8.454765
   },
   {
     "month": "2025-02",
-    "drawdown_pct": 8.781189640087158
+    "drawdown_pct": 6.957474
   },
   {
     "month": "2025-03",
-    "drawdown_pct": 13.054686946242827
+    "drawdown_pct": 13.788742
   },
   {
     "month": "2025-04",
-    "drawdown_pct": 6.399719817700519
+    "drawdown_pct": 12.283748
   },
   {
     "month": "2025-05",
-    "drawdown_pct": 13.121143758335188
+    "drawdown_pct": 15.464478
   },
   {
     "month": "2025-06",
-    "drawdown_pct": 7.177382023613268
+    "drawdown_pct": 6.8853
   },
   {
     "month": "2025-07",
-    "drawdown_pct": 6.970736050172441
+    "drawdown_pct": 9.596343
   },
   {
     "month": "2025-08",
-    "drawdown_pct": 11.33565111208811
+    "drawdown_pct": 11.222543
   },
   {
     "month": "2025-09",
-    "drawdown_pct": 10.662248048952042
+    "drawdown_pct": 20.155895
   },
   {
     "month": "2025-10",
-    "drawdown_pct": 12.18597395537762
+    "drawdown_pct": 13.737489
   },
   {
     "month": "2025-11",
-    "drawdown_pct": 11.465778875766304
+    "drawdown_pct": 8.349912
   },
   {
     "month": "2025-12",
-    "drawdown_pct": 14.041922266160059
+    "drawdown_pct": 18.763715
   },
   {
     "month": "2026-01",
-    "drawdown_pct": 9.472938443822693
+    "drawdown_pct": 18.665092
   },
   {
     "month": "2026-02",
-    "drawdown_pct": 12.516346998771061
+    "drawdown_pct": 13.301678
   },
   {
     "month": "2026-03",
-    "drawdown_pct": 7.640589082930031
+    "drawdown_pct": 19.962751
   },
   {
     "month": "2026-04",
-    "drawdown_pct": 8.739059248089516
+    "drawdown_pct": 15.55051
   },
   {
     "month": "2026-05",
-    "drawdown_pct": 7.961716154352129
+    "drawdown_pct": 7.789692
   },
   {
     "month": "2026-06",
-    "drawdown_pct": 8.546828649913543
+    "drawdown_pct": 9.156578
+  },
+  {
+    "month": "2026-07",
+    "drawdown_pct": 0.864393
   }
 ]

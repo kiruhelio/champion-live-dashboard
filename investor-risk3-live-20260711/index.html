@@ -13,11 +13,11 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px;borde
 </style></head><body><div class="app"><aside>
 <div class="brand"><div class="logo">TF</div><div><h1>TrendFrend</h1><p>Дашборд инвестора</p></div></div>
 <nav><a class="active">⌘ Обзор</a><a>↗ Капитал</a><a>▦ Помесячно</a><a>◎ Инструменты</a><a>⚙ Настройки</a></nav>
-<div class="side-card"><div class="label">Режим</div><h3>Риск 3% без Фибоначчи</h3><p>SOL 70 / NEAR 30<br>Вход 3m + тренд 1h<br>ATR-фильтр 0.0<br>Резерв 2.5x<br>Плечо 3x изолированное</p></div>
-<div class="side-card"><div class="label">Защита маржи</div><h3>Лимит 90% эффективно</h3><p>Пропуск, если риск &lt;0.02%<br>или слишком малый номинал</p></div>
+<div class="side-card"><div class="label">Режим</div><h3>Риск 3% + DD throttle</h3><p>SOL 70 / NEAR 30<br>Вход 3m + тренд 1h<br>ATR-фильтр 0.0<br>Резерв 2.5x<br>Плечо 3x изолированное</p></div>
+<div class="side-card"><div class="label">Drawdown throttle</div><h3>0–5: 3% · 5–10: 2%</h3><p>10–15% DD: риск 1%<br>&gt;15% DD: риск 0.5%</p></div>
 </aside><main>
-<div class="top"><div class="title"><h2>TrendFrend <span class="badge">ВИД ИНВЕСТОРА</span></h2><p>SOL70/NEAR30 · текущий размер позиций · только бэктест истории</p></div><div class="pill" id="generated">загрузка…</div></div>
-<div class="notice">Историческая симуляция на реконструированных исполненных сделках. Реальное исполнение может отличаться.</div>
+<div class="top"><div class="title"><h2>TrendFrend <span class="badge">ВИД ИНВЕСТОРА</span></h2><p>SOL70/NEAR30 · риск 3% с drawdown throttle · только бэктест истории</p></div><div class="pill" id="generated">загрузка…</div></div>
+<div class="notice">Историческая симуляция: включён только DD throttle. Loss-streak / alternation / profit-lock не включались.</div>
 <div class="grid kpis" id="kpis"></div>
 <div class="grid charts">
 <div class="card chart-card"><div class="section"><h3>Кривая капитала</h3><span id="eq-sub"></span></div><canvas id="eq"></canvas></div>
@@ -57,7 +57,7 @@ Promise.all([load('summary.json'),load('monthly.json'),load('yearly.json'),load(
   ['PF',pf(s.profit_factor),'green','валовая прибыль / убыток'],
   ['Винрейт',s.win_rate.toFixed(2)+'%','',s.wins+' / '+s.losses+' / '+s.breakevens],
   ['Сделки',s.total_trades.toLocaleString(),'','пропущено '+s.skipped_min_effective_or_notional],
-  ['Риск',s.risk_per_trade_pct.toFixed(2)+'%','green','лимит маржи 0.9 · 3x']
+  ['Риск',s.risk_per_trade_pct.toFixed(2)+'%','green',s.dd_throttle_rules||'DD throttle']
  ];
  if(s.avg_trade_duration_hours!=null) ks.push(['Сред. длительность', s.avg_trade_duration_hours.toFixed(2)+'h','среднее время в сделке']);
  if(s.avg_risk_per_trade_pct!=null) ks.push(['Сред. риск/сделка', s.avg_risk_per_trade_pct.toFixed(3)+'%','после лимита']);
