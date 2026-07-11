@@ -15,8 +15,8 @@ rows=list(csv.DictReader(SRC.open()))
 rows.sort(key=lambda r:(float(r['entry_ts']), int(r['idx'])))
 
 equity=START; peak=START; gp=0.0; gl=0.0; wins=losses=breakevens=0
-monthly=defaultdict(lambda:{'profit_n':0.0,'trades':0,'wins':0,'losses':0,'be':0,'gp':0.0,'gl':0.0,'start_eq':None,'end_eq':None,'peak':None,'max_dd':0.0,'by_symbol':defaultdict(lambda:{'profit_n':0.0,'trades':0,'wins':0,'losses':0,'be':0})})
-yearly=defaultdict(lambda:{'profit_n':0.0,'trades':0,'wins':0,'losses':0,'be':0,'gp':0.0,'gl':0.0,'start_eq':None,'end_eq':None,'peak':None,'max_dd':0.0,'by_symbol':defaultdict(lambda:{'profit_n':0.0,'trades':0,'wins':0,'losses':0,'be':0})})
+monthly=defaultdict(lambda:{'profit_n':0.0,'trades':0,'wins':0,'losses':0,'be':0,'gp':0.0,'gl':0.0,'start_eq':None,'end_eq':None,'peak':None,'max_dd':0.0,'sum_ret':0.0,'by_symbol':defaultdict(lambda:{'profit_n':0.0,'trades':0,'wins':0,'losses':0,'gp':0.0,'gl':0.0})})
+yearly=defaultdict(lambda:{'profit_n':0.0,'trades':0,'wins':0,'losses':0,'be':0,'gp':0.0,'gl':0.0,'start_eq':None,'end_eq':None,'peak':None,'max_dd':0.0,'sum_ret':0.0,'by_symbol':defaultdict(lambda:{'profit_n':0.0,'trades':0,'wins':0,'losses':0,'gp':0.0,'gl':0.0})})
 instr=defaultdict(lambda:{'profit_n':0.0,'trades':0,'wins':0,'losses':0,'be':0,'gp':0.0,'gl':0.0})
 out=[]; durations=[]; risks=[]; rrs=[]; pnls=[]; skipped_min=0
 streak_type=None; streak_len=0; max_ws=0; max_ls=0
@@ -71,7 +71,7 @@ for r in rows:
     for bucket,key in [(monthly,month),(yearly,year)]:
         b=bucket[key]
         if b['start_eq'] is None: b['start_eq']=before; b['peak']=before
-        b['trades']+=1; b['profit_n']+=pnl; b['end_eq']=equity; b['peak']=max(b['peak'],equity)
+        b['trades']+=1; b['sum_ret']+=raw*100; b['profit_n']+=pnl; b['end_eq']=equity; b['peak']=max(b['peak'],equity)
         b['max_dd']=max(b['max_dd'], (b['peak']-equity)/b['peak']*100 if b['peak'] else 0)
         if win: b['wins']+=1; b['gp']+=pnl
         elif loss: b['losses']+=1; b['gl']+=abs(pnl)
@@ -87,21 +87,21 @@ for r in rows:
 
 def pf_f(gp,gl): return gp/gl if gl>0 else None
 def ret_f(start,end): return (end/start-1)*100 if start else 0
-monthly_list=[]; equity_m=[]; dd_m=[]
+monthly_list=[]; equity_m=[]; dd_m=[]; cum_ret=0.0
 for m in sorted(monthly):
-    b=monthly[m]; r=ret_f(b['start_eq'], b['end_eq']); p=pf_f(b['gp'], b['gl']); wr=b['wins']/b['trades']*100 if b['trades'] else 0
+    b=monthly[m]; r=b['sum_ret']; p=pf_f(b['gp'], b['gl']); wr=b['wins']/b['trades']*100 if b['trades'] else 0
     monthly_list.append({'month':m,'return_pct':r,'profit_n':b['profit_n'],'trades':b['trades'],'pf':p,'win_rate':wr,'max_dd_pct':b['max_dd'],'start_equity':b['start_eq'],'end_equity':b['end_eq'],'wins':b['wins'],'losses':b['losses'],'be':b['be']})
-    equity_m.append({'month':m,'equity':b['end_eq']})
+    cum_ret+=r; equity_m.append({'month':m,'equity':cum_ret})
     dd_m.append({'month':m,'drawdown_pct':b['max_dd']})
 yearly_list=[]
 for y in sorted(yearly):
-    b=yearly[y]; yearly_list.append({'year':y,'return_pct':ret_f(b['start_eq'], b['end_eq']),'profit_n':b['profit_n'],'trades':b['trades'],'pf':pf_f(b['gp'],b['gl']),'win_rate':b['wins']/b['trades']*100 if b['trades'] else 0,'max_dd_pct':b['max_dd'],'start_equity':b['start_eq'],'end_equity':b['end_eq'],'wins':b['wins'],'losses':b['losses'],'be':b['be']})
+    b=yearly[y]; yearly_list.append({'year':y,'return_pct':b['sum_ret'],'profit_n':b['profit_n'],'trades':b['trades'],'pf':pf_f(b['gp'],b['gl']),'win_rate':b['wins']/b['trades']*100 if b['trades'] else 0,'max_dd_pct':b['max_dd'],'start_equity':b['start_eq'],'end_equity':b['end_eq'],'wins':b['wins'],'losses':b['losses'],'be':b['be']})
 instr_list=[]
 for s,b in sorted(instr.items()):
     instr_list.append({'symbol':s,'profit_n':b['profit_n'],'trades':b['trades'],'wins':b['wins'],'losses':b['losses'],'be':b['be'],'pf':pf_f(b['gp'],b['gl']),'win_rate':b['wins']/b['trades']*100 if b['trades'] else 0})
 summary={
   'dashboard':DASH, 'generated_at':datetime.now(timezone.utc).isoformat(), 'source':str(SRC), 'mode':'Investor dashboard: SOL70/NEAR30 risk3 margin-capped current live logic.',
-  'start_equity':START, 'final_equity':equity, 'return_pct':(equity/START-1)*100, 'profit_factor':pf_f(gp,gl), 'win_rate':wins/(wins+losses+breakevens)*100 if (wins+losses+breakevens) else 0,
+  'start_equity':START, 'final_equity':equity, 'return_pct':sum(pnls), 'profit_factor':pf_f(gp,gl), 'win_rate':wins/(wins+losses+breakevens)*100 if (wins+losses+breakevens) else 0,
   'total_trades':wins+losses+breakevens, 'wins':wins, 'losses':losses, 'breakevens':breakevens, 'total_months':len(monthly_list), 'positive_months':sum(1 for x in monthly_list if x['return_pct']>0), 'negative_months':sum(1 for x in monthly_list if x['return_pct']<0),
   'avg_monthly_return':statistics.mean([x['return_pct'] for x in monthly_list]), 'median_monthly_return':statistics.median([x['return_pct'] for x in monthly_list]),
   'max_drawdown_pct': max((x['drawdown_pct'] for x in dd_m), default=0), 'worst_month_dd_pct': max((x['max_dd_pct'] for x in monthly_list), default=0),

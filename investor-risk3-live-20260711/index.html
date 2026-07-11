@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ru"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>TrendFrend Investor</title><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<title>TrendFrend · Дашборд инвестора</title><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 :root{--line:rgba(255,255,255,.12);--text:#f5f5f7;--muted:#a1a1aa;--green:#30d158;--red:#ff453a;--blue:#0a84ff;--orange:#ff9f0a}
 *{box-sizing:border-box}
@@ -11,70 +11,73 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px;borde
 .notice{border:1px solid rgba(255,159,10,.42);background:rgba(255,159,10,.08);border-radius:18px;padding:13px;color:#ffd7a0;margin-bottom:14px}
 @media(max-width:1200px){.app{grid-template-columns:1fr}aside{display:none}.kpis,.charts,.lower,.bottom,.cards{grid-template-columns:1fr}}
 </style></head><body><div class="app"><aside>
-<div class="brand"><div class="logo">TF</div><div><h1>TrendFrend</h1><p>Investor Dashboard</p></div></div>
-<nav><a class="active">⌘ Overview</a><a>↗ Equity</a><a>▦ Monthly</a><a>◎ Instruments</a><a>⚙ Settings</a></nav>
-<div class="side-card"><div class="label">Mode</div><h3>Risk 3% No Fibonacci</h3><p>SOL 70 / NEAR 30<br>3m entry + 1h trend<br>ATR filter 0.0<br>Reserve 2.5x<br>Leverage 3x isolated</p></div>
-<div class="side-card"><div class="label">Margin guard</div><h3>Cap 90% effective</h3><p>Skip if &lt;0.02% risk<br>or notional &lt;$20</p></div>
+<div class="brand"><div class="logo">TF</div><div><h1>TrendFrend</h1><p>Дашборд инвестора</p></div></div>
+<nav><a class="active">⌘ Обзор</a><a>↗ Капитал</a><a>▦ Помесячно</a><a>◎ Инструменты</a><a>⚙ Настройки</a></nav>
+<div class="side-card"><div class="label">Режим</div><h3>Риск 3% без Фибоначчи</h3><p>SOL 70 / NEAR 30<br>Вход 3m + тренд 1h<br>ATR-фильтр 0.0<br>Резерв 2.5x<br>Плечо 3x изолированное</p></div>
+<div class="side-card"><div class="label">Защита маржи</div><h3>Лимит 90% эффективно</h3><p>Пропуск, если риск &lt;0.02%<br>или слишком малый номинал</p></div>
 </aside><main>
-<div class="top"><div class="title"><h2>TrendFrend <span class="badge">INVESTOR VIEW</span></h2><p>SOL70/NEAR30 · current live sizing · history backtest only</p></div><div class="pill" id="generated">loading…</div></div>
-<div class="notice">Historical simulation based on reconstructed executed trades. Real execution may differ.</div>
+<div class="top"><div class="title"><h2>TrendFrend <span class="badge">ВИД ИНВЕСТОРА</span></h2><p>SOL70/NEAR30 · текущий размер позиций · только бэктест истории</p></div><div class="pill" id="generated">загрузка…</div></div>
+<div class="notice">Историческая симуляция на реконструированных исполненных сделках. Реальное исполнение может отличаться.</div>
 <div class="grid kpis" id="kpis"></div>
 <div class="grid charts">
-<div class="card chart-card"><div class="section"><h3>Equity curve</h3><span id="eq-sub"></span></div><canvas id="eq"></canvas></div>
-<div class="card chart-card"><div class="section"><h3>Drawdown</h3><span id="dd-sub"></span></div><canvas id="dd"></canvas></div>
+<div class="card chart-card"><div class="section"><h3>Кривая капитала</h3><span id="eq-sub"></span></div><canvas id="eq"></canvas></div>
+<div class="card chart-card"><div class="section"><h3>Просадка</h3><span id="dd-sub"></span></div><canvas id="dd"></canvas></div>
 </div>
 <div class="cards" id="streakCards"></div>
 <div class="grid lower">
-<div class="card"><div class="section"><h3>Instruments</h3><span>Win · Loss · Breakeven</span></div>
-<table><thead><tr><th>Symbol</th><th>Trades</th><th>Return</th><th>WR</th><th>PF</th><th>Win</th><th>Loss</th><th>0</th></tr></thead><tbody id="instrRows"></tbody></table></div>
-<div class="card"><div class="section"><h3>Pie</h3><span>Outcomes share</span></div>
+<div class="card"><div class="section"><h3>Инструменты</h3><span>Победы · Убытки · Ноль</span></div>
+<table><thead><tr><th>Пара</th><th>Сделки</th><th>Доход</th><th>Винрейт</th><th>PF</th><th>В</th><th>У</th><th>0</th></tr></thead><tbody id="instrRows"></tbody></table></div>
+<div class="card"><div class="section"><h3>Вклад</h3><span>Доля исходов</span></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
 <canvas id="wlPie" style="height:235px!important"></canvas>
 <canvas id="sidePie" style="height:235px!important"></canvas>
 </div></div>
 </div>
 <div class="grid bottom">
-<div class="card"><div class="section"><h3>Monthly performance</h3><span>Return % · trades · max DD %</span></div>
-<div class="table-wrap"><table><thead><tr><th>Month</th><th>Return</th><th>PF</th><th>WR</th><th>Trades</th><th>W/L/0</th><th>Max DD</th></tr></thead><tbody id="monthlyRows"></tbody></table></div></div>
-<div class="card"><div class="section"><h3>Years</h3><span>2021–2026 H1</span></div>
-<table><thead><tr><th>Year</th><th>Return</th><th>Trades</th><th>W/L/0</th><th>DD</th></tr></thead><tbody id="yearRows"></tbody></table></div>
+<div class="card"><div class="section"><h3>Помесячная результативность</h3><span>Доход % · сделки · макс. просадка %</span></div>
+<div class="table-wrap"><table><thead><tr><th>Месяц</th><th>Доход</th><th>PF</th><th>Винрейт</th><th>Сделки</th><th>В/У/0</th><th>Макс. просадка</th></tr></thead><tbody id="monthlyRows"></tbody></table></div></div>
+<div class="card"><div class="section"><h3>Годы</h3><span>2021–2026 H1</span></div>
+<table><thead><tr><th>Год</th><th>Доход</th><th>Сделки</th><th>В/У/0</th><th>Просадка</th></tr></thead><tbody id="yearRows"></tbody></table></div>
 </div>
 </main></div>
 <script>
 const BASE="/champion-live-dashboard/data/investor-risk3-live-20260711/";
 async function load(f){return fetch(BASE+f+'?v='+Date.now()).then(r=>{if(!r.ok)throw new Error(f+' '+r.status);return r.json()})}
-const sup=x=>{const m={'-':'⁻','+':'⁺','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};return x.toString().split('').map(c=>m[c]||c).join('')}; const big=x=>{if(x==null||!isFinite(x))return 'n/a';const v=Math.abs(x); if(v>1e12){const e=Math.floor(Math.log10(v));const m=v/Math.pow(10,e);return (x<0?'−':'')+m.toFixed(2)+'×10'+sup(e);} return v.toLocaleString('en-US',{maximumFractionDigits:2})}; const fmt=x=>{if(x==null||!isFinite(x))return 'n/a';const v=Math.abs(x); if(v>1e12){const e=Math.floor(Math.log10(v));const m=v/Math.pow(10,e);return (x>=0?'+':'−')+m.toFixed(2)+'×10'+sup(e)+'%';} return (x>=0?'+':'−')+v.toLocaleString('en-US',{maximumFractionDigits:2})+'%'}; const cls=x=>x>=0?'green':'red'; const pf=x=>x?x.toFixed(2):'∞';
+const sup=x=>{const m={'-':'⁻','+':'⁺','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};return x.toString().split('').map(c=>m[c]||c).join('')}; const big=x=>{if(x==null||!isFinite(x))return 'n/a';const v=Math.abs(x); if(v>1e12){const e=Math.floor(Math.log10(v));const m=v/Math.pow(10,e);return (x<0?'−':'')+m.toFixed(2)+'×10'+sup(e);} return v.toLocaleString('en-US',{maximumFractionDigits:2})}; const fmt=x=>{if(x==null||!isFinite(x))return 'n/a';const v=Math.abs(x); if(v>1e12){const e=Math.floor(Math.log10(v));const m=v/Math.pow(10,e);return (x>=0?'+':'−')+m.toFixed(2)+'×10'+sup(e)+'%';} return (x>=0?'+':'−')+v.toLocaleString('en-US',{maximumFractionDigits:2})+'%'}; const cls=x=>x>=0?'green':'red'; const pf=x=>x?x.toFixed(2):'∞'; const sideRu=x=>x==='LONG'?'ЛОНГ':x==='SHORT'?'ШОРТ':x;
 Promise.all([load('summary.json'),load('monthly.json'),load('yearly.json'),load('equity.json'),load('drawdown.json'),load('instruments.json')]).then(([s,m,y,e,d,ins])=>{
- document.getElementById('generated').textContent='Generated: '+new Date(s.generated_at).toLocaleString();
+ document.getElementById('generated').textContent='Сформировано: '+new Date(s.generated_at).toLocaleString();
+ document.getElementById('eq-sub').textContent='Итог: '+fmt(s.return_pct);
+ document.getElementById('dd-sub').textContent='Макс −'+s.max_drawdown_pct.toFixed(2)+'%';
+ const totalAdd=s.return_pct;
  const ks=[
-  ['Equity Index',big(s.final_equity/s.start_equity*100),'green','Start 100'],
-  ['Return',fmt(s.return_pct),'green','66 months'],
-  ['Max DD',fmt(-s.max_drawdown_pct),'red','trade curve'],
-  ['Worst month DD',fmt(-s.worst_month_dd_pct),'red','intra-month'],
-  ['PF',pf(s.profit_factor),'green','gross profit / loss'],
-  ['Win Rate',s.win_rate.toFixed(2)+'%','',s.wins+' / '+s.losses+' / '+s.breakevens],
-  ['Trades',s.total_trades.toLocaleString(),'','skipped '+s.skipped_min_effective_or_notional],
-  ['Risk',s.risk_per_trade_pct.toFixed(2)+'%','green','margin cap 0.9 · 3x']
+  ['Индекс капитала',big(100+totalAdd),'green','Старт 100'],
+  ['Доходность',fmt(totalAdd),'green',s.total_months+' месяцев'],
+  ['Макс. просадка',fmt(-s.max_drawdown_pct),'red','по кривой сделок'],
+  ['Худш. месяц просадка',fmt(-s.worst_month_dd_pct),'red','внутри месяца'],
+  ['PF',pf(s.profit_factor),'green','валовая прибыль / убыток'],
+  ['Винрейт',s.win_rate.toFixed(2)+'%','',s.wins+' / '+s.losses+' / '+s.breakevens],
+  ['Сделки',s.total_trades.toLocaleString(),'','пропущено '+s.skipped_min_effective_or_notional],
+  ['Риск',s.risk_per_trade_pct.toFixed(2)+'%','green','лимит маржи 0.9 · 3x']
  ];
- if(s.avg_trade_duration_hours!=null) ks.push(['Avg duration', s.avg_trade_duration_hours.toFixed(2)+'h','avg time in trade']);
- if(s.avg_risk_per_trade_pct!=null) ks.push(['Avg risk/trade', s.avg_risk_per_trade_pct.toFixed(3)+'%','effective after cap']);
- if(s.avg_rr!=null) ks.push(['Avg R/R', s.avg_rr.toFixed(2),'reward / risk']);
- if(s.best_trade_pct!=null) ks.push(['Best trade',fmt(s.best_trade_pct),'green',s.best_trade.symbol+' '+s.best_trade.side]);
- if(s.worst_trade_pct!=null) ks.push(['Worst trade',fmt(s.worst_trade_pct),'red',s.worst_trade.symbol+' '+s.worst_trade.side]);
- if(s.max_win_streak!=null) ks.push(['Longest win streak',s.max_win_streak,'green','consecutive']);
- if(s.max_loss_streak!=null) ks.push(['Longest loss streak',s.max_loss_streak,'red','consecutive']);
- if(s.avg_trades_per_month!=null) ks.push(['Avg trades / month',Math.round(s.avg_trades_per_month),'','trades/mo']);
- if(s.avg_trades_per_day!=null) ks.push(['Avg trades / day',Math.round(s.avg_trades_per_day),'','trades/day']);
+ if(s.avg_trade_duration_hours!=null) ks.push(['Сред. длительность', s.avg_trade_duration_hours.toFixed(2)+'h','среднее время в сделке']);
+ if(s.avg_risk_per_trade_pct!=null) ks.push(['Сред. риск/сделка', s.avg_risk_per_trade_pct.toFixed(3)+'%','после лимита']);
+ if(s.avg_rr!=null) ks.push(['Сред. R/R', s.avg_rr.toFixed(2),'прибыль / риск']);
+ if(s.best_trade_pct!=null) ks.push(['Лучшая сделка',fmt(s.best_trade_pct),'green',s.best_trade.symbol+' '+sideRu(s.best_trade.side)]);
+ if(s.worst_trade_pct!=null) ks.push(['Худшая сделка',fmt(s.worst_trade_pct),'red',s.worst_trade.symbol+' '+sideRu(s.worst_trade.side)]);
+ if(s.max_win_streak!=null) ks.push(['Макс. серия выигрышей',s.max_win_streak,'green','подряд']);
+ if(s.max_loss_streak!=null) ks.push(['Макс. серия убытков',s.max_loss_streak,'red','подряд']);
+ if(s.avg_trades_per_month!=null) ks.push(['Сделок/мес',Math.round(s.avg_trades_per_month),'сделок/мес']);
+ if(s.avg_trades_per_day!=null) ks.push(['Сделок/день',Math.round(s.avg_trades_per_day),'сделок/день']);
  document.getElementById('kpis').innerHTML=ks.map(a=>`<div class="card"><div class="label">${a[0]}</div><div class="value ${a[2]||''}">${a[1]}</div><div class="sub">${a[3]||''}</div></div>`).join('');
  const best=m.reduce((a,b)=>a.return_pct>b.return_pct?a:b), worst=m.reduce((a,b)=>a.return_pct<b.return_pct?a:b), ddworst=m.reduce((a,b)=>a.max_dd_pct>b.max_dd_pct?a:b);
- document.getElementById('streakCards').innerHTML=[['Avg month',fmt(s.avg_monthly_return),'green'],['Median',fmt(s.median_monthly_return),'green'],['Best',fmt(best.return_pct),'green',best.month],['Worst',fmt(worst.return_pct),cls(worst.return_pct),worst.month],['Worst DD',fmt(-ddworst.max_dd_pct),'red',ddworst.month],['Profitable months',s.positive_months+' / '+s.total_months,'green'],['Negative months',s.negative_months+' / '+s.total_months,'red'],['Risk floor','0.02%','orange']].map(a=>`<div class="mini"><span class="label">${a[0]}</span><b class="${a[2]||''}">${a[1]}</b><span class="sub">${a[3]||''}</span></div>`).join('');
+ document.getElementById('streakCards').innerHTML=[['Сред. месяц',fmt(s.avg_monthly_return),'green'],['Медиана',fmt(s.median_monthly_return),'green'],['Лучший',fmt(best.return_pct),'green',best.month],['Худший',fmt(worst.return_pct),cls(worst.return_pct),worst.month],['Худш. просадка',fmt(-ddworst.max_dd_pct),'red',ddworst.month],['Прибыльных месяцев',s.positive_months+' / '+s.total_months,'green'],['Убыточных месяцев',s.negative_months+' / '+s.total_months,'red'],['Пол риска','0.02%','orange']].map(a=>`<div class="mini"><span class="label">${a[0]}</span><b class="${a[2]||''}">${a[1]}</b><span class="sub">${a[3]||''}</span></div>`).join('');
  document.getElementById('monthlyRows').innerHTML=m.map(r=>`<tr><td><b>${r.month}</b></td><td class="${cls(r.return_pct)}">${fmt(r.return_pct)}</td><td>${pf(r.pf)}</td><td>${r.win_rate.toFixed(1)}%</td><td>${r.trades}</td><td>${r.wins} / ${r.losses} / ${r.be}</td><td class="red">${fmt(-r.max_dd_pct)}</td></tr>`).join('');
  document.getElementById('yearRows').innerHTML=y.map(r=>`<tr><td><b>${r.year}</b></td><td class="${cls(r.return_pct)}">${fmt(r.return_pct)}</td><td>${r.trades}</td><td>${r.wins} / ${r.losses} / ${r.be}</td><td class="red">${fmt(-r.max_dd_pct)}</td></tr>`).join('');
  document.getElementById('instrRows').innerHTML=ins.map(r=>`<tr><td><b>${r.symbol}</b></td><td>${r.trades}</td><td class="${cls(r.profit_n?((r.profit_n/s.start_equity)*100):0)}">${fmt(r.profit_n?((r.profit_n/s.start_equity)*100):0)}</td><td>${r.win_rate.toFixed(1)}%</td><td>${pf(r.pf)}</td><td>${r.wins}</td><td>${r.losses}</td><td>${r.be}</td></tr>`).join('');
  const wlData=[s.wins,s.losses,s.breakevens]; const sideData=[ins.reduce((a,b)=>a+b.wins,0), ins.reduce((a,b)=>a+b.losses,0), ins.reduce((a,b)=>a+b.be,0)];
- new Chart(document.getElementById('eq'),{type:'line',data:{labels:e.map(x=>x.month),datasets:[{label:'Cumulative return',data:e.map((x,i)=>({x:x.month,y:(x.equity/e[0].equity-1)*100})),borderColor:'#30d158',backgroundColor:'rgba(48,209,88,.20)',borderWidth:2,tension:.22,pointRadius:0,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Return '+fmt(c.parsed.y)}}},scales:{x:{grid:{display:false},ticks:{color:'#8b8f98',maxTicksLimit:8}},y:{grid:{color:'rgba(255,255,255,.08)'},ticks:{color:'#8b8f98',callback:v=>v.toFixed(0)+'%'}}}}});
- new Chart(document.getElementById('dd'),{type:'line',data:{labels:d.map(x=>x.month),datasets:[{label:'Drawdown',data:d.map(x=>({x:x.month,y:-x.drawdown_pct})),borderColor:'#ff453a',backgroundColor:'rgba(255,69,58,.17)',borderWidth:2,tension:.22,pointRadius:0,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'DD '+c.parsed.y.toFixed(2)+'%'}}},scales:{x:{grid:{display:false},ticks:{color:'#8b8f98',maxTicksLimit:8}},y:{min:-25,max:0,grid:{color:'rgba(255,255,255,.08)'},ticks:{color:'#8b8f98',callback:v=>v+'%'}}}}});
- new Chart(document.getElementById('wlPie'),{type:'doughnut',data:{labels:['Win','Loss','Breakeven'],datasets:[{data:wlData,backgroundColor:['#30d158','#ff453a','#ff9f0a'],borderWidth:0}]},options:{plugins:{legend:{position:'right',labels:{color:'#c7c7cc'}}},cutout:'58%'}});
+ new Chart(document.getElementById('eq'),{type:'line',data:{labels:e.map(x=>x.month),datasets:[{label:'Кумулятивная доходность',data:e.map(x=>x.equity),borderColor:'#30d158',backgroundColor:'rgba(48,209,88,.20)',borderWidth:2,tension:.22,pointRadius:0,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Доходность '+fmt(c.parsed.y)}}},scales:{x:{grid:{display:false},ticks:{color:'#8b8f98',maxTicksLimit:8}},y:{grid:{color:'rgba(255,255,255,.08)'},ticks:{color:'#8b8f98',callback:v=>v.toFixed(0)+'%'}}}}});
+ new Chart(document.getElementById('dd'),{type:'line',data:{labels:d.map(x=>x.month),datasets:[{label:'Просадка',data:d.map(x=>({x:x.month,y:-x.drawdown_pct})),borderColor:'#ff453a',backgroundColor:'rgba(255,69,58,.17)',borderWidth:2,tension:.22,pointRadius:0,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Просадка '+c.parsed.y.toFixed(2)+'%'}}},scales:{x:{grid:{display:false},ticks:{color:'#8b8f98',maxTicksLimit:8}},y:{min:-25,max:0,grid:{color:'rgba(255,255,255,.08)'},ticks:{color:'#8b8f98',callback:v=>v+'%'}}}}});
+ new Chart(document.getElementById('wlPie'),{type:'doughnut',data:{labels:['Победы','Убытки','Ноль'],datasets:[{data:wlData,backgroundColor:['#30d158','#ff453a','#ff9f0a'],borderWidth:0}]},options:{plugins:{legend:{position:'right',labels:{color:'#c7c7cc'}}},cutout:'58%'}});
  new Chart(document.getElementById('sidePie'),{type:'doughnut',data:{labels:ins.map(x=>x.symbol),datasets:[{data:ins.map(x=>x.profit_n?x.profit_n/s.start_equity*100:0),backgroundColor:['#30d158','#0a84ff'],borderWidth:0}]},options:{plugins:{legend:{position:'right',labels:{color:'#c7c7cc'}}},cutout:'58%'}});
 }).catch(e=>{const s=e.stack||String(e);document.body.innerHTML='<pre style="color:white;padding:30px">'+e+('\n'+s)+'</pre>'});
 </script></body></html>
