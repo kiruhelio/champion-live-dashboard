@@ -1,10 +1,10 @@
 {
   "dashboard": "investor-risk3-live-20260711",
-  "generated_at": "2026-07-11T09:07:04.227741+00:00",
+  "generated_at": "2026-07-11T14:18:35.437079+00:00",
   "source": "/home/ubuntu/.hermes/audits/realistic_history_audit_20260711/live_config_atr0_exchange_only/executed_trades.csv",
   "mode": "Investor dashboard: SOL70/NEAR30 risk3 margin-capped current live logic.",
-  "start_equity": 1005.0,
-  "final_equity": 1.018453092820268e+41,
+  "base_index": 100,
+  "equity_index": 8618.793761734823,
   "return_pct": 8518.793761734823,
   "profit_factor": 1.7836840780073877,
   "win_rate": 46.8092406221409,

@@ -1,7 +1,7 @@
 [
   {
     "symbol": "NEARUSDT",
-    "profit_n": 6.613218818799041e+40,
+    "return_pct": 4349.899206418717,
     "trades": 16321,
     "wins": 7648,
     "losses": 8673,
@@ -11,7 +11,7 @@
   },
   {
     "symbol": "SOLUSDT",
-    "profit_n": 3.5713121094036425e+40,
+    "return_pct": 4168.894555316059,
     "trades": 18655,
     "wins": 8724,
     "losses": 9931,
