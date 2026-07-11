@@ -1,6 +1,6 @@
 {
   "dashboard": "investor-risk3-live-20260711",
-  "generated_at": "2026-07-11T08:21:58.408329+00:00",
+  "generated_at": "2026-07-11T08:24:12.837105+00:00",
   "source": "/home/ubuntu/.hermes/audits/realistic_history_audit_20260711/live_config_atr0_exchange_only/executed_trades.csv",
   "mode": "Investor dashboard: SOL70/NEAR30 risk3 margin-capped current live logic.",
   "start_equity": 1005.0,
@@ -42,8 +42,8 @@
     "month": "2026-06",
     "side": "LONG"
   },
-  "max_win_streak": 0,
-  "max_loss_streak": 0,
+  "max_win_streak": 11,
+  "max_loss_streak": 14,
   "avg_trades_per_month": 529.939393939394,
   "avg_trades_per_day": 17.427910018581766
 }
