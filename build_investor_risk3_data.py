@@ -134,4 +134,5 @@ for t in out:
         cw=cl=0
 summary['max_win_streak']=max_ws
 summary['max_loss_streak']=max_ls
+(DATA/'summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
 print('streaks',max_ws,max_ls)

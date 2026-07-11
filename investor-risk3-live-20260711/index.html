@@ -35,7 +35,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px;borde
 </div>
 <div class="grid bottom">
 <div class="card"><div class="section"><h3>Monthly performance</h3><span>Return % · trades · max DD %</span></div>
-<div class="table-wrap"><table><thead><tr><th>Month</th><th>Return</th><th>PF</th><th>WR</th><th>Trades</th><th>W/L/0</th><th>Max DD</th><th>End Equity</th></tr></thead><tbody id="monthlyRows"></tbody></table></div></div>
+<div class="table-wrap"><table><thead><tr><th>Month</th><th>Return</th><th>PF</th><th>WR</th><th>Trades</th><th>W/L/0</th><th>Max DD</th></tr></thead><tbody id="monthlyRows"></tbody></table></div></div>
 <div class="card"><div class="section"><h3>Years</h3><span>2021–2026 H1</span></div>
 <table><thead><tr><th>Year</th><th>Return</th><th>Trades</th><th>W/L/0</th><th>DD</th></tr></thead><tbody id="yearRows"></tbody></table></div>
 </div>
@@ -68,7 +68,7 @@ Promise.all([load('summary.json'),load('monthly.json'),load('yearly.json'),load(
  document.getElementById('kpis').innerHTML=ks.map(a=>`<div class="card"><div class="label">${a[0]}</div><div class="value ${a[2]||''}">${a[1]}</div><div class="sub">${a[3]||''}</div></div>`).join('');
  const best=m.reduce((a,b)=>a.return_pct>b.return_pct?a:b), worst=m.reduce((a,b)=>a.return_pct<b.return_pct?a:b), ddworst=m.reduce((a,b)=>a.max_dd_pct>b.max_dd_pct?a:b);
  document.getElementById('streakCards').innerHTML=[['Avg month',fmt(s.avg_monthly_return),'green'],['Median',fmt(s.median_monthly_return),'green'],['Best',fmt(best.return_pct),'green',best.month],['Worst',fmt(worst.return_pct),cls(worst.return_pct),worst.month],['Worst DD',fmt(-ddworst.max_dd_pct),'red',ddworst.month],['Profitable months',s.positive_months+' / '+s.total_months,'green'],['Negative months',s.negative_months+' / '+s.total_months,'red'],['Risk floor','0.02%','orange']].map(a=>`<div class="mini"><span class="label">${a[0]}</span><b class="${a[2]||''}">${a[1]}</b><span class="sub">${a[3]||''}</span></div>`).join('');
- document.getElementById('monthlyRows').innerHTML=m.map(r=>`<tr><td><b>${r.month}</b></td><td class="${cls(r.return_pct)}">${fmt(r.return_pct)}</td><td>${pf(r.pf)}</td><td>${r.win_rate.toFixed(1)}%</td><td>${r.trades}</td><td>${r.wins} / ${r.losses} / ${r.be}</td><td class="red">${fmt(-r.max_dd_pct)}</td><td>${money(r.end_equity)}</td></tr>`).join('');
+ document.getElementById('monthlyRows').innerHTML=m.map(r=>`<tr><td><b>${r.month}</b></td><td class="${cls(r.return_pct)}">${fmt(r.return_pct)}</td><td>${pf(r.pf)}</td><td>${r.win_rate.toFixed(1)}%</td><td>${r.trades}</td><td>${r.wins} / ${r.losses} / ${r.be}</td><td class="red">${fmt(-r.max_dd_pct)}</td></tr>`).join('');
  document.getElementById('yearRows').innerHTML=y.map(r=>`<tr><td><b>${r.year}</b></td><td class="${cls(r.return_pct)}">${fmt(r.return_pct)}</td><td>${r.trades}</td><td>${r.wins} / ${r.losses} / ${r.be}</td><td class="red">${fmt(-r.max_dd_pct)}</td></tr>`).join('');
  document.getElementById('instrRows').innerHTML=ins.map(r=>`<tr><td><b>${r.symbol}</b></td><td>${r.trades}</td><td class="${cls(r.profit_n?((r.profit_n/s.start_equity)*100):0)}">${fmt(r.profit_n?((r.profit_n/s.start_equity)*100):0)}</td><td>${r.win_rate.toFixed(1)}%</td><td>${pf(r.pf)}</td><td>${r.wins}</td><td>${r.losses}</td><td>${r.be}</td></tr>`).join('');
  const wlData=[s.wins,s.losses,s.breakevens]; const sideData=[ins.reduce((a,b)=>a+b.wins,0), ins.reduce((a,b)=>a+b.losses,0), ins.reduce((a,b)=>a+b.be,0)];
