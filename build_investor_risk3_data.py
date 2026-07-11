@@ -119,6 +119,19 @@ if rows:
         first_ts=last_ts=None
 days_span = max(1,(last_ts-first_ts)/86400) if first_ts is not None and last_ts else max(1,len(monthly_list)*30)
 summary['avg_trades_per_day'] = len(out)/days_span
+summary['max_win_streak']=0; summary['max_loss_streak']=0
 for name,obj in [('summary.json',summary),('monthly.json',monthly_list),('yearly.json',yearly_list),('equity.json',equity_m),('drawdown.json',dd_m),('instruments.json',instr_list),('trade_curve_sample.json', out[::max(1,len(out)//1200)])]:
     (DATA/name).write_text(json.dumps(obj,ensure_ascii=False,indent=2),encoding='utf-8')
 print('WROTE JSON for', DASH)
+max_ws=max_ls=0
+cw=cl=0
+for t in out:
+    if t['pnl_n']>0:
+        cw+=1; cl=0; max_ws=max(max_ws,cw)
+    elif t['pnl_n']<0:
+        cl+=1; cw=0; max_ls=max(max_ls,cl)
+    else:
+        cw=cl=0
+summary['max_win_streak']=max_ws
+summary['max_loss_streak']=max_ls
+print('streaks',max_ws,max_ls)
