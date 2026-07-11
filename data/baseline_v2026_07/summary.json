@@ -1,0 +1,68 @@
+{
+  "title": "Absolute Champion Live Baseline v2026-07",
+  "mode": "SOL70 / NEAR30 · 3m / 1h · Monthly Fixed-Return Compounding",
+  "portfolio": {
+    "SOL": 70,
+    "NEAR": 30,
+    "LINK": 0
+  },
+  "start_equity": 1000.0,
+  "final_equity": 1840629797590.25,
+  "total_return_pct_summary": 2797.36,
+  "total_return_pct_monthly_fixed_return_compounding": 184062979659.02,
+  "profit_factor": 2.1268,
+  "win_rate": 48.17,
+  "max_drawdown_pct": 4.62,
+  "total_trades": 15033,
+  "total_months": 66,
+  "positive_months": 64,
+  "negative_months": 2,
+  "avg_monthly_return": 42.39,
+  "avg_trades_per_month": 227.8,
+  "best_month": {
+    "month": "2026-06",
+    "start": 1302390765805.72,
+    "return_pct": 41.33,
+    "pnl": 538239031784.53,
+    "end": 1840629797590.25,
+    "trades": 310,
+    "win_rate": 48.71
+  },
+  "worst_month": {
+    "month": "2023-04",
+    "start": 232615422.18,
+    "return_pct": -3.46,
+    "pnl": -8057798.22,
+    "end": 224557623.95,
+    "trades": 68,
+    "win_rate": 27.94
+  },
+  "tp1_count": 6869,
+  "tp2_count": 1043,
+  "sl_count": 0,
+  "reverse_count": 2585,
+  "exit_types": {
+    "TRAILING_AFTER_TP1": 5529,
+    "SL_BEFORE_TP1": 6890,
+    "REVERSE_TRAILING_AFTER_TP1": 1340,
+    "REVERSE_SL_BEFORE_TP1": 1157,
+    "REVERSE_TIMEOUT_BEFORE_TP1_NEGATIVE_OR_FLAT": 88,
+    "TIMEOUT_BEFORE_TP1_NEGATIVE_OR_FLAT": 29
+  },
+  "sources": {
+    "monthly_report": "/tmp/grid_3m_1h/out/best_candidate/monthly_compounded_performance_report.md",
+    "summary_csv": "/tmp/grid_3m_1h/out/best_candidate/best_candidate_summary.csv",
+    "trades_csv": "/tmp/grid_3m_1h/out/best_candidate/best_candidate_trades.csv"
+  },
+  "final_equity_no_reinvest": 28973.6,
+  "display_mode": "NO REINVEST",
+  "monthly_fixed_final_equity": 1840629797590.25,
+  "avg_trade_return_pct": 0.186,
+  "recovery_factor": 605.49,
+  "cagr_pct": 84.42,
+  "avg_risk_per_trade_pct": null,
+  "avg_risk_reward": 1.51,
+  "max_loss_streak": 12,
+  "max_win_streak": 13,
+  "avg_hold_hours": 0.22
+}

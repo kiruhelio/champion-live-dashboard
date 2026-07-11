@@ -76,5 +76,5 @@ Promise.all([load('summary.json'),load('monthly.json'),load('yearly.json'),load(
  new Chart(document.getElementById('dd'),{type:'line',data:{labels:d.map(x=>x.month),datasets:[{data:d.map(x=>-x.drawdown_pct),borderColor:'#ff453a',backgroundColor:'rgba(255,69,58,.17)',borderWidth:2,tension:.22,pointRadius:0,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#8b8f98',maxTicksLimit:8}},y:{max:0,grid:{color:'rgba(255,255,255,.08)'},ticks:{color:'#8b8f98'}}}}});
  new Chart(document.getElementById('wlPie'),{type:'doughnut',data:{labels:['Win','Loss','Breakeven'],datasets:[{data:wlData,backgroundColor:['#30d158','#ff453a','#ff9f0a'],borderWidth:0}]},options:{plugins:{legend:{position:'right',labels:{color:'#c7c7cc'}}},cutout:'58%'}});
  new Chart(document.getElementById('sidePie'),{type:'doughnut',data:{labels:ins.map(x=>x.symbol),datasets:[{data:ins.map(x=>x.profit_n),backgroundColor:['#30d158','#0a84ff'],borderWidth:0}]},options:{plugins:{legend:{position:'right',labels:{color:'#c7c7cc'}}},cutout:'58%'}});
-}).catch(e=>{document.body.innerHTML='<pre style="color:white;padding:30px">'+e+'</pre>'});
+}).catch(e=>{const s=e.stack||String(e);document.body.innerHTML='<pre style="color:white;padding:30px">'+e+('\n'+s)+'</pre>'});
 </script></body></html>

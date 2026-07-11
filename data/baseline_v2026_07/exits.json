@@ -1,0 +1,14 @@
+{
+  "tp1": 6869,
+  "tp2": 1043,
+  "sl": 0,
+  "reverse": 2585,
+  "exit_types": {
+    "TRAILING_AFTER_TP1": 5529,
+    "SL_BEFORE_TP1": 6890,
+    "REVERSE_TRAILING_AFTER_TP1": 1340,
+    "REVERSE_SL_BEFORE_TP1": 1157,
+    "REVERSE_TIMEOUT_BEFORE_TP1_NEGATIVE_OR_FLAT": 88,
+    "TIMEOUT_BEFORE_TP1_NEGATIVE_OR_FLAT": 29
+  }
+}

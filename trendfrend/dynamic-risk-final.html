@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>TrendFrend Dynamic Risk Final</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--line:rgba(255,255,255,.10);--text:#f5f5f7;--muted:#9ca3af;--green:#30d158;--red:#ff453a;--blue:#0a84ff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 18% 0,rgba(10,132,255,.22),transparent 34%),radial-gradient(circle at 85% 0,rgba(48,209,88,.13),transparent 30%),linear-gradient(180deg,#05070a,#070a0f);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.app{display:grid;grid-template-columns:275px 1fr;min-height:100vh}
+aside{position:sticky;top:0;height:100vh;padding:26px 18px;border-right:1px solid var(--line);background:rgba(7,12,18,.88)}
+.logo{width:52px;height:52px;border-radius:14px;background:linear-gradient(145deg,#fff,#b8bec8);color:#05070a;display:grid;place-items:center;font-weight:900;font-size:26px}
+.brand{display:flex;gap:14px;align-items:center;margin-bottom:34px}.brand h1{margin:0;font-size:25px}.brand p{margin:5px 0 0;color:var(--muted);font-size:13px}
+nav a{display:block;color:#d1d5db;text-decoration:none;padding:13px 16px;border-radius:15px;margin:6px 0;font-size:15px}nav a.active{background:rgba(255,255,255,.09);color:#fff;border-left:4px solid var(--green)}
+.side-card{border:1px solid var(--line);border-radius:18px;padding:18px;background:rgba(255,255,255,.045);margin-top:190px}.side-card+.side-card{margin-top:16px}.side-card h3{color:var(--green)}
+main{padding:28px 34px 40px}.top{display:flex;justify-content:space-between;align-items:start;margin-bottom:20px}
+.title h2{font-size:42px;margin:0 0 7px}.title p{margin:0;color:#9fb4c9;font-size:16px}.badge{font-size:13px;color:var(--green);border:1px solid rgba(48,209,88,.4);border-radius:999px;padding:5px 10px;margin-left:10px}.pill{border:1px solid var(--line);border-radius:999px;padding:12px 18px;background:rgba(255,255,255,.06)}
+.grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(8,1fr);margin-bottom:14px}.charts{grid-template-columns:1fr 1fr;margin-bottom:14px}.lower{grid-template-columns:1fr 1fr;margin-bottom:14px}.bottom{grid-template-columns:1.35fr .65fr}
+.card{border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.035));padding:16px;box-shadow:0 20px 55px rgba(0,0,0,.35);overflow:hidden}
+.label{color:#c7c7cc;font-size:13px}.value{font-size:25px;font-weight:850;letter-spacing:-.03em;margin:8px 0 5px}.sub{color:var(--muted);font-size:13px}.green{color:var(--green)}.red{color:var(--red)}
+.section{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.section h3{margin:0;font-size:18px}.section span{color:var(--muted);font-size:13px}
+.chart-card{height:330px}.chart-card canvas{width:100%!important;height:255px!important}
+.mini-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.mini{border:1px solid var(--line);border-radius:14px;padding:13px;background:rgba(0,0,0,.15)}.mini b{display:block;font-size:22px;margin:6px 0}
+.pie-stack{display:grid;grid-template-columns:1fr;gap:16px}.pie-box{border:1px solid var(--line);border-radius:18px;padding:12px;background:rgba(0,0,0,.15)}.pie-box canvas{height:220px!important}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th:first-child,td:first-child{text-align:left}th{color:var(--muted)}
+.table-wrap{overflow:auto}.table-wrap table{min-width:1050px}
+@media(max-width:1200px){.app{grid-template-columns:1fr}aside{display:none}.kpis,.charts,.lower,.bottom{grid-template-columns:1fr}.mini-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+<div class="brand"><div class="logo">T</div><div><h1>TrendFrend</h1><p>Dynamic Risk</p></div></div>
+<nav><a class="active">⌘ Обзор</a><a>↗ Производительность</a><a>▦ Помесячно</a><a>◎ Инструменты</a><a>⚙ Настройки</a></nav>
+<div class="side-card"><div class="label">Режим</div><h3>Dynamic Risk After Loss</h3><p>Старт 1.0% на сделку<br>×0.618 после loss, ×1.618 после win<br>Cap 1.0% · Min 0.02% · Compounding<br>No day cutoff</p></div>
+<div class="side-card"><div class="label">Правило</div><h3>Anti-Martingale Fibonacci</h3><p> profit → risk ×1.618<br> loss → risk ×0.618<br> floor 0.02% · cap 1% per trade<br>Reinvest after every trade</p></div>
+<div class="side-card"><div class="label">Сравнение</div><h3>Dynamic vs Fixed 1%</h3><p>MaxDD <b>7.35%</b> vs <b>48.18%</b><br>PF <b>2.15</b> vs 2.05</p></div>
+</aside>
+<main>
+<div class="top"><div class="title"><h2>TrendFrend <span class="badge">DYNAMIC RISK FINAL</span></h2><p>Anti-martingale Fibonacci: —38.2% после loss, +61.8% после win · Cap 1.0% per trade · Min 0.02% · Compounding · данные из out_dynamic_risk_compounding</p></div><div class="pill">СТАТИЧЕСКАЯ АНАЛИТИКА</div></div>
+<div class="grid kpis"><div class="card"><div class="label">Доходность</div><div class="value green">1.51 × 10^04%</div><div class="sub">Dynamic Risk After Loss · compounding</div></div><div class="card"><div class="label">MaxDD</div><div class="value green">13.79%</div><div class="sub">month-to-month</div></div><div class="card"><div class="label">Profit Factor</div><div class="value green">2.0500</div><div class="sub">summary.json</div></div><div class="card"><div class="label">Win Rate</div><div class="value ">48.17%</div><div class="sub">summary.json</div></div><div class="card"><div class="label">Средняя сделка</div><div class="value green">+0.000%</div><div class="sub">avg_trade_return</div></div><div class="card"><div class="label">Всего сделок</div><div class="value ">19,496</div><div class="sub">66 месяцев</div></div><div class="card"><div class="label">Сделок в месяц</div><div class="value ">295.4</div><div class="sub">средняя активность</div></div><div class="card"><div class="label">Start Equity</div><div class="value green">$1,000</div><div class="sub">per-trade compounding</div></div></div>
+<div class="grid charts">
+<div class="card chart-card"><div class="section"><h3>Кривая капитала</h3><span>Final Equity: 2.16 × 10^03</span></div><canvas id="eq"></canvas></div>
+<div class="card chart-card"><div class="section"><h3>Кривая просадки</h3><span>Шкала 0…-100% · MaxDD 13.79%</span></div><canvas id="dd"></canvas></div>
+</div>
+<div class="grid lower">
+<div class="card"><div class="section"><h3>Помесячная сводка</h3><span>Dynamic Risk · 66 месяцев</span></div><div class="mini-grid"><div class="mini"><span class="label">Средний месяц</span><b class="green">+228.19%</b><span class="sub">avg_monthly_return</span></div><div class="mini"><span class="label">Лучший месяц</span><b class="green">+2,555.92%</b><span class="sub">2021-01</span></div><div class="mini"><span class="label">Худший месяц</span><b class="red">-7.29%</b><span class="sub">2023-04</span></div><div class="mini"><span class="label">Прибыльных месяцев</span><b class="green">64 / 66</b><span class="sub">97.0%</span></div><div class="mini"><span class="label">Убыточных месяцев</span><b class="red">2 / 66</b><span class="sub">3.0%</span></div><div class="mini"><span class="label">Worst intra-month DD</span><b class="red">−19.30%</b><span class="sub">2021-01</span></div></div></div>
+<div class="card"><div class="section"><h3>Сравнение режимов</h3><span>Dynamic vs Baseline 1.0% фикс</span></div><div class="mini-grid"><div class="mini"><span class="label">Стартовый риск</span><b class="green">1.00%</b><span class="sub">после loss ×0.618, после win ×1.618</span></div><div class="mini"><span class="label">Cap</span><b class="green">1.00%</b><span class="sub">максимальный риск на сделку</span></div><div class="mini"><span class="label">Floor</span><b class="green">0.02%</b><span class="sub">минимальный риск на сделку</span></div><div class="mini"><span class="label">MaxDD</span><b class="green">13.79%</b><span class="sub">compounding vs fixed 48.18%</span></div><div class="mini"><span class="label">PF vs fixed</span><b class="green">2.0500 / 2.05</b><span class="sub">улучшение +{(pf/2.05-1)*100:.1f}%</span></div><div class="mini"><span class="label">WR</span><b class="green">48.17%</b><span class="sub">vs baseline 48.17%</span></div></div></div>
+</div>
+<div class="grid bottom">
+<div class="card">
+<div class="section"><h3>Помесячная доходность (%)</h3><span>monthly.csv</span></div>
+<table><thead><tr><th>Год</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th><th>Итого</th></tr></thead><tbody><tr><td><b>2021</b></td><td class="green">+2,555.9%</td><td class="green">+691.5%</td><td class="green">+409.7%</td><td class="green">+934.3%</td><td class="green">+457.9%</td><td class="green">+385.4%</td><td class="green">+251.9%</td><td class="green">+578.7%</td><td class="green">+954.6%</td><td class="green">+226.8%</td><td class="green">+217.5%</td><td class="green">+145.7%</td><td class="green"><b>+7,810.0%</b></td></tr><tr><td><b>2022</b></td><td class="green">+280.2%</td><td class="green">+69.7%</td><td class="green">+86.0%</td><td class="green">+95.5%</td><td class="green">+252.4%</td><td class="green">+670.7%</td><td class="green">+39.1%</td><td class="green">+15.2%</td><td class="green">+68.3%</td><td class="green">+0.1%</td><td class="green">+403.2%</td><td class="green">+46.1%</td><td class="green"><b>+2,026.4%</b></td></tr><tr><td><b>2023</b></td><td class="green">+198.6%</td><td class="green">+74.8%</td><td class="green">+72.1%</td><td class="red">-7.3%</td><td class="red">-6.8%</td><td class="green">+157.1%</td><td class="green">+25.5%</td><td class="green">+21.3%</td><td class="green">+19.3%</td><td class="green">+156.2%</td><td class="green">+546.7%</td><td class="green">+396.9%</td><td class="green"><b>+1,654.4%</b></td></tr><tr><td><b>2024</b></td><td class="green">+632.7%</td><td class="green">+67.4%</td><td class="green">+461.7%</td><td class="green">+214.1%</td><td class="green">+82.0%</td><td class="green">+40.9%</td><td class="green">+54.6%</td><td class="green">+181.6%</td><td class="green">+61.6%</td><td class="green">+2.8%</td><td class="green">+49.3%</td><td class="green">+180.2%</td><td class="green"><b>+2,028.9%</b></td></tr><tr><td><b>2025</b></td><td class="green">+186.8%</td><td class="green">+254.5%</td><td class="green">+62.6%</td><td class="green">+127.6%</td><td class="green">+51.8%</td><td class="green">+14.4%</td><td class="green">+34.4%</td><td class="green">+81.5%</td><td class="green">+5.1%</td><td class="green">+169.8%</td><td class="green">+222.0%</td><td class="green">+7.2%</td><td class="green"><b>+1,217.5%</b></td></tr><tr><td><b>2026</b></td><td class="green">+26.4%</td><td class="green">+101.6%</td><td class="green">+32.8%</td><td class="green">+1.0%</td><td class="green">+45.3%</td><td class="green">+116.1%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="green"><b>+323.2%</b></td></tr></tbody></table>
+<div style="margin-top:18px" class="section"><h3>Ежемесячный вклад инструментов</h3><span>monthly_instruments.csv · SOL70/NEAR30</span></div>
+<div class="table-wrap"><table><thead><tr><th>Год</th><th>Инструмент</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th><th>Итого</th></tr></thead><tbody></tbody></table></div>
+</div>
+<div class="card">
+<div class="section"><h3>Инструменты</h3><span>instrument_summary.csv · Baseline 70/30</span></div>
+<div class="pie-stack">
+<div class="pie-box"><div class="label">Соотношение сделок</div><canvas id="tradePie"></canvas></div>
+<div class="pie-box"><div class="label">Прибыльные / убыточные</div><canvas id="wlPie"></canvas></div>
+</div>
+<table style="margin-top:14px"><thead><tr><th>Инструмент</th><th>Доходность</th><th>Доля</th><th>Сделок</th><th>Win / Loss</th></tr></thead><tbody>
+    <tr>
+      <td><b>SOLUSDT</b></td>
+      <td class="green">+0.00%</td>
+      <td><b>60.00%</b></td>
+      <td><b>0</b></td>
+      <td><span class="green">0</span> / <span class="red">0</span></td>
+    </tr>
+    <tr>
+      <td><b>NEARUSDT</b></td>
+      <td class="green">+0.00%</td>
+      <td><b>20.00%</b></td>
+      <td><b>0</b></td>
+      <td><span class="green">0</span> / <span class="red">0</span></td>
+    </tr>
+    <tr>
+      <td><b>LINKUSDT</b></td>
+      <td class="green">+0.00%</td>
+      <td><b>20.00%</b></td>
+      <td><b>0</b></td>
+      <td><span class="green">0</span> / <span class="red">0</span></td>
+    </tr></tbody></table>
+</div>
+</div>
+</main>
+</div>
+<script>
+const labelsEq=["2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06"];
+const dataEq=[26559.174498, 7915.14388, 5096.64371, 10343.359432, 5578.742761, 4854.365325, 3518.565821, 6787.371353, 10546.289113, 3268.310483, 3175.404793, 2456.722212, 3802.011057, 1697.282606, 1860.008503, 1954.98503, 3523.772572, 7707.036475, 1390.857196, 1152.17633, 1683.058279, 1000.751597, 5031.503845, 1460.675171, 2986.10986, 1747.787431, 1721.292278, 927.085963, 932.297458, 2570.578743, 1254.685219, 1213.301234, 1192.965333, 2561.58398, 6467.178558, 4969.137396, 7326.832946, 1674.031416, 5616.966796, 3140.717272, 1820.116863, 1408.813785, 1546.018163, 2815.861977, 1616.161065, 1028.397605, 1492.817931, 2802.417713, 2867.682614, 3545.490017, 1625.595202, 2275.701797, 1518.430722, 1143.637806, 1343.526065, 1814.939048, 1050.664242, 2697.607766, 3219.856207, 1071.838343, 1264.214524, 2016.001874, 1328.054345, 1009.670475, 1452.80761, 2161.224618];
+const labelsDd=["2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06"];
+const dataDd=[-0.0, -70.1981, -80.8102, -61.0554, -78.995, -81.7225, -86.752, -74.4443, -60.2914, -87.6942, -88.044, -90.75, -85.6848, -93.6094, -92.9967, -92.6391, -86.7324, -70.9816, -94.7632, -95.6619, -93.663, -96.232, -81.0555, -94.5003, -88.7568, -93.4193, -93.519, -96.5094, -96.4897, -90.3213, -95.2759, -95.4317, -95.5083, -90.3552, -75.6499, -81.2903, -72.4132, -93.697, -78.8511, -88.1746, -93.1469, -94.6956, -94.179, -89.3978, -93.9149, -96.1279, -94.3793, -89.4484, -89.2027, -86.6506, -93.8793, -91.4316, -94.2828, -95.694, -94.9414, -93.1664, -96.0441, -89.843, -87.8767, -95.9643, -95.24, -92.4094, -94.9996, -96.1984, -94.5299, -91.8626];
+new Chart(document.getElementById('eq'),{type:'line',data:{labels:labelsEq,datasets:[{data:dataEq,borderColor:'#30d158',backgroundColor:'rgba(48,209,88,.22)',borderWidth:2,tension:.22,pointRadius:0,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#8b8f98',maxTicksLimit:8}},y:{grid:{color:'rgba(255,255,255,.08)'},ticks:{color:'#8b8f98'}}}}});
+new Chart(document.getElementById('dd'),{type:'line',data:{labels:labelsDd,datasets:[{data:dataDd,borderColor:'#ff453a',backgroundColor:'rgba(255,69,58,.18)',borderWidth:2,tension:.22,pointRadius:0,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#8b8f98',maxTicksLimit:8}},y:{min:-100,max:0,grid:{color:'rgba(255,255,255,.08)'},ticks:{color:'#8b8f98'}}}}});
+new Chart(document.getElementById('tradePie'),{type:'doughnut',data:{labels:['SOL','NEAR'],datasets:[{data:[0.0, 0.0],backgroundColor:['#30d158','#0a84ff'],borderWidth:0}]},options:{plugins:{legend:{position:'right',labels:{color:'#c7c7cc'}}},cutout:'58%'}});
+new Chart(document.getElementById('wlPie'),{type:'doughnut',data:{labels:['Прибыльные','Убыточные'],datasets:[{data:[0.0, 0.0],backgroundColor:['#30d158','#ff453a'],borderWidth:0}]},options:{plugins:{legend:{position:'right',labels:{color:'#c7c7cc'}}},cutout:'58%'}});
+</script>
+</body>
+</html>
