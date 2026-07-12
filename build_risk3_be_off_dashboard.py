@@ -77,9 +77,10 @@ for k,v in sorted(off['exit_type_counts'].items(), key=lambda x:-x[1]):
 worst_rows=''
 for m in off['worst_months_by_compound'][:10]:
     worst_rows += f"<tr><td>{m['month']}</td><td>{pct(m['additive_return_pct'])}</td><td>{pct(m['compound_return_pct'])}</td><td>{m['trades']}</td><td>{pct(m['max_dd_pct'])}</td></tr>"
+monthly_rows=''
+for m in off.get('monthly_rows', []):
+    monthly_rows += f"<tr><td>{m['month']}</td><td>{pct(m['additive_return_pct'])}</td><td>{pct(m['compound_return_pct'])}</td><td>{m['trades']}</td><td>{pct(m['win_rate_pct'])}</td><td>{pct(m['max_dd_pct'])}</td></tr>"
 
-chart_labels=json.dumps([m['month'] for m in off['worst_months_by_compound'][:10]], ensure_ascii=False)
-chart_vals=json.dumps([m['additive_return_pct'] for m in off['worst_months_by_compound'][:10]])
 html_text=f'''<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TrendFrend Risk3 BE OFF — 20260712</title>
 <style>
@@ -94,6 +95,7 @@ section{{background:#0d1a2e;border:1px solid #22375c;border-radius:18px;padding:
 <section><h2>Вывод</h2><div class="note">BE OFF исторически чуть лучше по PF, среднему месяцу, худшему месяцу и максимальной просадке, но уменьшает win rate: часть сделок после TP1 теперь может вернуться к исходному SL вместо закрытия по BE. Профиль остаётся агрессивным: max monthly DD около <b>{pct(off['max_monthly_dd_pct'])}</b>, worst month additive <b>{pct(off['worst_month_additive_pct'])}</b>.</div></section>
 <section><h2>Инструменты</h2><table><thead><tr><th>Symbol</th><th>Trades</th><th>WR</th><th>PF</th><th>PnL sum</th></tr></thead><tbody>{sym_rows}</tbody></table></section>
 <section><h2>Exit types — BE OFF</h2><table><thead><tr><th>Exit</th><th>Count</th></tr></thead><tbody>{exit_rows}</tbody></table></section>
+<section><h2>Помесячная статистика — все месяцы BE OFF</h2><table><thead><tr><th>Месяц</th><th>Доходность additive</th><th>Доходность compound</th><th>Сделки</th><th>WR</th><th>Max DD</th></tr></thead><tbody>{monthly_rows}</tbody></table></section>
 <section><h2>Worst months — BE OFF</h2><table><thead><tr><th>Month</th><th>Additive</th><th>Compound</th><th>Trades</th><th>Max DD</th></tr></thead><tbody>{worst_rows}</tbody></table></section>
 <section><h2>Files</h2><div class="note">Data JSON: <code>data/{DASH}/summary.json</code><br>Research source: <code>{html.escape(str(SRC))}</code><br>Live config: <code>/home/ubuntu/.hermes/bots/champion_bybit_demo_bot/config_candidate.json</code></div></section>
 </div></body></html>'''
