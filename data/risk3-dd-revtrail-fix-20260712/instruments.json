@@ -6,8 +6,8 @@
     "losses": 9124,
     "be": 0,
     "win_rate": 51.429331913760976,
-    "pf": 2.4226822870639713,
-    "log_growth_contribution": 152.09694547898007
+    "pf": 2.441564425149533,
+    "return_pct_additive": 16656.90956000003
   },
   {
     "symbol": "SOLUSDT",
@@ -16,7 +16,7 @@
     "losses": 10360,
     "be": 0,
     "win_rate": 52.039257441785104,
-    "pf": 2.388871311806625,
-    "log_growth_contribution": 157.14419971384976
+    "pf": 2.408533971144788,
+    "return_pct_additive": 17068.258329999982
   }
 ]
