@@ -1,0 +1,248 @@
+{
+  "dashboard": "risk3-dd-revtrail-fix-20260712",
+  "generated_at": "2026-07-12T03:40:55.965995+00:00",
+  "source": "/home/ubuntu/.hermes/bots/research_near_only_baseline_20260709_181451/out_current_dd_throttle_per_trade_compound_revtrail_fix_20260712",
+  "mode": "Corrected reverse-trailing sign fix; live current model: SOL/NEAR, 3m+1h, ATR=0, flat 3% per instrument, monthly DD throttle only, per-trade compounding.",
+  "start_equity": 1000.0,
+  "final_equity": 2.0031936492713794e+137,
+  "final_equity_log10": 137.3017229346879,
+  "final_equity_scientific": "2.003194e137",
+  "return_pct": 33725.168,
+  "return_pct_label": "bounded additive monthly return from corrected 3% baseline source",
+  "compounded_return_pct_scientific": "2.003194e139",
+  "profit_factor": 2.4053281937625774,
+  "win_rate": 51.75555885702966,
+  "total_trades": 40386,
+  "wins": 20902,
+  "losses": 19484,
+  "breakevens": 0,
+  "total_months": 67,
+  "positive_months": 66,
+  "negative_months": 1,
+  "avg_monthly_return": 134881.64284762394,
+  "median_monthly_return": 8777.026963434313,
+  "best_month_pct": 6844822.05282191,
+  "worst_month_pct": -0.8626547540960101,
+  "max_drawdown_pct": 24.54623506539675,
+  "worst_month_dd_pct": 24.546235065396473,
+  "risk_per_trade_pct": 3.0,
+  "drawdown_throttle_enabled": true,
+  "dd_throttle_rules": "Monthly DD: 0-5%=3%, 5-10%=2%, 10-15%=1%, >15%=0.5%",
+  "margin_usage_buffer": 0.9,
+  "leverage": 3,
+  "avg_risk_per_trade_pct": 0.9737104838310305,
+  "min_effective_risk_pct": 0.2701,
+  "max_effective_risk_pct": 3.0,
+  "risk_reason_counts": {
+    "dd_0_5": 31956,
+    "dd_5_10": 5316,
+    "dd_10_15": 2015,
+    "dd_gt_15": 1099
+  },
+  "best_trade_pct": 49.805545,
+  "best_trade": {
+    "idx": 240,
+    "month": "2021-01",
+    "symbol": "SOLUSDT",
+    "entry_ts": "1610464680.0",
+    "base_applied_risk_pct": 2.4911,
+    "risk_cap_pct": 3.0,
+    "applied_risk_pct": 2.4911,
+    "risk_reason": "dd_0_5",
+    "base_pnl_pct": 49.805545,
+    "pnl_fraction": 0.49805545,
+    "pnl_pct_of_equity_before": 49.805545,
+    "month_dd_before_pct": 0.8973639999999998,
+    "month_dd_after_pct": 0.0,
+    "global_dd_after_pct": 0.0,
+    "log_equity_after": 11.542854562887003
+  },
+  "worst_trade_pct": -7.663453,
+  "worst_trade": {
+    "idx": 37142,
+    "month": "2026-01",
+    "symbol": "SOLUSDT",
+    "entry_ts": "1767975300",
+    "base_applied_risk_pct": 2.0433,
+    "risk_cap_pct": 3.0,
+    "applied_risk_pct": 2.0433,
+    "risk_reason": "dd_0_5",
+    "base_pnl_pct": -7.663453,
+    "pnl_fraction": -0.07663452999999999,
+    "pnl_pct_of_equity_before": -7.663453,
+    "month_dd_before_pct": 0.8394342589489149,
+    "month_dd_after_pct": 8.43855760904846,
+    "global_dd_after_pct": 8.438557609054232,
+    "log_equity_after": 298.37239080817176
+  },
+  "max_win_streak": 13,
+  "max_loss_streak": 11,
+  "avg_trades_per_month": 602.776119402985,
+  "old_vs_new": {
+    "old_additive_baseline": {
+      "total_trades": 40386,
+      "win_rate_pct": 47.5412,
+      "profit_factor": 2.011112,
+      "sum_monthly_return_pct": 25617.7234,
+      "avg_monthly_return_pct": 382.3541,
+      "worst_month_pct": -4.8062,
+      "max_intra_month_dd_pct": 51.359,
+      "avg_applied_risk_pct": 1.0031
+    },
+    "new_additive_baseline": {
+      "total_trades": 40386,
+      "win_rate_pct": 51.7556,
+      "profit_factor": 2.424656,
+      "sum_monthly_return_pct": 33725.168,
+      "avg_monthly_return_pct": 503.3607,
+      "worst_month_pct": -0.8644,
+      "max_intra_month_dd_pct": 21.3026,
+      "avg_applied_risk_pct": 1.0031
+    },
+    "old_dd_compound": {
+      "total_trades": 40386,
+      "win_rate_pct": 47.541227157926016,
+      "profit_factor_fractional": 2.0140383948011475,
+      "profitable_months": 66,
+      "unprofitable_months": 1,
+      "avg_monthly_return_pct": 12781.909653090672,
+      "median_monthly_return_pct": 2827.3389697751595,
+      "worst_month_return_pct": -0.8626547540903748,
+      "best_month_return_pct": 366000.28656616877,
+      "max_global_drawdown_pct": 40.00522278003557,
+      "max_monthly_dd_pct": 40.005222780044235,
+      "avg_applied_risk_pct": 0.938406638439063,
+      "final_equity_scientific": "1.376772e102"
+    },
+    "new_dd_compound": {
+      "total_trades": 40386,
+      "win_rate_pct": 51.75555885702966,
+      "profit_factor_fractional": 2.4053281937625774,
+      "profitable_months": 66,
+      "unprofitable_months": 1,
+      "avg_monthly_return_pct": 134881.64284762394,
+      "median_monthly_return_pct": 8777.026963434313,
+      "worst_month_return_pct": -0.8626547540960101,
+      "best_month_return_pct": 6844822.05282191,
+      "max_global_drawdown_pct": 24.54623506539675,
+      "max_monthly_dd_pct": 24.546235065396473,
+      "avg_applied_risk_pct": 0.9737104838310305,
+      "final_equity_scientific": "2.003194e137"
+    },
+    "new_fixed_continuous_summary": {
+      "additive_total_return_pct": 33725.17,
+      "profit_factor": 2.4247,
+      "win_rate_pct": 51.76,
+      "max_drawdown_pct": 28.23,
+      "worst_month_pct": -0.86,
+      "avg_risk_pct_used": 0.01
+    },
+    "new_dynamic_winloss_continuous_summary": {
+      "additive_total_return_pct": 17443.12,
+      "profit_factor": 2.3521,
+      "win_rate_pct": 51.76,
+      "max_drawdown_pct": 21.31,
+      "worst_month_pct": -0.05,
+      "avg_risk_pct_used": 0.0048
+    },
+    "changed_raw_trades": {
+      "changed_pnl": 3539,
+      "neg_to_pos": 1761,
+      "pos_to_neg": 59
+    },
+    "period_2026_old_dd": {
+      "months": 7,
+      "return_pct": 71591354.61865054,
+      "end_equity_1000": 715914546.1865054,
+      "max_month_dd_pct": 21.68212925054352,
+      "rows": [
+        [
+          "2026-01",
+          248.4040039784023,
+          19.079849697519283
+        ],
+        [
+          "2026-02",
+          692.4853411648871,
+          21.68212925054352
+        ],
+        [
+          "2026-03",
+          1905.3201122204366,
+          18.591353567753348
+        ],
+        [
+          "2026-04",
+          139.9433341734038,
+          20.192475355565556
+        ],
+        [
+          "2026-05",
+          1159.2567227079992,
+          16.484500328158905
+        ],
+        [
+          "2026-06",
+          4216.610368492969,
+          19.96532796186756
+        ],
+        [
+          "2026-07",
+          -0.8626547540903748,
+          0.8626547540919405
+        ]
+      ]
+    },
+    "period_2026_new_dd": {
+      "months": 7,
+      "return_pct": 9953979002.420921,
+      "end_equity_1000": 99539791024.20921,
+      "max_month_dd_pct": 18.505679832428747,
+      "rows": [
+        [
+          "2026-01",
+          617.1560344467875,
+          15.212307320126634
+        ],
+        [
+          "2026-02",
+          1895.6615497246028,
+          14.514411712581236
+        ],
+        [
+          "2026-03",
+          4050.140316534636,
+          17.941082699953963
+        ],
+        [
+          "2026-04",
+          379.9447515374017,
+          18.411834804858117
+        ],
+        [
+          "2026-05",
+          2662.388961465607,
+          13.492076572737558
+        ],
+        [
+          "2026-06",
+          12650.289201769405,
+          18.505679832428747
+        ],
+        [
+          "2026-07",
+          -0.8626547540960101,
+          0.8626547540919405
+        ]
+      ]
+    },
+    "files": {
+      "old_dd": "/home/ubuntu/.hermes/bots/research_near_only_baseline_20260709_181451/out_current_dd_throttle_per_trade_compound_20260711/summary.json",
+      "new_dd": "/home/ubuntu/.hermes/bots/research_near_only_baseline_20260709_181451/out_current_dd_throttle_per_trade_compound_revtrail_fix_20260712/summary.json",
+      "old_add": "/home/ubuntu/.hermes/bots/research_near_only_baseline_20260709_181451/out_mm_guards_3pct_20260711_additive/baseline_flat_3pct_additive/summary.json",
+      "new_add": "/home/ubuntu/.hermes/bots/research_near_only_baseline_20260709_181451/out_mm_guards_3pct_20260711_additive_revtrail_fix/baseline_flat_3pct_additive/summary.json",
+      "new_dyn": "/home/ubuntu/.hermes/bots/research_near_only_baseline_20260709_181451/out_dynamic_risk_currentsettings_revtrail_fix/dynamic_flat/summary.json",
+      "new_fixed": "/home/ubuntu/.hermes/bots/research_near_only_baseline_20260709_181451/out_dynamic_risk_currentsettings_revtrail_fix/fixed_3pct_flat/summary.json"
+    }
+  }
+}

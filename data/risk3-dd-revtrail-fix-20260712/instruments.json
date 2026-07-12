@@ -1,0 +1,22 @@
+[
+  {
+    "symbol": "NEARUSDT",
+    "trades": 18785,
+    "wins": 9661,
+    "losses": 9124,
+    "be": 0,
+    "win_rate": 51.429331913760976,
+    "pf": 2.4226822870639713,
+    "log_growth_contribution": 152.09694547898007
+  },
+  {
+    "symbol": "SOLUSDT",
+    "trades": 21601,
+    "wins": 11241,
+    "losses": 10360,
+    "be": 0,
+    "win_rate": 52.039257441785104,
+    "pf": 2.388871311806625,
+    "log_growth_contribution": 157.14419971384976
+  }
+]
