@@ -1,0 +1,544 @@
+{
+  "parameters": {
+    "symbols": [
+      "SOLUSDT",
+      "NEARUSDT"
+    ],
+    "atr_filter_min": 0.0,
+    "tp1_r": 1.0,
+    "tp2_r": 4.5,
+    "trail_atr": 0.75,
+    "reverse_after_stop": "one_bar_confirm",
+    "averaging_enabled": true,
+    "risk_per_trade_pct": 3.0,
+    "dd_throttle": "3/2/1/0.5 pct",
+    "margin_factor": 2.7,
+    "fees_roundtrip": 0.0011,
+    "live_bot_changed": false
+  },
+  "results": [
+    {
+      "trades": 40386,
+      "win_rate_pct": 52.27554102906949,
+      "profit_factor": 1.7914506958891072,
+      "final_equity": 6.675574590342061e+86,
+      "total_return_pct": 6.675574590342061e+85,
+      "months": 67,
+      "profitable_months_compound": 63,
+      "unprofitable_months_compound": 4,
+      "avg_month_compound_pct": 22580.431332203767,
+      "median_month_compound_pct": 1326.3832567858924,
+      "best_month_compound_pct": 1121588.9464927947,
+      "worst_month_compound_pct": -36.972153500049686,
+      "additive_total_return_pct": 20861.29926501306,
+      "avg_month_additive_pct": 311.3626755972099,
+      "median_month_additive_pct": 286.741632246042,
+      "best_month_additive_pct": 1020.4112785597994,
+      "worst_month_additive_pct": -39.5006014823671,
+      "max_monthly_dd_pct": 64.01039233219997,
+      "max_global_dd_pct": 64.01039233219997,
+      "hit_tp1_count": 17721,
+      "avg_added_count": 14148,
+      "avg_added_hit_tp1_count": 6642,
+      "exit_type_counts": {
+        "trailing_after_tp1": 14182,
+        "sl_before_tp1": 18834,
+        "reverse_sl_before_tp1": 3403,
+        "reverse_trailing_after_tp1": 3539,
+        "reverse_timeout_before_tp1_negative_or_flat": 292,
+        "timeout_before_tp1_negative_or_flat": 135,
+        "timeout_before_tp1": 1
+      },
+      "risk_reason_counts": {
+        "dd_0_5": 22232,
+        "dd_5_10": 6770,
+        "dd_10_15": 3652,
+        "dd_gt_15": 7732
+      },
+      "symbol_breakdown": [
+        {
+          "symbol": "SOLUSDT",
+          "trades": 21601,
+          "win_rate_pct": 52.45590481922133,
+          "pnl_pct_sum": 10300.846021081028,
+          "profit_factor": 1.7484784731099414
+        },
+        {
+          "symbol": "NEARUSDT",
+          "trades": 18785,
+          "win_rate_pct": 52.068139472983766,
+          "pnl_pct_sum": 10560.453243931974,
+          "profit_factor": 1.8384023994126293
+        }
+      ],
+      "worst_months_by_compound": [
+        {
+          "month": "2026-04",
+          "additive_return_pct": -39.5006014823671,
+          "compound_return_pct": -36.972153500049686,
+          "trades": 637,
+          "wins": 300,
+          "win_rate_pct": 47.09576138147567,
+          "max_dd_pct": 47.69981292276823
+        },
+        {
+          "month": "2023-09",
+          "additive_return_pct": -12.58517378240685,
+          "compound_return_pct": -17.959305908262216,
+          "trades": 542,
+          "wins": 245,
+          "win_rate_pct": 45.20295202952029,
+          "max_dd_pct": 49.7343350915887
+        },
+        {
+          "month": "2026-01",
+          "additive_return_pct": 4.220657173847345,
+          "compound_return_pct": -3.015188675729862,
+          "trades": 551,
+          "wins": 242,
+          "win_rate_pct": 43.920145190562614,
+          "max_dd_pct": 33.70841337993933
+        },
+        {
+          "month": "2026-07",
+          "additive_return_pct": -1.2423933086675394,
+          "compound_return_pct": -1.2386641486029435,
+          "trades": 2,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "max_dd_pct": 1.2386641486029435
+        },
+        {
+          "month": "2025-12",
+          "additive_return_pct": 18.51808578676315,
+          "compound_return_pct": 11.082685737744724,
+          "trades": 488,
+          "wins": 213,
+          "win_rate_pct": 43.64754098360656,
+          "max_dd_pct": 33.73054058887546
+        },
+        {
+          "month": "2023-08",
+          "additive_return_pct": 16.08746137981728,
+          "compound_return_pct": 11.421706425442967,
+          "trades": 546,
+          "wins": 268,
+          "win_rate_pct": 49.08424908424908,
+          "max_dd_pct": 36.82986185618841
+        },
+        {
+          "month": "2024-10",
+          "additive_return_pct": 22.001215670165603,
+          "compound_return_pct": 12.903981684657301,
+          "trades": 698,
+          "wins": 332,
+          "win_rate_pct": 47.56446991404012,
+          "max_dd_pct": 64.01039233219997
+        },
+        {
+          "month": "2023-05",
+          "additive_return_pct": 27.17443399322174,
+          "compound_return_pct": 23.959460974602255,
+          "trades": 474,
+          "wins": 228,
+          "win_rate_pct": 48.10126582278481,
+          "max_dd_pct": 36.133525658529514
+        },
+        {
+          "month": "2022-12",
+          "additive_return_pct": 46.30172779460746,
+          "compound_return_pct": 46.967469578568604,
+          "trades": 367,
+          "wins": 157,
+          "win_rate_pct": 42.77929155313351,
+          "max_dd_pct": 33.27664547451614
+        },
+        {
+          "month": "2022-10",
+          "additive_return_pct": 64.52020915530905,
+          "compound_return_pct": 75.24804834711824,
+          "trades": 499,
+          "wins": 251,
+          "win_rate_pct": 50.300601202404806,
+          "max_dd_pct": 24.942560424907878
+        }
+      ],
+      "best_months_by_compound": [
+        {
+          "month": "2021-01",
+          "additive_return_pct": 1020.4112785597994,
+          "compound_return_pct": 1121588.9464927947,
+          "trades": 615,
+          "wins": 335,
+          "win_rate_pct": 54.47154471544715,
+          "max_dd_pct": 21.1054709040257
+        },
+        {
+          "month": "2022-05",
+          "additive_return_pct": 680.0943713861593,
+          "compound_return_pct": 54813.90807856476,
+          "trades": 595,
+          "wins": 325,
+          "win_rate_pct": 54.621848739495796,
+          "max_dd_pct": 12.239176886116953
+        },
+        {
+          "month": "2024-03",
+          "additive_return_pct": 646.0445514881573,
+          "compound_return_pct": 37203.9202609061,
+          "trades": 643,
+          "wins": 354,
+          "win_rate_pct": 55.05443234836703,
+          "max_dd_pct": 19.691676725201184
+        },
+        {
+          "month": "2021-04",
+          "additive_return_pct": 614.8692388613993,
+          "compound_return_pct": 28505.130470435033,
+          "trades": 540,
+          "wins": 314,
+          "win_rate_pct": 58.14814814814815,
+          "max_dd_pct": 17.438685341574363
+        },
+        {
+          "month": "2021-08",
+          "additive_return_pct": 604.4794640543735,
+          "compound_return_pct": 25666.342002741192,
+          "trades": 633,
+          "wins": 358,
+          "win_rate_pct": 56.55608214849921,
+          "max_dd_pct": 17.575384251548073
+        },
+        {
+          "month": "2021-05",
+          "additive_return_pct": 579.9594858945404,
+          "compound_return_pct": 21694.254862931837,
+          "trades": 517,
+          "wins": 286,
+          "win_rate_pct": 55.319148936170215,
+          "max_dd_pct": 16.177582189052476
+        },
+        {
+          "month": "2021-02",
+          "additive_return_pct": 582.1484130208225,
+          "compound_return_pct": 19241.19986402632,
+          "trades": 509,
+          "wins": 268,
+          "win_rate_pct": 52.652259332023576,
+          "max_dd_pct": 18.51972759978654
+        },
+        {
+          "month": "2021-11",
+          "additive_return_pct": 540.9333808556466,
+          "compound_return_pct": 17459.062897530428,
+          "trades": 679,
+          "wins": 395,
+          "win_rate_pct": 58.173784977908696,
+          "max_dd_pct": 19.121152408086953
+        },
+        {
+          "month": "2024-04",
+          "additive_return_pct": 512.4571582391047,
+          "compound_return_pct": 13018.484486292731,
+          "trades": 612,
+          "wins": 348,
+          "win_rate_pct": 56.86274509803921,
+          "max_dd_pct": 22.7957289570502
+        },
+        {
+          "month": "2021-03",
+          "additive_return_pct": 530.906239217657,
+          "compound_return_pct": 12235.261396820628,
+          "trades": 776,
+          "wins": 396,
+          "win_rate_pct": 51.03092783505154,
+          "max_dd_pct": 24.72623217239497
+        }
+      ],
+      "worst_trade": {
+        "idx": 840,
+        "symbol": "SOLUSDT",
+        "month": "2021-02",
+        "entry_ts": 1613023560.0,
+        "exit_type": "sl_before_tp1",
+        "pnl_pct": -7.32549739610964,
+        "raw_pnl": -0.027217308492918077,
+        "risk_pct": 1.1146263668337009,
+        "applied_risk_pct": 3.0,
+        "hit_tp1": false,
+        "avg_added": true,
+        "position_size_mult": 2.5,
+        "equity_before": 75253523.79024158,
+        "equity_after": 69740828.86450669
+      },
+      "label": "be_after_tp1_ON_current_config",
+      "be_after_tp1": true
+    },
+    {
+      "trades": 40386,
+      "win_rate_pct": 50.98549002129451,
+      "profit_factor": 1.794106968107815,
+      "final_equity": 5.236491466220656e+87,
+      "total_return_pct": 5.236491466220656e+86,
+      "months": 67,
+      "profitable_months_compound": 64,
+      "unprofitable_months_compound": 3,
+      "avg_month_compound_pct": 24347.716416146108,
+      "median_month_compound_pct": 1330.9678164253364,
+      "best_month_compound_pct": 1238292.9685018777,
+      "worst_month_compound_pct": -35.17295402766998,
+      "additive_total_return_pct": 21086.15443306162,
+      "avg_month_additive_pct": 314.71872288151667,
+      "median_month_additive_pct": 286.94474309630533,
+      "best_month_additive_pct": 1031.6178406434585,
+      "worst_month_additive_pct": -36.622054562519885,
+      "max_monthly_dd_pct": 62.059757609864505,
+      "max_global_dd_pct": 62.059757609864505,
+      "hit_tp1_count": 17721,
+      "avg_added_count": 14148,
+      "avg_added_hit_tp1_count": 6642,
+      "exit_type_counts": {
+        "trailing_after_tp1": 14182,
+        "sl_before_tp1": 18834,
+        "reverse_sl_before_tp1": 3403,
+        "reverse_trailing_after_tp1": 3539,
+        "reverse_timeout_before_tp1_negative_or_flat": 292,
+        "timeout_before_tp1_negative_or_flat": 135,
+        "timeout_before_tp1": 1
+      },
+      "risk_reason_counts": {
+        "dd_0_5": 22203,
+        "dd_5_10": 6856,
+        "dd_10_15": 3723,
+        "dd_gt_15": 7604
+      },
+      "symbol_breakdown": [
+        {
+          "symbol": "SOLUSDT",
+          "trades": 21601,
+          "win_rate_pct": 51.26151567057081,
+          "pnl_pct_sum": 10433.113407269702,
+          "profit_factor": 1.7538026032459402
+        },
+        {
+          "symbol": "NEARUSDT",
+          "trades": 18785,
+          "win_rate_pct": 50.6680862390205,
+          "pnl_pct_sum": 10653.041025791872,
+          "profit_factor": 1.8379875463423736
+        }
+      ],
+      "worst_months_by_compound": [
+        {
+          "month": "2026-04",
+          "additive_return_pct": -36.622054562519885,
+          "compound_return_pct": -35.17295402766998,
+          "trades": 637,
+          "wins": 287,
+          "win_rate_pct": 45.05494505494506,
+          "max_dd_pct": 46.35114223954256
+        },
+        {
+          "month": "2023-09",
+          "additive_return_pct": -15.988648404351133,
+          "compound_return_pct": -20.71593659559847,
+          "trades": 542,
+          "wins": 235,
+          "win_rate_pct": 43.35793357933579,
+          "max_dd_pct": 50.04046619409485
+        },
+        {
+          "month": "2026-07",
+          "additive_return_pct": -1.2423933086675394,
+          "compound_return_pct": -1.238664148602957,
+          "trades": 2,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "max_dd_pct": 1.238664148602957
+        },
+        {
+          "month": "2026-01",
+          "additive_return_pct": 9.531868766213547,
+          "compound_return_pct": 2.1256029718007463,
+          "trades": 551,
+          "wins": 236,
+          "win_rate_pct": 42.83121597096189,
+          "max_dd_pct": 30.797187963463163
+        },
+        {
+          "month": "2025-12",
+          "additive_return_pct": 15.827028872693846,
+          "compound_return_pct": 8.212344448605332,
+          "trades": 488,
+          "wins": 208,
+          "win_rate_pct": 42.62295081967213,
+          "max_dd_pct": 33.812217126926846
+        },
+        {
+          "month": "2023-08",
+          "additive_return_pct": 17.534621775508125,
+          "compound_return_pct": 13.00405242193957,
+          "trades": 546,
+          "wins": 263,
+          "win_rate_pct": 48.16849816849817,
+          "max_dd_pct": 37.27274006093013
+        },
+        {
+          "month": "2024-10",
+          "additive_return_pct": 28.08400671558378,
+          "compound_return_pct": 19.880120387696635,
+          "trades": 698,
+          "wins": 328,
+          "win_rate_pct": 46.99140401146132,
+          "max_dd_pct": 62.059757609864505
+        },
+        {
+          "month": "2023-05",
+          "additive_return_pct": 27.44091269927138,
+          "compound_return_pct": 24.249459824640336,
+          "trades": 474,
+          "wins": 224,
+          "win_rate_pct": 47.257383966244724,
+          "max_dd_pct": 36.00253979465206
+        },
+        {
+          "month": "2022-12",
+          "additive_return_pct": 48.53666574911369,
+          "compound_return_pct": 50.19526940456215,
+          "trades": 367,
+          "wins": 157,
+          "win_rate_pct": 42.77929155313351,
+          "max_dd_pct": 33.27664547451615
+        },
+        {
+          "month": "2022-10",
+          "additive_return_pct": 65.85431608648628,
+          "compound_return_pct": 77.55467016840556,
+          "trades": 499,
+          "wins": 248,
+          "win_rate_pct": 49.69939879759519,
+          "max_dd_pct": 23.91799465137408
+        }
+      ],
+      "best_months_by_compound": [
+        {
+          "month": "2021-01",
+          "additive_return_pct": 1031.6178406434585,
+          "compound_return_pct": 1238292.9685018777,
+          "trades": 615,
+          "wins": 316,
+          "win_rate_pct": 51.38211382113821,
+          "max_dd_pct": 21.079970900760603
+        },
+        {
+          "month": "2022-05",
+          "additive_return_pct": 674.1595916744384,
+          "compound_return_pct": 51624.37400290071,
+          "trades": 595,
+          "wins": 314,
+          "win_rate_pct": 52.77310924369748,
+          "max_dd_pct": 12.239176886116908
+        },
+        {
+          "month": "2024-03",
+          "additive_return_pct": 633.4087140700506,
+          "compound_return_pct": 32935.51036558552,
+          "trades": 643,
+          "wins": 342,
+          "win_rate_pct": 53.18818040435459,
+          "max_dd_pct": 19.98109667897415
+        },
+        {
+          "month": "2021-04",
+          "additive_return_pct": 620.4822188286535,
+          "compound_return_pct": 29465.89479241039,
+          "trades": 540,
+          "wins": 297,
+          "win_rate_pct": 55.00000000000001,
+          "max_dd_pct": 17.387248337604913
+        },
+        {
+          "month": "2021-08",
+          "additive_return_pct": 609.8872100452643,
+          "compound_return_pct": 27127.923940556168,
+          "trades": 633,
+          "wins": 349,
+          "win_rate_pct": 55.134281200631904,
+          "max_dd_pct": 17.881957187858287
+        },
+        {
+          "month": "2021-05",
+          "additive_return_pct": 573.2105152651104,
+          "compound_return_pct": 20282.78209107651,
+          "trades": 517,
+          "wins": 278,
+          "win_rate_pct": 53.77176015473888,
+          "max_dd_pct": 15.87669107042034
+        },
+        {
+          "month": "2021-02",
+          "additive_return_pct": 578.8269612640014,
+          "compound_return_pct": 18610.208558997023,
+          "trades": 509,
+          "wins": 262,
+          "win_rate_pct": 51.47347740667977,
+          "max_dd_pct": 18.948389836854354
+        },
+        {
+          "month": "2021-11",
+          "additive_return_pct": 547.6505000243964,
+          "compound_return_pct": 18541.85098628631,
+          "trades": 679,
+          "wins": 387,
+          "win_rate_pct": 56.995581737849776,
+          "max_dd_pct": 17.203033429861282
+        },
+        {
+          "month": "2024-04",
+          "additive_return_pct": 526.1072850384394,
+          "compound_return_pct": 14857.03659657428,
+          "trades": 612,
+          "wins": 345,
+          "win_rate_pct": 56.372549019607845,
+          "max_dd_pct": 22.79572895705021
+        },
+        {
+          "month": "2021-06",
+          "additive_return_pct": 514.915763928841,
+          "compound_return_pct": 13160.527249135086,
+          "trades": 646,
+          "wins": 361,
+          "win_rate_pct": 55.88235294117647,
+          "max_dd_pct": 20.732348946311465
+        }
+      ],
+      "worst_trade": {
+        "idx": 840,
+        "symbol": "SOLUSDT",
+        "month": "2021-02",
+        "entry_ts": 1613023560.0,
+        "exit_type": "sl_before_tp1",
+        "pnl_pct": -7.32549739610964,
+        "raw_pnl": -0.027217308492918077,
+        "risk_pct": 1.1146263668337009,
+        "applied_risk_pct": 3.0,
+        "hit_tp1": false,
+        "avg_added": true,
+        "position_size_mult": 2.5,
+        "equity_before": 84484113.05071011,
+        "equity_after": 78295231.54905403
+      },
+      "label": "be_after_tp1_OFF_requested",
+      "be_after_tp1": false
+    }
+  ],
+  "dashboard": "risk3-be-off-current-20260712",
+  "generated_at": "2026-07-12T13:34:39.407026+00:00",
+  "source": "/home/ubuntu/.hermes/bots/research_near_only_baseline_20260709_181451/out_bybit_taker_be_off_current_settings_20260712",
+  "live_bot_status": {
+    "be_after_tp1_disabled_in_live_config": true,
+    "live_config": "/home/ubuntu/.hermes/bots/champion_bybit_demo_bot/config_candidate.json",
+    "live_code": "/home/ubuntu/.hermes/bots/champion_bybit_demo_bot/live_champion_bot.py",
+    "service": "champion-bybit-demo-bot"
+  }
+}
